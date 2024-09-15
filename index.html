@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="description" content="An informative workout website">
+        <title>Untitled</title>
+        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="styles.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     </head>
-    <body class="w3-black">
-        <!--Top Design-->
-        <br>
-        <h1 id="toplogo">Easy Lifting</h1>
-        <hr>
-        <h3 id="tagline">Easy Lifting is an informative website that gives users simple workouts for the exact muscle group they are looking to target</h3>
-        <!--Nav bar to other pages-->
-        <nav class="topnav">
-            <a class="active" href="index.html">Home</a>
-            <a href="chest_workouts.html">Chest</a>
-            <a href="back_workouts.html">Back</a>
-            <a href="leg_workouts.html">Legs</a>
-        </nav>
+    <body>
 
-        <!--Transformation images and heading-->
-        <br>
-        <h2 style="padding-left: 100px; margin-top: 10px; margin-bottom: 10px;">Transformations using Easy Lifting</h2>
-        <br>
-        <div>
-            <div class="imgContainer">
-                <img class="w3-round" src="C:\Users\zachh\School\Semester 5\CSCN 315\Week3\Transformation Image 1.webp" alt="Transformation Image 1" style="margin-left: 200px;" height="400" width="500">
-            </div>
-            <div class="imgContainer">
-                <img class="w3-round" src="C:\Users\zachh\School\Semester 5\CSCN 315\Week3\Transformation Image 2.jpg" alt="Transformation Image 2" style="margin-left: 100px;" height="400" width="500">
-            </div>
+        <div class="containerNav">
+            <nav class="navbar">
+                <ul class="nav--list">
+                    <li class="item"><a href="index.html">Home</a></li>
+                    <li class="item"><a href="projects.html">Projects</a></li>
+                    <li class="item"><a href="resume.html">Resume</a></li>
+                    <li class="item"><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
 
-        <script>
-        //this is a comment in javascript 
-        /* 
-        I create a variable headLogo and assign it to the element by using its id
-        Then, I change the style of the element using the javascript variable 
-        */
-            let headLogo = document.getElementById("toplogo")
-            headLogo.style.color = "#800b0b";
-        </script>
 
+        <h1 id="mainName">Zachary T. Hoffman</h1>
+        <hr>
+        <h1 class="subHeader">About Me</h1>
+        <hr>
+
+
+        <div id="homeBodyContainer">
+            <div id="homeParagraph">
+                <p>
+                    this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. 
+                    this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. 
+                    this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. 
+                    this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. 
+                    this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. this is sample text. 
+                </p>
+            </div>
+            <div id="homeImage"> <img src="imageOfMe.JPG" alt="Image of Me"> </div>
+        </div>
+
+        
+
+        
         <script src="" async defer></script>
     </body>
 </html>
