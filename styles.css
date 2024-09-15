@@ -1,30 +1,44 @@
 body {background-color: #282828; overflow-x: hidden}
-p, h1, h2, h3, h4, h5, h6 {color: #ebdbb2; font-family: Montserrat;}
-hr, br {border-color:#ebdbb2}
+p, h1, h2, h3, h4, h5, h6 {color:  #fefae0; font-family: Montserrat;}
+hr, br {border-color: #fefae0}
+
+/* 
+Background- #282828
+text- #f5f5dc
+secondary- #a89984
+*/
+
+
 
 /*IDs*/
 #mainName {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 25px;
-  font-size: 300%;
+  font-size: 250%;
 }
 #homeBodyContainer {
   width: 100vw;
-  height: 500px;
+  height: 600px;
   margin-top: 30px;
   justify-content: space-around;
 }
 #homeParagraph {
-  width: 75vw;
+  width: 73vw;
   float: left;
-  height: 300px;
-  font-size: 175%;
+  height: 600px;
+  font-size: 150%;
+  line-height: 2;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 #homeImage {
-  /* width: 25vw; */
+  width: 23vw;
   float: right;
-  height: 300px;
+  height: 600px;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
 }
 
 
@@ -58,7 +72,7 @@ nav {
   height: 80px;
   width: 700px;
   border-radius: 10px;
-  background: #a89984;
+  background: #283618;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
   font-family: Montserrat;
 }
@@ -82,7 +96,7 @@ nav {
   user-select: none;
   cursor: pointer;
   margin: 0 30px;
-  border: 2px solid #ebdbb2;
+  border: 2px solid #606c38;
   overflow: hidden;
 }
 
@@ -94,14 +108,14 @@ nav {
   height: 100%;
   font-size: 16px;
   text-transform: uppercase;
-  color: #ebdbb2;
+  color: #d1c7bc;
   z-index: 10;
   text-decoration: none;
   transition: color 200ms ease;
 }
 
 .item:hover a {
-  color: #a89984;
+  color: #283618;
 }
 
 .item:before {
@@ -110,7 +124,7 @@ nav {
   width: 0%;
   height: 100%;
   transform: skew(0deg);
-  background: #ebdbb2;
+  background: #606c38;
   transition: width 400ms ease;
 }
 
