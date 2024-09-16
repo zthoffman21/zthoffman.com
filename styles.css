@@ -1,13 +1,6 @@
-body {background-color: #282828; overflow-x: hidden}
-p, h1, h2, h3, h4, h5, h6 {color:  #fefae0; font-family: Montserrat;}
-hr, br {border-color: #fefae0}
-
-/* 
-Background- #282828
-text- #f5f5dc
-secondary- #a89984
-*/
-
+body {background-color: #282828; overflow-x: hidden; overflow-y: hidden;}
+p, h1, h2, h3, h4, h5, h6 {color:  #e5e7eb;  font-family: "Source Sans 3", sans-serif;}
+hr, br {border-color: #83aff0}
 
 
 /*IDs*/
@@ -18,31 +11,28 @@ secondary- #a89984
   font-size: 250%;
 }
 #homeBodyContainer {
-  width: 100vw;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   margin-top: 30px;
   justify-content: space-around;
 }
 #homeParagraph {
-  width: 73vw;
+  width: 75%;
   float: left;
-  height: 600px;
-  font-size: 150%;
+  height: auto;
+  font-size: 130%;
   line-height: 2;
   padding-left: 50px;
   padding-right: 50px;
 }
 #homeImage {
-  width: 23vw;
+  width: 25%;
   float: right;
-  height: 600px;
+  height: auto;
   justify-content: center;
   align-items: center;
   padding-right: 50px;
 }
-
-
-/*Classes*/
 
 /* 
 This is the css for the nav bar 
@@ -56,27 +46,27 @@ I found this from: https://codepen.io/kiran-r-raj/pen/QWqpgPe
   margin: 0;
   box-sizing: border-box;
 }
-
 .containerNav {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 20px
 }
-
 nav {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
   height: 80px;
-  width: 700px;
+  width: 48%;
   border-radius: 10px;
-  background: #283618;
+  background: #2c456b;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
-  font-family: Montserrat;
+  font-family: "Montserrat", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
-
 .nav--list {
   width: 100%;
   list-style: none;
@@ -84,7 +74,6 @@ nav {
   justify-content: flex-start;
   align-items: center;
 }
-
 .item {
   position: relative;
   width: 140px;
@@ -96,10 +85,9 @@ nav {
   user-select: none;
   cursor: pointer;
   margin: 0 30px;
-  border: 2px solid #606c38;
+  border: 2px solid #83aff0;
   overflow: hidden;
 }
-
 .item a {
   display: flex;
   align-items: center;
@@ -108,32 +96,44 @@ nav {
   height: 100%;
   font-size: 16px;
   text-transform: uppercase;
-  color: #d1c7bc;
+  color: #83aff0;
   z-index: 10;
   text-decoration: none;
   transition: color 200ms ease;
 }
-
 .item:hover a {
-  color: #283618;
+  color: #2c456b;
 }
-
 .item:before {
   content: "";
   position: absolute;
   width: 0%;
   height: 100%;
   transform: skew(0deg);
-  background: #606c38;
+  background: #83aff0;
   transition: width 400ms ease;
 }
-
 .item:hover:before {
   width: 120%;
   transform: skew(0deg);
 }
+/* End of the nav */
 
+/*Classes*/
 .subHeader {
   margin: 10px;
   text-align: center;
+}
+.nonHomeHeader {
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-size: 250%;
+}
+
+.mainContainer {
+  height: 100vw;
+  width: 75%;
+  margin: auto;
 }
