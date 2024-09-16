@@ -12,9 +12,8 @@ hr, br {border-color: #83aff0}
 }
 #homeBodyContainer {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   margin-top: 30px;
-  justify-content: space-around;
 }
 #homeParagraph {
   width: 75%;
@@ -26,12 +25,11 @@ hr, br {border-color: #83aff0}
   padding-right: 50px;
 }
 #homeImage {
+  display: flex;
   width: 25%;
   float: right;
-  height: auto;
-  justify-content: center;
+  padding-right: 5%;
   align-items: center;
-  padding-right: 50px;
 }
 
 /* 
@@ -58,7 +56,8 @@ nav {
   align-items: center;
   padding: 10px 20px;
   height: 80px;
-  width: 48%;
+  /* width: 48%; */
+  width: 700px;
   border-radius: 10px;
   background: #2c456b;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
@@ -74,7 +73,7 @@ nav {
   justify-content: flex-start;
   align-items: center;
 }
-.item {
+.navItem {
   position: relative;
   width: 140px;
   height: 40px;
@@ -88,7 +87,7 @@ nav {
   border: 2px solid #83aff0;
   overflow: hidden;
 }
-.item a {
+.navItem a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,10 +100,10 @@ nav {
   text-decoration: none;
   transition: color 200ms ease;
 }
-.item:hover a {
+.navItem:hover a {
   color: #2c456b;
 }
-.item:before {
+.navItem:before {
   content: "";
   position: absolute;
   width: 0%;
@@ -113,13 +112,13 @@ nav {
   background: #83aff0;
   transition: width 400ms ease;
 }
-.item:hover:before {
+.navItem:hover:before {
   width: 120%;
   transform: skew(0deg);
 }
 /* End of the nav */
 
-/*Classes*/
+/* CLASSES */
 .subHeader {
   margin: 10px;
   text-align: center;
@@ -133,7 +132,18 @@ nav {
 }
 
 .mainContainer {
-  height: 100vw;
+  height: 100vh;
   width: 75%;
   margin: auto;
+}
+
+.projectCardContainer {
+  height: 10%;
+  width: 100%;
+  margin-top: 1%
+}
+
+/* MEDIA QUERRIES */
+@media screen and (max-width: 1480px) {
+  #homeParagraph {font-size: 90%;}
 }
