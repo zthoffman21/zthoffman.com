@@ -1,19 +1,19 @@
 body {background-color: #282828; overflow-x: hidden; overflow-y: hidden;}
 p, h1, h2, h3, h4, h5, h6 {color:  #e5e7eb;  font-family: "Source Sans 3", sans-serif;}
 hr, br {border-color: #83aff0}
+b { color:#c1493e }
 
+/* 
+light blue- 83aff0
+dark blue- 2c456b
+*/
 
 /*IDs*/
 #mainName {
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  margin-top: 3.6%;
+  margin-bottom: 1.7%;
   font-size: 250%;
-}
-#homeBodyContainer {
-  width: 100%;
-  height: 100vh;
-  margin-top: 30px;
 }
 #homeParagraph {
   width: 75%;
@@ -21,21 +21,25 @@ hr, br {border-color: #83aff0}
   height: auto;
   font-size: 130%;
   line-height: 2;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 3%;
 }
 #homeImage {
   display: flex;
+  height: 48%;
   width: 25%;
   float: right;
   padding-right: 5%;
+  margin-top: 3%;
   align-items: center;
 }
 
 /* 
-This is the css for the nav bar 
-I found this but alltered it so you can click anywhere on the item to go to the link
-I found this from: https://codepen.io/kiran-r-raj/pen/QWqpgPe
+NAV BAR
+
+Lots of the css for the nav bar was found but I modified it
+Found at: https://codepen.io/kiran-r-raj/pen/QWqpgPe
 */
 *,
 ::before,
@@ -45,10 +49,9 @@ I found this from: https://codepen.io/kiran-r-raj/pen/QWqpgPe
   box-sizing: border-box;
 }
 .containerNav {
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin: 20px
+  margin: 1.4%;
 }
 nav {
   display: flex;
@@ -116,11 +119,40 @@ nav {
   width: 120%;
   transform: skew(0deg);
 }
+.navItemActive {
+  position: relative;
+  width: 140px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  margin: 0 30px;
+  border: 2px solid #83aff0;
+  background-color:#83aff0;
+  overflow: hidden;
+}
+.navItemActive a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #2c456b;
+  z-index: 10;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
 /* End of the nav */
 
 /* CLASSES */
 .subHeader {
-  margin: 10px;
+  margin: .7%;
   text-align: center;
 }
 .nonHomeHeader {
@@ -142,8 +174,12 @@ nav {
   width: 100%;
   margin-top: 1%
 }
-
 /* MEDIA QUERRIES */
 @media screen and (max-width: 1480px) {
-  #homeParagraph {font-size: 90%;}
+  #homeParagraph {font-size: 120%;}
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 768px) {
+
 }
