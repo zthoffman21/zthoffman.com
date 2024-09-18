@@ -185,7 +185,7 @@ nav {
 }
 
 /* Media query for small screens */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 932px) {
   body {overflow-x: hidden; overflow-y: auto;}
   hr { width: 80%; margin:auto;}
 
