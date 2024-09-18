@@ -1,4 +1,4 @@
-body {background-color: #282828; overflow-x: hidden; overflow-y: auto;}
+body {background-color: #282828; overflow-x: hidden; overflow-y: hidden;}
 p, h1, h2, h3, h4, h5, h6 {color:  #e5e7eb;  font-family: "Source Sans 3", sans-serif;}
 hr, br {border-color: #83aff0}
 b { color:#c1493e }
@@ -19,7 +19,7 @@ dark blue- 2c456b
   height: auto;
   width: 75%;
   float: left;
-  font-size: calc(1vw + .5vh);
+  font-size: calc(1vw + .4vh);
   line-height: 2;
   padding-left: 5%;
   padding-right: 5%;
@@ -89,7 +89,7 @@ nav {
   text-align: center;
   user-select: none;
   cursor: pointer;
-  margin: 0 30px;
+  margin: 0 4.6%;
   border: 2px solid #83aff0;
   overflow: hidden;
 }
@@ -132,7 +132,7 @@ nav {
   text-align: center;
   user-select: none;
   cursor: pointer;
-  margin: 0 30px;
+  margin: 0 4.6%;
   border: 2px solid #83aff0;
   background-color:#83aff0;
   overflow: hidden;
@@ -167,7 +167,7 @@ nav {
 }
 
 .mainContainer {
-  height: 100vh;
+  height: 98vh;
   width: 75%;
   margin: auto;
 }
@@ -183,12 +183,12 @@ nav {
 @media screen and (max-width: 1480px) {
   #homeParagraph {font-size: 120%;}
 }
-
 /* Media query for small screens */
-@media screen and (max-width: 932px) {
+@media screen and (max-width: 1280px) {
   body {overflow-x: hidden; overflow-y: auto;}
   hr { width: 80%; margin:auto;}
 
+  /* CONTENT SIZE ADJUSTMENTS */
   #homeImage {
     width: 0;
     height: 0;
@@ -205,10 +205,32 @@ nav {
     padding: 1%;
     width: 100%;
   }
-
   #homeSmallLine { width: 73%;}
+}
 
+/* ADJUSTING NAV BAR */
+@media screen and (max-width: 750px) {
+  .navItem {
+    margin: 0 1%;
+  }
+  .navItemActive {
+    margin: 0 1%;
+  }
   nav {
     width: 100%;
+    justify-content: space-evenly;
+  }
+  .nav--list {
+    justify-content: space-evenly;
+  }
+  .navItem a {
+    font-size: 14px;
+  }
+  .navItemActive a {
+    font-size: 14px;
+  }
+
+  #mainName {
+    margin-top: 30px;
   }
 }
