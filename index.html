@@ -23,12 +23,10 @@
             </div>
 
             <!-- HEADER -->
-            <div id="homeHeaderContainer">
-                <h1 id="mainName">Zachary T. Hoffman</h1>
-                <hr>
-                <h1 class="subHeader">About Me</h1>
-                <hr id="homeSmallLine">
-            </div>
+            <h1 id="mainName">Zachary T. Hoffman</h1>
+            <hr>
+            <h1 class="subHeader">About Me</h1>
+            <hr id="homeSmallLine">
             <!-- MAIN PAGE CONTENT -->
             <div id="homeParagraph">
                 <p>
@@ -53,14 +51,7 @@
 
         <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
         <script>
-            //this keeps it from upddating after the media query is triggered
-            const mediaQuery = window.matchMedia('(max-width: 768px)');
             function setImageHeight() {
-                if (mediaQuery.matches) {
-                    // let the image's height be auto
-                    document.getElementById("homeImage").style.height = "auto";
-                    return; 
-                }
                 // sets the image to the height of the paragraph
                 const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
                 document.getElementById("homeImage").style.height = paragraphHeight + "px";
