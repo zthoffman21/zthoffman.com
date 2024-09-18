@@ -189,11 +189,17 @@ nav {
   body {overflow-x: hidden; overflow-y: auto;}
   hr { width: 80%; margin:auto;}
 
+  #homeImage {
+    width: 0;
+    height: 0;
+    padding: 0;
+  }
   #homeImage img {
     display: none;
   }
   #homeParagraph {
     width: 100%;
+    height: auto;
   }
   .mainContainer {
     padding: 1%;
