@@ -19,7 +19,7 @@ dark blue- 2c456b
   height: auto;
   width: 75%;
   float: left;
-  font-size: calc(1vw + .4vh);
+  font-size: 1.25em;
   line-height: 2;
   padding-left: 5%;
   padding-right: 5%;
