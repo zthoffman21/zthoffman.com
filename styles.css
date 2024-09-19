@@ -181,8 +181,8 @@ nav {
 
 /* MEDIA QUERRIES */
 
-/* Media query for small screens */
-@media screen and (max-width: 1280px) {
+/* Media query for smaller screens */
+@media screen and (max-width: 1400px) {
   body {overflow-x: hidden; overflow-y: auto;}
   hr { width: 80%; margin:auto;}
 
@@ -215,12 +215,6 @@ nav {
     z-index: 1000;
     top: 1%;
   }
-  .navItem {
-    margin: 0 1%;
-  }
-  .navItemActive {
-    margin: 0 1%;
-  }
   nav {
     width: 100%;
     justify-content: space-evenly;
@@ -236,6 +230,18 @@ nav {
   }
 
   #mainName {
+    margin-top: 30px;
+  }
+}
+/* ADJUSTING NAV ITEMS MARGINS */
+@media screen and (max-width: 630px) {
+  .navItem {
+    margin: 0 2%;
+  }
+  .navItemActive {
+    margin: 0 2%;
+  }
+  #homeParagraph {
     margin-top: 30px;
   }
 }

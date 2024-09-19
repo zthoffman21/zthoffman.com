@@ -51,14 +51,24 @@
 
         <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
         <script>
+            // use bools to check if they need to be updated to reduce lag
+            var nameUpdated = false;
+            var imageUpdated = false;
             function setImageHeight() {
-                // sets the image to the height of the paragraph
-                const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
-                document.getElementById("homeImage").style.height = paragraphHeight + "px";
+                // shortens my name if the media query hit
+                const mediaQuery = window.matchMedia("(max-width: 750px)");
+                if (mediaQuery.matches && !nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary Hoffman"; nameUpdated = true; }
+                else if (!mediaQuery.matches && nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary T. Hoffman"; nameUpdated = false;}
+
+                // sets the image to the height of the paragraph if the image is still there
+                if (!window.matchMedia("(max-width: 1400px)")){
+                    const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
+                    document.getElementById("homeImage").style.height = paragraphHeight + "px";
+                }
             }
-            setInterval(setImageHeight, 1);
+            setInterval(setImageHeight, 10);
         </script>
-        
+
         <script src="" async defer></script>
     </body>
 </html>
