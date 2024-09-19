@@ -223,10 +223,10 @@ nav {
     justify-content: space-evenly;
   }
   .navItem a {
-    font-size: 13px;
+    font-size: 12.5px;
   }
   .navItemActive a {
-    font-size: 13px;
+    font-size: 12.5px;
   }
 
   #mainName {
