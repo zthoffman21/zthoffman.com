@@ -236,10 +236,10 @@ nav {
 /* ADJUSTING NAV ITEMS MARGINS */
 @media screen and (max-width: 630px) {
   .navItem {
-    margin: 0 2%;
+    margin: 0 1%;
   }
   .navItemActive {
-    margin: 0 2%;
+    margin: 0 1%;
   }
   #homeParagraph {
     margin-top: 30px;
