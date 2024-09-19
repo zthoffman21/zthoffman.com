@@ -180,9 +180,7 @@ nav {
 
 
 /* MEDIA QUERRIES */
-@media screen and (max-width: 1480px) {
-  #homeParagraph {font-size: 120%;}
-}
+
 /* Media query for small screens */
 @media screen and (max-width: 1280px) {
   body {overflow-x: hidden; overflow-y: auto;}
@@ -206,10 +204,17 @@ nav {
     width: 100%;
   }
   #homeSmallLine { width: 73%;}
+  #mainName { font-size: 200%;}
+  .subHeader { font-size: 200%}
 }
 
 /* ADJUSTING NAV BAR */
 @media screen and (max-width: 750px) {
+  .containerNav {
+    position: sticky;
+    z-index: 1000;
+    top: 1%;
+  }
   .navItem {
     margin: 0 1%;
   }
@@ -224,10 +229,10 @@ nav {
     justify-content: space-evenly;
   }
   .navItem a {
-    font-size: 14px;
+    font-size: 13px;
   }
   .navItemActive a {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   #mainName {
