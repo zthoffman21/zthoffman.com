@@ -27,7 +27,7 @@
 
             <!-- HEADER -->
             <h1 id="mainName">Zachary T. Hoffman</h1>
-            <hr>
+            <hr id="homeBigLine">
             <h1 class="subHeader">About Me</h1>
             <hr id="homeSmallLine">
             <!-- MAIN PAGE CONTENT -->
@@ -50,13 +50,16 @@
                 </p>
             </div>
             <div id="homeImage"> <img src="images/imageOfMe.JPG" alt="Image of Me" style="max-width: 100%; height: auto; border-radius: 2%; justify-content: center; align-items: center; box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;"> </div>
-        </div>  
+        
+            <footer>
+                <h6>Hoffman © 2024<h6>
+            </footer>
+        </div>
 
         <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
         <script>
             // use bools to check if they need to be updated to reduce lag
             var nameUpdated = false;
-            var imageUpdated = false;
             function setImageHeight() {
                 // shortens my name if the media query hit
                 const mediaQuery = window.matchMedia("(max-width: 750px)");
@@ -64,7 +67,10 @@
                 else if (!mediaQuery.matches && nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary T. Hoffman"; nameUpdated = false;}
 
                 // sets the image to the height of the paragraph if the image is still there
-                if (!window.matchMedia("(max-width: 1400px)")){
+                const mediaQueryArr = ["(max-width: 1400px)", "(max-width: 750px)", "(max-width: 630px)"]
+                var imageUpdated = false;
+                for (var x = 0; x < mediaQueryArr.length; x++) { imageUpdated = imageUpdated || window.matchMedia(mediaQueryArr[x]).matches; }
+                if (!imageUpdated) {
                     const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
                     document.getElementById("homeImage").style.height = paragraphHeight + "px";
                 }

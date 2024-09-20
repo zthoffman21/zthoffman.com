@@ -1,5 +1,6 @@
 body {background-color: #282828; overflow-x: hidden; overflow-y: hidden;}
 p, h1, h2, h3, h4, h5, h6 {color:  #e5e7eb;  font-family: "Source Sans 3", sans-serif;}
+footer { display:flex; width: 100%; height: 150px; justify-content: center; align-items: flex-end; margin-bottom: 2%; font-size: 70%;}
 hr, br {border-color: #83aff0}
 b { color:#c1493e }
 
@@ -9,6 +10,8 @@ dark blue- 2c456b
 */
 
 /*IDs*/
+
+/*  INDEX PAGE */
 #mainName {
   text-align: center;
   margin-top: 3.6%;
@@ -37,6 +40,13 @@ dark blue- 2c456b
 #homeSmallLine {
   width: 93%;
   margin: auto;
+}
+
+/* PROJECTS PAGE */
+#projectListContainer {
+  width: 100%;
+  height: 100%;
+  margin-top: 4%;
 }
 
 /* 
@@ -160,32 +170,45 @@ nav {
 }
 .nonHomeHeader {
   text-align: left;
-  margin-left: 5%;
-  margin-top: 50px;
-  margin-bottom: 25px;
+  margin-top: 3.6%;
+  margin-bottom: .5%;
+  margin-left: 3%;
   font-size: 250%;
 }
 
 .mainContainer {
-  height: 98vh;
+  height: auto;
   width: 75%;
   margin: auto;
 }
 
-.projectCardContainer {
-  height: 10%;
-  width: 100%;
-  margin-top: 1%
+.projectCardContent {
+  background-color: #333333;
+  border: 2px solid #646464;
+  width: 90%;
+  height: 150px;
+  margin: 3% auto 3% auto; 
+  padding: 2%;
+  border-radius: .5rem;
 }
-
+.projectCardContent:hover {
+  transition-duration: .2s;
+  background-color: #383838;
+}
+.projectCardContent h1 { font-size: 100%;}
+.projectCardContent h2, h3, h4, h5, h6, p { color: rgb(163 163 163); font-size: 100%;}
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
 
 /* MEDIA QUERRIES */
 
 /* Media query for smaller screens */
 @media screen and (max-width: 1400px) {
   body {overflow-x: hidden; overflow-y: auto;}
-  hr { width: 80%; margin:auto;}
-
+  hr { width: 90%; margin:auto; }
+   
   /* CONTENT SIZE ADJUSTMENTS */
   #homeImage {
     width: 0;
@@ -203,9 +226,14 @@ nav {
     padding: 1%;
     width: 100%;
   }
+  #homeBigLine {  width: 80%; margin:auto; }
   #homeSmallLine { width: 73%;}
   #mainName { font-size: 200%;}
   .subHeader { font-size: 200%}
+  .nonHomeHeader { 
+    font-size: 220%; 
+    margin-left: 7%;
+  }
 }
 
 /* ADJUSTING NAV BAR */
@@ -228,7 +256,7 @@ nav {
   .navItemActive a {
     font-size: 13px;
   }
-
+  .nonHomeHeader { margin-top: 25px;}
   #mainName {
     margin-top: 45px;
   }
@@ -244,4 +272,5 @@ nav {
   #homeParagraph {
     margin-top: 30px;
   }
+  .nonHomeHeader { margin-left: 0; text-align: center;}
 }
