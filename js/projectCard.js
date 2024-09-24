@@ -17,8 +17,8 @@ document.querySelectorAll('.projectCardContainer').forEach((card) => {
     const offsetY = e.clientY - centerY;
 
     // Normalize the mouse position relative to the card dimensions
-    const rotateX = (offsetY / (cardHeight / 2)) * -10; // Vertical rotation
-    const rotateY = (offsetX / (cardWidth / 2)) * 10;   // Horizontal rotation
+    const rotateX = (offsetY / (cardHeight / 2)) * 10; // Vertical rotation
+    const rotateY = (offsetX / (cardWidth / 2)) * -10;   // Horizontal rotation
 
     // Apply the rotation and scale
     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
