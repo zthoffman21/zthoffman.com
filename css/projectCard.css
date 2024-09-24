@@ -5,9 +5,14 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.1s ease, box-shadow 0.3s ease;
   background-color: #949090; /* Dark background to enhance the effect */
   perspective: 1000px; /* Enhance the 3D effect */
+}
+/* Subtle hover effect */
+.projectCardContainer:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .projectCardContent {
@@ -23,7 +28,7 @@
   height: auto;
 }
 
-/* Polychrome effect with more dispersed gradients */
+/* Polychrome effect */
 .overlayEffect {
   position: absolute;
   top: 0;
@@ -35,15 +40,31 @@
   
   /* Layering multiple gradients for a dispersed, irregular effect */
   background: 
-      linear-gradient(135deg, rgba(255, 0, 0, 0.3), transparent 40%),
-      linear-gradient(225deg, rgba(0, 255, 0, 0.3), transparent 50%),
-      linear-gradient(315deg, rgba(0, 0, 255, 0.3), transparent 60%),
-      linear-gradient(45deg, rgba(255, 255, 0, 0.3), transparent 30%),
-      linear-gradient(90deg, rgba(255, 0, 255, 0.3), transparent 70%);
+    linear-gradient(135deg, rgba(255, 69, 69, 0.4), transparent 40%),  /* Brighter Red */
+    linear-gradient(225deg, rgba(0, 255, 128, 0.4), transparent 50%),  /* Brighter Green */
+    linear-gradient(315deg, rgba(0, 128, 255, 0.4), transparent 60%),  /* Brighter Blue */
+    linear-gradient(45deg, rgba(255, 255, 0, 0.4), transparent 30%),   /* Bright Yellow */
+    linear-gradient(90deg, rgba(255, 0, 255, 0.4), transparent 70%);   /* Bright Pink */
   background-size: 300% 300%;
-  animation: polychromeShift 15s infinite ease-in-out;
+  animation: polychromeShift 4s infinite linear;
   mix-blend-mode: overlay;
-  opacity: 0.7;
+  opacity: .8;
+}
+
+/* Adding subtle sparkles as a pseudo-element */
+.overlayEffect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('..//images/sparkles.webp'); /* Sparkly GIF */
+  background-size: cover;
+  opacity: 0.5; /* Subtle but more visible */
+  pointer-events: none;
+  z-index: 4;
+  animation: sparkleMove 8s linear infinite;
 }
 
 /* Noise effect as a separate layer */
@@ -54,26 +75,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../images/noise_texture.png');
-  opacity: 0.1;
+  background: url('../images/holo.webp');
+  opacity: 0.5;
   pointer-events: none;
   z-index: 3;
-}
-
-/* Animation for shifting gradient layers */
-@keyframes polychromeShift {
-  0% {
-      background-position: 0% 50%;
-  }
-  100% {
-      background-position: 100% 50%;
-  }
-}
-
-/* Subtle hover effect */
-.projectCardContainer:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .lightEffect {
@@ -86,4 +91,30 @@
   z-index: 5; /* Ensure the light effect appears above the card content */
   transition: background 0.2s ease; /* Smooth transition */
   opacity: 50%;
+}
+
+/* Animation for shifting gradient layers */
+@keyframes polychromeShift {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+/* Subtle sparkle movement */
+@keyframes sparkleMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
 }
