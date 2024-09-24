@@ -1,26 +1,89 @@
 .projectCardContainer {
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
-  }
-  .projectCardContent {
-    background-color: #333333;
-    border: 2px solid #646464;
-    width: 600px;
-    height: 300px;
-    padding: 1%;
-    border-radius: .5rem;
-    transition: transform .3s ease;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    transform-origin: center;
-  }
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #949090; /* Dark background to enhance the effect */
+  perspective: 1000px; /* Enhance the 3D effect */
+}
+
+.projectCardContent {
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+}
+.projectCardContent img {
+  width: 100%;
+  height: auto;
+}
+
+/* Polychrome effect with more dispersed gradients */
+.overlayEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
   
-  .projectCardContent:hover {
-    transition-duration: .2s;
-    background-color: #383838;
+  /* Layering multiple gradients for a dispersed, irregular effect */
+  background: 
+      linear-gradient(135deg, rgba(255, 0, 0, 0.3), transparent 40%),
+      linear-gradient(225deg, rgba(0, 255, 0, 0.3), transparent 50%),
+      linear-gradient(315deg, rgba(0, 0, 255, 0.3), transparent 60%),
+      linear-gradient(45deg, rgba(255, 255, 0, 0.3), transparent 30%),
+      linear-gradient(90deg, rgba(255, 0, 255, 0.3), transparent 70%);
+  background-size: 300% 300%;
+  animation: polychromeShift 15s infinite ease-in-out;
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+}
+
+/* Noise effect as a separate layer */
+.overlayEffect::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../images/noise_texture.png');
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Animation for shifting gradient layers */
+@keyframes polychromeShift {
+  0% {
+      background-position: 0% 50%;
   }
-  .projectCardContent h1 { font-size: 100%;}
-  .projectCardContent h2, h3, h4, h5, h6, p { color: rgb(163 163 163); font-size: 100%;}
-  a:hover, a:visited, a:link, a:active
-  {
-      text-decoration: none;
+  100% {
+      background-position: 100% 50%;
   }
+}
+
+/* Subtle hover effect */
+.projectCardContainer:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lightEffect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Ensure the light effect doesn't interfere with mouse events */
+  z-index: 5; /* Ensure the light effect appears above the card content */
+  transition: background 0.2s ease; /* Smooth transition */
+  opacity: 50%;
+}
