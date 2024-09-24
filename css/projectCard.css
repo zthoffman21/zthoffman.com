@@ -1,0 +1,26 @@
+.projectCardContainer {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
+  }
+  .projectCardContent {
+    background-color: #333333;
+    border: 2px solid #646464;
+    width: 600px;
+    height: 300px;
+    padding: 1%;
+    border-radius: .5rem;
+    transition: transform .3s ease;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    transform-origin: center;
+  }
+  
+  .projectCardContent:hover {
+    transition-duration: .2s;
+    background-color: #383838;
+  }
+  .projectCardContent h1 { font-size: 100%;}
+  .projectCardContent h2, h3, h4, h5, h6, p { color: rgb(163 163 163); font-size: 100%;}
+  a:hover, a:visited, a:link, a:active
+  {
+      text-decoration: none;
+  }
