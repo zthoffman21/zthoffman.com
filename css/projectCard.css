@@ -24,8 +24,8 @@
   text-align: center;
 }
 .projectCardContent img {
-  width: 100%;
-  height: auto;
+  width: 300px;
+  height: 400px;
 }
 
 /* Polychrome effect */
@@ -61,9 +61,9 @@
   height: 100%;
   background: url('..//images/sparkles.webp'); /* Sparkly GIF */
   background-size: cover;
-  opacity: 0.5; /* Subtle but more visible */
+  opacity: .4; /* Subtle but more visible */
   pointer-events: none;
-  z-index: 4;
+  z-index: 3;
   animation: sparkleMove 8s linear infinite;
 }
 
@@ -76,9 +76,9 @@
   width: 100%;
   height: 100%;
   background: url('../images/holo.webp');
-  opacity: 0.5;
+  opacity: 0.3;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
 }
 
 .lightEffect {
