@@ -5,7 +5,7 @@
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.1s ease, box-shadow 0.3s ease;
+  transition: transform 0.1s ease, box-shadow 0.3s ease, background 0.3s ease;
   background-color: #949090; /* Dark background to enhance the effect */
   perspective: 1000px; /* Enhance the 3D effect */
 }
@@ -116,5 +116,12 @@
   }
   100% {
     background-position: 0% 0%;
+  }
+}
+
+/* Disable transform effects on smaller screens (for mobile devices) */
+@media (max-width: 768px) {
+  .projectCardContainer {
+    transform: none !important; /* Disable any transform */
   }
 }

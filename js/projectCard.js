@@ -36,10 +36,4 @@ document.querySelectorAll('.projectCardContainer').forEach((card) => {
     card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
     lightEffect.style.background = 'none';
   });
-
-  card.addEventListener('touchend', () => {
-    // Reset the transformation and light effect when the mouse leaves
-    card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
-    lightEffect.style.background = 'none';
-  });
 });
