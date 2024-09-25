@@ -124,4 +124,7 @@
   .projectCardContainer {
     transform: none !important; /* Disable any transform */
   }
+  .lightEffect {
+    opacity: 0%;
+  }
 }
