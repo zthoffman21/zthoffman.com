@@ -1,0 +1,21 @@
+.iframeContainer {
+    display: flex;
+    flex-direction: column;
+    height: 65vh; /* Full height for the container */
+}
+iframe {
+    flex-grow: 1;
+    margin-top: 2%; 
+    width: 100%; 
+}
+
+@media screen and (max-width: 1400px) { 
+    .iframeContainer { 
+        width: 90% ;
+        margin: auto;
+    }
+
+    .footer {
+        height: 80px;
+    }
+}

@@ -1,3 +1,14 @@
+#projectListContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  margin-top: 4%;
+  perspective: 1000px;
+}
+
 .projectCardContainer {
   position: relative;
   width: 300px;

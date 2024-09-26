@@ -52,19 +52,6 @@ dark blue- 2c456b
   margin: auto;
 }
 
-/* PROJECTS PAGE */
-#projectListContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-
-  width: 100%;
-  height: 100%;
-  margin-top: 4%;
-  perspective: 1000px;
-}
-
 /* 
 NAV BAR
 
@@ -193,7 +180,7 @@ nav {
 }
 
 .mainContainer {
-  height: auto;
+  height: calc(94vh - 10px);
   width: 75%;
   margin: auto;
 }
@@ -201,7 +188,7 @@ nav {
 .footer {
     display:flex; 
     width: 100%; 
-    height: 150px; 
+    height: 10px; 
     align-items: flex-end;
     justify-content: center;
     margin-bottom: 2%; 
@@ -235,6 +222,7 @@ nav {
   .mainContainer {
     padding: 1%;
     width: 100%;
+    height: auto;
   }
   #homeBigLine {  width: 80%; margin:auto; }
   #homeSmallLine { width: 73%;}
@@ -243,6 +231,9 @@ nav {
   .nonHomeHeader { 
     font-size: 220%; 
     margin-left: 7%;
+  }
+  .footer {
+    height: 120px;
   }
 }
 
