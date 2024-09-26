@@ -133,7 +133,7 @@
 /* Disable transform effects on smaller screens (for mobile devices) */
 @media (max-width: 768px) {
   .projectCardContainer {
-    transform: none !important; /* Disable any transform */
+    transform: none !important;
   }
   .lightEffect {
     opacity: 0%;
