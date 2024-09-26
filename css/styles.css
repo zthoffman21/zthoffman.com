@@ -89,8 +89,8 @@ nav {
   width: 100%;
   list-style: none;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 3% 0 3%;
 }
 .navItem {
   position: relative;
@@ -112,7 +112,7 @@ nav {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: #83aff0;
   z-index: 10;
@@ -156,7 +156,7 @@ nav {
   justify-content: center;
   width: 100%;
   height: 100%;
-  font-size: 16px;
+  font-size: 18px;
   text-transform: uppercase;
   color: #2c456b;
   z-index: 10;
@@ -253,10 +253,10 @@ nav {
     justify-content: space-evenly;
   }
   .navItem a {
-    font-size: 13px;
+    font-size: 16px;
   }
   .navItemActive a {
-    font-size: 13px;
+    font-size: 16px;
   }
   .nonHomeHeader { margin-top: 25px;}
   #mainName {
@@ -275,4 +275,5 @@ nav {
     margin-top: 30px;
   }
   .nonHomeHeader { margin-left: 0; text-align: center;}
+  .nav--list {  margin: 0;}
 }
