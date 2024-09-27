@@ -17,8 +17,8 @@
   overflow: hidden;
   box-shadow: 0px 5px 20px rgba(0, 0, 0, .8);
   transition: transform 0.1s ease, box-shadow 0.3s ease, background 0.3s ease;
-  background-color: #949090; /* Dark background to enhance the effect */
-  perspective: 1000px; /* Enhance the 3D effect */
+  background-color: #949090; 
+  perspective: 1000px; 
 }
 /* Subtle hover effect */
 .projectCardContainer:hover {
@@ -70,9 +70,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('..//images/sparkles.webp'); /* Sparkly GIF */
+  background: url('..//images/sparkles.webp'); 
   background-size: cover;
-  opacity: .4; /* Subtle but more visible */
+  opacity: .4; 
   pointer-events: none;
   z-index: 3;
   animation: sparkleMove 8s linear infinite;
@@ -98,9 +98,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Ensure the light effect doesn't interfere with mouse events */
-  z-index: 5; /* Ensure the light effect appears above the card content */
-  transition: background 0.2s ease; /* Smooth transition */
+  pointer-events: none; 
+  z-index: 5; 
+  transition: background 0.2s ease; 
   opacity: 50%;
 }
 

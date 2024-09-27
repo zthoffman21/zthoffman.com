@@ -1,7 +1,7 @@
 .iframeContainer {
     display: flex;
     flex-direction: column;
-    height: 65vh; /* Full height for the container */
+    height: 61vh;
 }
 iframe {
     flex-grow: 1;
