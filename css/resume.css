@@ -19,3 +19,9 @@ iframe {
         height: 80px;
     }
 }
+
+@media screen and (max-width: 750px) {
+    iframe {
+        zoom: 0.15;
+    }
+}
