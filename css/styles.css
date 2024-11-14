@@ -35,12 +35,21 @@ b { color:#c1493e }
 }
 #homeImage {
   display: flex;
+  flex-direction: column;
   height: 48%;
-  width: 25%;
+  width: 24%;
   float: right;
   padding-right: 5%;
-  margin-top: 3%;
+  margin-top: 4.5%;
   align-items: center;
+  justify-content: center;
+}
+#joke {
+  margin-top: 12%;
+  text-align: center;
+  color: rgb(163, 163, 163);
+  font-family: 'Coda';
+  font-size: .9em;
 }
 #homeSmallLine {
   width: 93%;
@@ -230,6 +239,9 @@ nav {
     padding: 0;
   }
   #homeImage img {
+    display: none;
+  }
+  #joke {
     display: none;
   }
   #homeParagraph {
