@@ -307,4 +307,8 @@ nav {
   }
   .nonHomeHeader { margin-left: 0; text-align: center;}
   .nav--list {  margin: 0;}
+  .footerIcon {
+    width: 20px;
+    height: 20px;
+  }
 }
