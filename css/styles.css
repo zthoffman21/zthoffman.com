@@ -27,7 +27,7 @@ b { color:#c1493e }
   height: auto;
   width: 75%;
   float: left;
-  font-size: 1.25em;
+  font-size: 1.25em ;
   line-height: 2;
   padding-left: 5%;
   padding-right: 5%;
@@ -293,6 +293,9 @@ nav {
 }
 /* ADJUSTING NAV ITEMS MARGINS */
 @media screen and (max-width: 630px) {
+  #homeParagraph {
+    font-size: 1.1em;
+  }
   .navItem {
     margin: 0 1%;
   }
