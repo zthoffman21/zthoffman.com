@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>....</title>
+  <link rel="icon" type="svg" href="../images/musicNotes.svg">
+  <link rel="stylesheet" href="../css/musicPlayer.css">
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;">
+        <div class="jukeboxContainer">
+            <h1>Jukebox</h1>
+            <div class="trackList">
+                <button class="trackButton" onclick="playTrack('../music/acoustic.mp3')">Acoustic</button>
+            <button class="trackButton" onclick="playTrack('../music/classical.mp3')">Classical</button>
+            <button class="trackButton" onclick="playTrack('../music/jazz.mp3')">Jazz</button>
+            <button class="trackButton" onclick="playTrack('../music/lofi.mp3')">Lofi</button>
+            <button class="trackButton" onclick="playTrack('../music/synthwave.mp3')">Synthwave</button>
+            </div>
+            <audio id="audioPlayer" loop></audio>
+        </div>
+    </div>
+
+  <script>
+    function playTrack(trackSrc) {
+      const audioPlayer = document.getElementById("audioPlayer");
+      audioPlayer.src = trackSrc;
+      audioPlayer.play();
+    }
+    // Set default volume level to 15%
+    const audioPlayer = document.getElementById("audioPlayer");
+    audioPlayer.volume = 0.15;
+  </script>
+</body>
+</html>
