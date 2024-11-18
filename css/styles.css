@@ -1,5 +1,56 @@
+/* Default Theme */
+:root {
+  --backgroundColor: #282828;
+  --navDark: #2c456b;
+  --navLight: #83aff0;
+  --textMain: #e5e7eb;
+  --textAlt: #a3a3a3;
+  --textBold: #c1493e;
+}
+[dataTheme="light"] {
+  --backgroundColor: #e6e6e6;
+  --navDark: #657899;
+  --navLight: #a8c5f7;
+  --textMain: #1e293b;
+  /* --textAlt: #6b7280; */
+  --textAlt: #a3a3a3;
+  --textBold: #d75c53;
+  --line: #a8c5f7;
+}
+[dataTheme="pumpkin"] {
+  --backgroundColor: #322f2c;
+  --navDark: #b08449;
+  --navLight: #4d3f34;
+  --textMain: #f5f0e7;
+  /* --textAlt: #a89e94; */
+  --textAlt: #a3a3a3;
+  --textBold: #d97a3d;
+  --line: #b08449;
+}
+[dataTheme="blue"] {
+  --backgroundColor: #2e3440;
+  --navDark: #88c0d0;
+  --navLight: #4c566a;
+  --textMain: #eceff4;
+  /* --textAlt: #a5adb8; */
+  --textAlt: #a3a3a3;
+  --textBold: #bf616a;
+  --line: #bf616a;
+}
+[dataTheme="lightMode"] {
+  --backgroundColor: #e6e6e6;
+  --navDark: #657899;
+  --navLight: #a8c5f7;
+  --textMain: #1e293b;
+  /* --textAlt: #6b7280; */
+  --textAlt: #a3a3a3;
+  --textBold: #d75c53;
+  --line: #a8c5f7;
+}
+
+
 html body {
-  background-color: #282828; 
+  background-color: var(--backgroundColor); 
   overflow-x: hidden; 
   overflow-y: auto; 
   height: 100%;
@@ -7,12 +58,12 @@ html body {
   flex-direction: column;
 }
 p, h1, h2, h3, h4, h5, h6 {
-  color:  #e5e7eb;  
+  color:  var(--textMain);  
   font-family: "Source Sans 3", sans-serif;
 }
 
-hr, br {border-color: #83aff0}
-b { color:#c1493e }
+hr, br {border-color: var(--line); }
+b { color: var(--textBold); }
 
 /*IDs*/
 
@@ -47,7 +98,7 @@ b { color:#c1493e }
 #joke {
   margin-top: 12%;
   text-align: center;
-  color: rgb(163, 163, 163);
+  color: var(--textAlt);
   font-family: 'Coda';
   font-size: .9em;
 }
@@ -82,7 +133,7 @@ nav {
   height: 80px;
   width: 700px;
   border-radius: 10px;
-  background: #2c456b;
+  background: var(--navDark);
   box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 20px -5px;
   font-family: "Montserrat", system-ui;
   font-optical-sizing: auto;
@@ -107,7 +158,7 @@ nav {
   user-select: none;
   cursor: pointer;
   margin: 0 4.6%;
-  border: 2px solid #83aff0;
+  border: 2px solid var(--navLight);
   overflow: hidden;
 }
 .navItem a {
@@ -118,13 +169,13 @@ nav {
   height: 100%;
   font-size: 18px;
   text-transform: uppercase;
-  color: #83aff0;
+  color: var(--navLight);
   z-index: 10;
   text-decoration: none;
   transition: color 200ms ease;
 }
 .navItem:hover a {
-  color: #2c456b;
+  color: var(--navDark);
 }
 .navItem:before {
   content: "";
@@ -132,7 +183,7 @@ nav {
   width: 0%;
   height: 100%;
   transform: skew(0deg);
-  background: #83aff0;
+  background: var(--navLight);
   transition: width 400ms ease;
 }
 .navItem:hover:before {
@@ -150,8 +201,8 @@ nav {
   user-select: none;
   cursor: pointer;
   margin: 0 4.6%;
-  border: 2px solid #83aff0;
-  background-color:#83aff0;
+  border: 2px solid var(--navLight);
+  background-color: var(--navLight);
   overflow: hidden;
 }
 .navItemActive a {
@@ -162,7 +213,7 @@ nav {
   height: 100%;
   font-size: 18px;
   text-transform: uppercase;
-  color: #2c456b;
+  color: var(--navDark);
   z-index: 10;
   text-decoration: none;
   transition: color 200ms ease;
@@ -197,13 +248,13 @@ nav {
   flex-direction: column;
   align-items: center;
   margin: 50px auto;
-  background-color: #282828;
-  color: rgb(163, 163, 163);
+  background-color: var(--backgroundColor);
+  color: var(--textAlt);
 }
 .footer h6 {
     margin-top: 15px;
     font-size: 70%;
-    color: rgb(163, 163, 163);
+    color: var(--textAlt);
 }
 .icons {
   width: 100%;
@@ -224,8 +275,7 @@ nav {
   height: 100%; 
   object-fit: contain;
   transition: transform 0.3s ease;
-  background-color: #282828;
-
+  background-color: var(--backgroundColor);
 }
 .footerIcon:hover img {
   transform: scale(1.2);  
