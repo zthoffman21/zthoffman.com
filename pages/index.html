@@ -56,20 +56,32 @@
 
         <div class="footer">
             <div class="icons">
-                <a class="footerIcon" href="https://linkedin.com/in/zthoffman"> 
-                    <img src="../images/linkedInIcon.webp" alt="LinkedIn">
-                </a>
-                <a class="footerIcon" href="https://github.com/zthoffman21"> 
-                    <img src="../images/githubIcon.webp" alt="GitHub">
-                </a>
-                <a class="footerIcon" href="mailto:zachhoffman@ymail.com"> 
-                    <img src="../images/mailIcon.webp" alt="Email">
-                </a>
+                <button class="footerIcon" type="button" style="border: none;">
+                    <img src="../images/paintBrush.svg" alt="Theme">
+                </button>
+
+                <div class="iconLinks">
+                    <a class="footerIcon" href="https://linkedin.com/in/zthoffman"> 
+                        <img src="../images/linkedInIcon.webp" alt="LinkedIn">
+                    </a>
+
+                    <a class="footerIcon" href="https://github.com/zthoffman21"> 
+                        <img src="../images/githubIcon.webp" alt="GitHub">
+                    </a>
+
+                    <a class="footerIcon" href="mailto:zachhoffman@ymail.com"> 
+                        <img src="../images/mailIcon.webp" alt="Email">
+                    </a>
+                </div>
+
+                <button class="footerIcon" id="musicButton" type="button" style="border: none;" onclick="playMusic('../music/jazz.mp3')">
+                    <audio id="currentAudio" src="../music/classical.mp3"></audio>
+                    <img src="../images/musicNotes.svg" alt="JukeBox">
+                </button>
             </div>
             <h6>Hoffman © 2024</h6>
         </div>
         
-
         <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
         <script>
             // use bools to check if they need to be updated to reduce lag
@@ -94,6 +106,7 @@
         </script>
 
         <script src="../js/joke.js"></script>
+        <script src="../js/music.js"></script>
         <script src="" async defer></script>
     </body>
 </html>
