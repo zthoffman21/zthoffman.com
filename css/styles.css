@@ -6,13 +6,13 @@
   --textMain: #e5e7eb;
   --textAlt: #a3a3a3;
   --textBold: #c1493e;
+  --line: #83aff0;
 }
 [dataTheme="light"] {
   --backgroundColor: #e6e6e6;
   --navDark: #657899;
   --navLight: #a8c5f7;
   --textMain: #1e293b;
-  /* --textAlt: #6b7280; */
   --textAlt: #a3a3a3;
   --textBold: #d75c53;
   --line: #a8c5f7;
@@ -22,7 +22,6 @@
   --navDark: #b08449;
   --navLight: #4d3f34;
   --textMain: #f5f0e7;
-  /* --textAlt: #a89e94; */
   --textAlt: #a3a3a3;
   --textBold: #d97a3d;
   --line: #b08449;
@@ -32,7 +31,6 @@
   --navDark: #88c0d0;
   --navLight: #4c566a;
   --textMain: #eceff4;
-  /* --textAlt: #a5adb8; */
   --textAlt: #a3a3a3;
   --textBold: #bf616a;
   --line: #bf616a;
@@ -42,7 +40,6 @@
   --navDark: #657899;
   --navLight: #a8c5f7;
   --textMain: #1e293b;
-  /* --textAlt: #6b7280; */
   --textAlt: #a3a3a3;
   --textBold: #d75c53;
   --line: #a8c5f7;
