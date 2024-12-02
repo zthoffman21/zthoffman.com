@@ -7,7 +7,6 @@
   height: auto;
   margin-top: 4%;
   perspective: 1000px;
-  opacity: 0;
 }
 
 .projectCardContainer {
@@ -19,9 +18,10 @@
   box-shadow: 0px 5px 20px rgba(0, 0, 0, .8);
   background-color: #949090; 
   perspective: 1000px; 
-  transform: rotateX(15deg) rotateY(-110deg) scale(1); /* Initial rotation for laying down effect */
-  transition: transform 1s ease;
+  transform: rotateX(20deg) rotateY(-110deg) scale(1); /* Initial rotation for laying down effect */
+  transition: transform 1s ease, opacity 1s ease;
   opacity: 0; 
+  will-change: opacity, transform;
 }
 /* Subtle hover effect */
 .projectCardContainer:hover {

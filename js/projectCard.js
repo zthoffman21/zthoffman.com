@@ -39,26 +39,24 @@ document.querySelectorAll('.projectCardContainer').forEach((card) => {
   });
 });
 
-// Load animation
-$(document).ready(function() {
-  // Fade in projectListContainer (the div that holds all project cards)
-  $("#projectListContainer").animate({ opacity: 1 }, 800);
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = this.getElementsByClassName("projectCardContainer");
 
-  // For each project card: Fade in, rotate to 0, apply default transition settings
-  $(".projectCardContainer").each(function(index) {
-      // Fade in each card staggering the delay to its index, then applying defauly transition settings once finished
-      $(this).delay(index * 500).animate({ opacity: 1 }, 500, function() {
-          $(this).css({"transition": "transform 0.1s ease, box-shadow 0.3s ease, background 0.3s ease"});
-      });
+  for (let x = 0; x < cards.length; x++) {
+    // Fade in each card and rotate
+    setTimeout(() => {
+      cards[x].style.opacity = 1;
+      cards[x].style.transform = 'rotateX(0) rotateY(0) scale(1)';
+    }, x * 800); // Delay increases for each card
 
-      // Using setTimeout to sync the rotate with the fade in
-      setTimeout(() => {
-          $(this).css("transform", "rotate(0deg)");
-      }, index * 500); // This delay matches the delay of it fading in
-  });
+    // Return each card's transition to its default setting 
+    setTimeout(() => {
+      cards[x].style.transition = "transform 0.1s ease, box-shadow 0.3s ease, background 0.3s ease";
+    }, x * 800 + 1000); // x * 800 -> Delay between each card fading in, + 1000 -> each cards transition is 1000 ms
+  }
 
-  // Show the click card note after all cards are shown
+  // Fade in the click card note
   setTimeout(() => {
-      $("#clickCardNote").animate({opacity: 1}, 300);
-  }, $(".projectCardContainer").length * 500);
+    this.getElementById("clickCardNote").style.opacity = 1;
+  }, cards.length * 800); // Delay is set to after all the cards fade in
 });
