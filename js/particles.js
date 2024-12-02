@@ -5,11 +5,11 @@ const themeObserver = new MutationObserver(() => {
     if (theme != "christmas") {
         tsParticles.load({
             particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
+                number: { value: 100, density: { enable: true, value_area: 800 } },
                 color: { value: "#ffffff" },
                 shape: { type: "star" },
                 opacity: {
-                    value: 0.7,
+                    value: 0.4,
                     random: true,
                     anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: true }
                 },
