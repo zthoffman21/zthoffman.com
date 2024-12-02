@@ -236,6 +236,7 @@ nav {
   flex-grow: 1;
   width: 1500px;
   margin: auto;
+  padding-top: .5%;
 }
 
 /* FOOTER STYLING */
@@ -311,7 +312,6 @@ nav {
     height: auto;
   }
   .mainContainer {
-    padding: 1%;
     width: 100%;
     height: auto;
   }
