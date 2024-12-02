@@ -11,9 +11,16 @@ themeObserver.observe(document.documentElement, {
 
 function setParticles() {
     var theme = localStorage.getItem("themeName");
-    tsParticles.domItem(0)?.destroy(); // Removes current particles
+
+    // Destroy all existing particle instances
+    var instances = tsParticles.dom();
+    while (instances.length > 0) {
+        instances.forEach(instance => instance.destroy());
+        instances = tsParticles.dom(); // Refresh the list after destruction
+    }
 
     if (theme != "christmas") {
+        // Load regular stars
         tsParticles.load({
             particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },
@@ -38,9 +45,35 @@ function setParticles() {
                     out_mode: "out",
                     bounce: false
                 }
-            },
+            }
+        });
+
+        // Load shooting stars
+        tsParticles.load({
+            particles: {
+                number: { value: 0.5, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "star" },
+                opacity: {
+                    value: 0.5,
+                    random: true,
+                },
+                size: {
+                    value: 2,
+                    random: true,
+                },
+                move: {
+                    enable: true,
+                    speed: 15,
+                    random: true,
+                    straight: true, 
+                    out_mode: "out",
+                    bounce: false
+                }
+            }
         });
     } else {
+        // Load snow
         tsParticles.load({
             particles: {
                 number: {
@@ -83,7 +116,7 @@ function setParticles() {
                         x: 1,
                     }
                 }
-            },
+            }
         });
     }
 }
