@@ -1,15 +1,15 @@
 /* Default Theme */
 :root {
-  --backgroundColor: #282828;
+  --backgroundColor: #0b171d;
   --navDark: #2c456b;
   --navLight: #83aff0;
   --textMain: #e5e7eb;
   --textAlt: #a3a3a3;
   --textBold: #c1493e;
-  --line: #83aff0;
+  --line: #c1493e;
 }
 [data-theme="light"] {
-  --backgroundColor: #e6e6e6;
+  --backgroundColor: #f1f1f1;
   --navDark: #657899;
   --navLight: #a8c5f7;
   --textMain: #1e293b;
