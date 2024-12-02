@@ -8,7 +8,7 @@
   --textBold: #c1493e;
   --line: #83aff0;
 }
-[dataTheme="light"] {
+[data-theme="light"] {
   --backgroundColor: #e6e6e6;
   --navDark: #657899;
   --navLight: #a8c5f7;
@@ -17,7 +17,7 @@
   --textBold: #d75c53;
   --line: #a8c5f7;
 }
-[dataTheme="pumpkin"] {
+[data-theme="pumpkin"] {
   --backgroundColor: #322f2c;
   --navDark: #b08449;
   --navLight: #4d3f34;
@@ -26,7 +26,7 @@
   --textBold: #d97a3d;
   --line: #b08449;
 }
-[dataTheme="blue"] {
+[data-theme="blue"] {
   --backgroundColor: #2e3440;
   --navDark: #88c0d0;
   --navLight: #4c566a;
@@ -35,7 +35,7 @@
   --textBold: #bf616a;
   --line: #bf616a;
 }
-[dataTheme="lightMode"] {
+[data-theme="lightMode"] {
   --backgroundColor: #e6e6e6;
   --navDark: #657899;
   --navLight: #a8c5f7;
@@ -44,7 +44,7 @@
   --textBold: #d75c53;
   --line: #a8c5f7;
 }
-[dataTheme="christmas"] {
+[data-theme="christmas"] {
   --backgroundColor: #0f2027;
   --navDark: #b02a30;
   --navLight: #fddcdc;
