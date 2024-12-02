@@ -1,4 +1,15 @@
+// Set particles on pages load
+document.addEventListener("DOMContentLoaded", setParticles());
+
+// Set particles on theme change
 const themeObserver = new MutationObserver(() => {
+    setParticles();
+});
+themeObserver.observe(document.documentElement, { 
+    attributeFilter: ['data-theme'] 
+});
+
+function setParticles() {
     var theme = localStorage.getItem("themeName");
     tsParticles.domItem(0)?.destroy(); // Removes current particles
 
@@ -75,8 +86,4 @@ const themeObserver = new MutationObserver(() => {
             },
         });
     }
-});
-
-themeObserver.observe(document.documentElement, { 
-    attributeFilter: ['data-theme'] 
-});
+}
