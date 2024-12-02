@@ -44,6 +44,15 @@
   --textBold: #d75c53;
   --line: #a8c5f7;
 }
+[dataTheme="christmas"] {
+  --backgroundColor: #0f2027;
+  --navDark: #b02a30;
+  --navLight: #fddcdc;
+  --textMain: #fdfdfd;
+  --textAlt: #a3a3a3;
+  --textBold: #2fa34f;
+  --line: #b02a30;
+}
 
 
 html body {

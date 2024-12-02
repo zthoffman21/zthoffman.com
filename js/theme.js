@@ -1,5 +1,5 @@
 const themeButton = document.getElementById("themeButton");
-const themes = ["default", "light", "pumpkin", "blue"];
+const themes = ["default", "light", "pumpkin", "blue", "christmas"];
 var currentTheme = 0;
 
 // Set theme on them button press
