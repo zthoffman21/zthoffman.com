@@ -9,7 +9,7 @@ iframe {
     width: 100%; 
 }
 
-@media screen and (max-width: 1400px) { 
+@media screen and (max-width: 1250px) { 
     .iframeContainer { 
         width: 90% ;
         margin: auto;

@@ -281,7 +281,7 @@ nav {
 
 /* MEDIA QUERRIES */
 
-/* Media query to edit margin */
+/* Media query to edit main paragraph margin */
 @media screen and (max-width: 1600px) {
   .mainContainer {
     width: 93.75%;
@@ -291,7 +291,7 @@ nav {
   }
 }
 /* Media query for smaller screens */
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1250px) {
   hr { width: 90%; margin:auto; }
    
   /* CONTENT SIZE ADJUSTMENTS */

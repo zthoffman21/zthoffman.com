@@ -90,7 +90,7 @@
                 else if (!mediaQuery.matches && nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary T. Hoffman"; nameUpdated = false;}
 
                 // sets the image to the height of the paragraph if the image is still there
-                const mediaQueryArr = ["(max-width: 1400px)", "(max-width: 750px)", "(max-width: 630px)"]
+                const mediaQueryArr = ["(max-width: 1250px)", "(max-width: 750px)", "(max-width: 630px)"]
                 var imageUpdated = false;
                 for (var x = 0; x < mediaQueryArr.length; x++) { imageUpdated = imageUpdated || window.matchMedia(mediaQueryArr[x]).matches; }
                 if (!imageUpdated) {
