@@ -234,13 +234,13 @@ nav {
 .mainContainer {
   height: auto;
   flex-grow: 1;
-  width: 75%;
+  width: 1500px;
   margin: auto;
 }
 
 /* FOOTER STYLING */
 .footer {
-  width: 67.5%;
+  width: 1350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,6 +281,15 @@ nav {
 
 /* MEDIA QUERRIES */
 
+/* Media query to edit margin */
+@media screen and (max-width: 1600px) {
+  .mainContainer {
+    width: 93.75%;
+  }
+  .footer {
+    width: 84.375%;
+  }
+}
 /* Media query for smaller screens */
 @media screen and (max-width: 1400px) {
   hr { width: 90%; margin:auto; }
