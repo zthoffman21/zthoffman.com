@@ -51,6 +51,7 @@ html body {
   overflow-x: hidden; 
   overflow-y: auto; 
   height: 100%;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
 }
