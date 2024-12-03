@@ -8,20 +8,24 @@ const zoomSelect = document.getElementById("zoomSelect");
 const downloadButton = document.getElementById("downloadButton");
 
 // PDF state variables
-let pdfDoc = null;
-let scale = 1.0;
+const scaleMult = 1.25;
+var scale = 1 * scaleMult;
+var pdfDoc = null;
 
 // Render the page
 function renderPage(pdfDocument) {
     pdfDocument.getPage(1).then(function (page) {
         const viewport = page.getViewport({ scale: scale });
 
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+        // Create a high-resolution canvas for rendering
+        const outputScale = window.devicePixelRatio || 1;
+        canvas.width = Math.floor(viewport.width * outputScale);
+        canvas.height = Math.floor(viewport.height * outputScale);
 
         const renderContext = {
             canvasContext: canvas.getContext("2d"),
             viewport: viewport,
+            transform: [outputScale, 0, 0, outputScale, 0, 0], // Scale transform for high DPI
         };
 
         page.render(renderContext);
@@ -30,7 +34,7 @@ function renderPage(pdfDocument) {
 
 // Zoom event listener
 zoomSelect.addEventListener("change", function () {
-    scale = parseFloat(this.value);
+    scale = parseFloat(this.value) * scaleMult;
     if (pdfDoc) {
         renderPage(pdfDoc);
     }
