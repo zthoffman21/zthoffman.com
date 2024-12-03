@@ -5,16 +5,18 @@ var currentTheme = 0;
 // Set theme on them button press
 if (themeButton) {
     themeButton.addEventListener('click', function() {
-        currentTheme = (currentTheme + 1) % themes.length;
+        currentTheme = (currentTheme + 1) % themes.length; // Circular itteration
         document.documentElement.setAttribute("data-theme", themes[currentTheme]);
+
+        // Save the theme name and index to local storage
         localStorage.setItem("theme", currentTheme);
         localStorage.setItem("themeName", themes[currentTheme])
     });
 }
 
-// Load theme on page load
+// Retrieve the theme index on page load
 document.addEventListener("DOMContentLoaded", function() {
     if (localStorage.getItem("theme")) {
-        this.documentElement.setAttribute("data-theme", themes[parseInt(localStorage.getItem("theme"), 10)]);
+        currentTheme = parseInt(localStorage.getItem("theme"), 10);
     }
 });

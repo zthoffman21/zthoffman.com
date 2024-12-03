@@ -23,11 +23,11 @@ function setParticles() {
         // Load regular stars
         tsParticles.load({
             particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
+                number: { value: 200, density: { enable: true, value_area: 800 } },
                 color: { value: "#ffffff" },
                 shape: { type: "star" },
                 opacity: {
-                    value: 0.4,
+                    value: 0.3,
                     random: true,
                     anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: true }
                 },
@@ -77,7 +77,7 @@ function setParticles() {
         tsParticles.load({
             particles: {
                 number: {
-                    value: 100,
+                    value: 200,
                     density: {
                         enable: true,
                         value_area: 800
@@ -90,7 +90,7 @@ function setParticles() {
                     type: "circle"
                 },
                 opacity: {
-                    value: 0.5,
+                    value: 0.4,
                     random: true,
                     anim: {
                         enable: false

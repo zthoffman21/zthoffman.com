@@ -22,7 +22,7 @@
   --navDark: #b08449;
   --navLight: #4d3f34;
   --textMain: #f5f0e7;
-  --textAlt: #a3a3a3;
+  --textAlt: #d97a3d;
   --textBold: #d97a3d;
   --line: #b08449;
 }
@@ -35,21 +35,12 @@
   --textBold: #bf616a;
   --line: #bf616a;
 }
-[data-theme="lightMode"] {
-  --backgroundColor: #e6e6e6;
-  --navDark: #657899;
-  --navLight: #a8c5f7;
-  --textMain: #1e293b;
-  --textAlt: #a3a3a3;
-  --textBold: #d75c53;
-  --line: #a8c5f7;
-}
 [data-theme="christmas"] {
   --backgroundColor: #0f2027;
   --navDark: #b02a30;
   --navLight: #fddcdc;
   --textMain: #fdfdfd;
-  --textAlt: #a3a3a3;
+  --textAlt: #2fa34f;
   --textBold: #2fa34f;
   --line: #b02a30;
 }
