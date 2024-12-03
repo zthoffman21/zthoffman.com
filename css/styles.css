@@ -8,14 +8,14 @@
   --textBold: #c1493e;
   --line: #c1493e;
 }
-[data-theme="light"] {
-  --backgroundColor: #f1f1f1;
-  --navDark: #657899;
-  --navLight: #a8c5f7;
-  --textMain: #1e293b;
+[data-theme="starWars"] {
+  --backgroundColor: #000000;
+  --navDark: #1a1a1a;
+  --navLight: #3d3d3d;
+  --textMain: #ffe81f;
   --textAlt: #a3a3a3;
-  --textBold: #d75c53;
-  --line: #a8c5f7;
+  --textBold: #ffffff;
+  --line: #3d3d3d;
 }
 [data-theme="pumpkin"] {
   --backgroundColor: #322f2c;
