@@ -1,3 +1,7 @@
+// Arrays to hold particle data
+const starThemes = ["default", "starWars", "blue"];
+const snowThemes = ["christmas"];
+
 // Set particles on pages load
 document.addEventListener("DOMContentLoaded", setParticles());
 
@@ -10,7 +14,7 @@ themeObserver.observe(document.documentElement, {
 });
 
 function setParticles() {
-    var theme = localStorage.getItem("themeName");
+    var theme = localStorage.getItem("themeName") || "default";
 
     // Destroy all existing particle instances
     var instances = tsParticles.dom();
@@ -19,7 +23,7 @@ function setParticles() {
         instances = tsParticles.dom(); // Refresh the list after destruction
     }
 
-    if (theme != "christmas") {
+    if (starThemes.includes(theme)) {
         // Load regular stars
         tsParticles.load({
             particles: {
@@ -51,11 +55,17 @@ function setParticles() {
         // Load shooting stars
         tsParticles.load({
             particles: {
-                number: { value: 0.5, density: { enable: true, value_area: 800 } },
+                number: { 
+                    value: 1, 
+                    density: { 
+                        enable: true, 
+                        value_area: 800 
+                    } 
+                },
                 color: { value: "#ffffff" },
                 shape: { type: "star" },
                 opacity: {
-                    value: 0.5,
+                    value: 0.4,
                     random: true,
                 },
                 size: {
@@ -64,15 +74,14 @@ function setParticles() {
                 },
                 move: {
                     enable: true,
-                    speed: 15,
+                    speed: { min: 1, max: 10},
                     random: true,
                     straight: true,
                     out_mode: "out",
-                    bounce: false,
                 },
             },
         });
-    } else {
+    } else if (snowThemes.includes(theme)) {
         // Load snow
         tsParticles.load({
             particles: {
