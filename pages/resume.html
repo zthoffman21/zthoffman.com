@@ -14,6 +14,8 @@
 
         <!-- Link to the particle library -->
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+        <!-- Link to the pdf library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 
         <!-- Load theme on page load  -->
         <script>
@@ -43,8 +45,19 @@
             <h1 class="nonHomeHeader">Resume</h1>
             <hr />
 
-            <div class="iframeContainer">
-                <iframe src="../images/Resume 11_2_2024.pdf#zoom=80&navpanes=0"></iframe>
+            <!-- RESUME -->
+            <div id="pdfContainer">
+                <canvas id="pdfCanvas"></canvas>
+                    <div id="pdfControls">
+                        <select id="zoomSelect">
+                            <option value="0.5">50%</option>
+                            <option value="0.75">75%</option>
+                            <option value="1" selected>100%</option>
+                            <option value="1.5">150%</option>
+                        </select>
+                        <button id="downloadButton">Download</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -65,6 +78,7 @@
 
         <script src="../js/theme.js"></script>
         <script src="../js/particles.js"></script>
+        <script src="../js/resume.js"></script>
         <script src="" async defer></script>
     </body>
 </html>

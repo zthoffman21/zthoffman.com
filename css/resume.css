@@ -1,27 +1,47 @@
-.iframeContainer {
+#pdfContainer {
     display: flex;
     flex-direction: column;
-    height: 61vh;
+    align-items: center;
+    margin: 2% 5%;
 }
-iframe {
-    flex-grow: 1;
-    margin-top: 2%;
-    width: 100%;
+
+#pdfCanvas {
+    box-shadow: 0 4px 20px #000000;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+#pdfControls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding-top: 1.5%;
+}
+
+#zoomSelect {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: var(--navDark);
+    border: 2px solid #3f3f3f23;
+}
+#zoomSelect:hover {
+    filter: brightness(0.9);
+}
+
+#downloadButton {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: var(--navDark);
+    border: 2px solid #3f3f3f23;
+}
+#downloadButton:hover {
+    filter: brightness(0.9);
 }
 
 @media screen and (max-width: 1250px) {
-    .iframeContainer {
-        width: 90%;
-        margin: auto;
-    }
-
     .footer {
         height: 80px;
-    }
-}
-
-@media screen and (max-width: 750px) {
-    iframe {
-        zoom: 0.15;
     }
 }
