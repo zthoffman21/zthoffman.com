@@ -38,7 +38,7 @@ function setParticles() {
                 },
                 move: {
                     enable: true,
-                    speed: 0.5,
+                    speed: 0.2,
                     direction: "none",
                     random: true,
                     straight: false,
