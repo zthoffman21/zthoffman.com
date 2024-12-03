@@ -16,7 +16,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 8px;
     padding-top: 1.5%;
 }
 
@@ -25,7 +25,7 @@
     border-radius: 4px;
     background-color: var(--navDark);
     color: var(--navLight);
-    border: 2px solid #3f3f3f23;
+    border: 2px solid #ffffff23;
 }
 #zoomSelect:hover {
     filter: brightness(0.9);
@@ -36,7 +36,7 @@
     border-radius: 4px;
     background-color: var(--navDark);
     color: var(--navLight);
-    border: 2px solid #3f3f3f23;
+    border: 2px solid #ffffff23;
 }
 #downloadButton:hover {
     filter: brightness(0.9);
