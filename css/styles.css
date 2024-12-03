@@ -79,13 +79,13 @@ b { color: var(--textBold); }
   text-align: center;
   margin-top: 3.6%;
   margin-bottom: 1.7%;
-  font-size: 2em;
+  font-size: 2.5em;
 }
 #homeParagraph {
   height: auto;
   width: 75%;
   float: left;
-  font-size: 1.2em ;
+  font-size: 1.25em ;
   line-height: 2;
   padding-left: 5%;
   padding-right: 5%;
@@ -232,7 +232,6 @@ nav {
 .subHeader {
   margin: .7%;
   text-align: center;
-  font-size: 1.75em;
 }
 .nonHomeHeader {
   text-align: left;
