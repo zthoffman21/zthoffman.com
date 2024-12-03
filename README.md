@@ -1,11 +1,21 @@
-# Personal Website
-This is a personal portfolio website I developed using HTML, CSS, and JavaScript. 
-The site is hosted using Cloudflare, which provides enhanced performance through its global CDN and advanced security features. 
-You can view the website at zthoffman.com.
+# 🌐 Personal Website
 
-## Overview
-![image](https://github.com/user-attachments/assets/7fe73a8f-d75c-41e0-9f69-a24e9d68c661)
-## Portfolio
-![image](https://github.com/user-attachments/assets/d2629c80-bdb7-402f-aaa8-83f818fac322)
-For the project display, I designed the portfolio section to mimic Pokémon cards, each showcasing fun graphics and unique "attacks" that highlight specific features of each project. 
-Using CSS and JavaScript, the cards are interactive, responding to mouse movements with hover effects, rotation, and a subtle glow to enhance user engagement.
+Welcome to the GitHub repository for my personal portfolio website! This site serves as a dynamic showcase of my projects, skills, and achievements. It's also a space where I experiment with creative web design and interactivity. 
+
+**Link:** https://zthoffman.com
+
+![image](https://github.com/user-attachments/assets/0275e761-a605-4ec8-aa41-f9c168ee2094)
+![image](https://github.com/user-attachments/assets/e2f3954b-1a1a-42a4-8936-cb522125d3e7)
+![image](https://github.com/user-attachments/assets/9a494f20-3020-4b36-b7e9-51e9eb95efd7)
+
+
+---
+
+## 🎨 Features
+
+- **Interactive Project Cards**: Designed with Pokémon card inspiration, these follow mouse movement, have a holographic and shimmer effect, and link to my github repos when clicked.
+- **Dynamic API Integration**: Includes programming jokes API content to engage users.
+- **Subtle Animations**: Enhanced user experience with CSS animations.
+- **Customizable Themes**: Change color themes to match your style.
+- **Design Elements**: Supports particle effects using tsparticles, and has a "jukebox" to play background music.
+- **Responsive Design**: Optimized for all screen sizes, including mobile devices.
