@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", setParticles());
 const themeObserver = new MutationObserver(() => {
     setParticles();
 });
-themeObserver.observe(document.documentElement, { 
-    attributeFilter: ['data-theme'] 
+themeObserver.observe(document.documentElement, {
+    attributeFilter: ["data-theme"],
 });
 
 function setParticles() {
@@ -15,7 +15,7 @@ function setParticles() {
     // Destroy all existing particle instances
     var instances = tsParticles.dom();
     while (instances.length > 0) {
-        instances.forEach(instance => instance.destroy());
+        instances.forEach((instance) => instance.destroy());
         instances = tsParticles.dom(); // Refresh the list after destruction
     }
 
@@ -29,12 +29,12 @@ function setParticles() {
                 opacity: {
                     value: 0.3,
                     random: true,
-                    anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: true }
+                    anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: true },
                 },
                 size: {
                     value: 1.75,
                     random: true,
-                    anim: { enable: false }
+                    anim: { enable: false },
                 },
                 move: {
                     enable: true,
@@ -43,9 +43,9 @@ function setParticles() {
                     random: true,
                     straight: false,
                     out_mode: "out",
-                    bounce: false
-                }
-            }
+                    bounce: false,
+                },
+            },
         });
 
         // Load shooting stars
@@ -66,11 +66,11 @@ function setParticles() {
                     enable: true,
                     speed: 15,
                     random: true,
-                    straight: true, 
+                    straight: true,
                     out_mode: "out",
-                    bounce: false
-                }
-            }
+                    bounce: false,
+                },
+            },
         });
     } else {
         // Load snow
@@ -80,28 +80,28 @@ function setParticles() {
                     value: 200,
                     density: {
                         enable: true,
-                        value_area: 800
-                    }
+                        value_area: 800,
+                    },
                 },
                 color: {
-                    value: "#ffffff"
+                    value: "#ffffff",
                 },
                 shape: {
-                    type: "circle"
+                    type: "circle",
                 },
                 opacity: {
                     value: 0.4,
                     random: true,
                     anim: {
-                        enable: false
-                    }
+                        enable: false,
+                    },
                 },
                 size: {
                     value: 3,
                     random: true,
                     anim: {
-                        enable: false
-                    }
+                        enable: false,
+                    },
                 },
                 move: {
                     enable: true,
@@ -114,9 +114,9 @@ function setParticles() {
                     drift: {
                         enable: true,
                         x: 1,
-                    }
-                }
-            }
+                    },
+                },
+            },
         });
     }
 }

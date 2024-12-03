@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html style="color: var(--backgroundColor);" lang="en">
+<html style="color: var(--backgroundColor)" lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <title>Zachary Hoffman</title>
-        <meta name="description" content="This is a portfolio website">
-        <link rel="icon" type="png" href="../images/codeLightBlue.png">
+        <meta name="description" content="This is a portfolio website" />
+        <link rel="icon" type="png" href="../images/codeLightBlue.png" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/projectCard.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="../css/styles.css" />
+        <link rel="stylesheet" href="../css/projectCard.css" />
 
         <!-- Link to the particle library -->
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -19,11 +19,14 @@
         <script>
             // Placed in the head so it loads before the rest of the page
             if (localStorage.getItem("theme")) {
-                document.documentElement.setAttribute("data-theme", localStorage.getItem("themeName"));
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    localStorage.getItem("themeName")
+                );
             }
         </script>
     </head>
-    <body style="overflow-y: auto;">
+    <body style="overflow-y: auto">
         <div class="mainContainer">
             <!-- NAVIGATION BAR -->
             <div class="containerNav">
@@ -38,43 +41,63 @@
 
             <!-- HEADER -->
             <h1 class="nonHomeHeader">Projects</h1>
-            <hr>
+            <hr />
 
             <div id="projectListContainer">
-                <a href="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation" class="projectCardContainer">
+                <a
+                    href="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation"
+                    class="projectCardContainer"
+                >
                     <div class="projectCardContent">
-                        <img src="../images/AIRacingSimulationCard.webp" alt="AIRacingSimulationCard">
+                        <img
+                            src="../images/AIRacingSimulationCard.webp"
+                            alt="AIRacingSimulationCard"
+                        />
                     </div>
                     <div class="overlayEffect"></div>
                 </a>
                 <a href="https://github.com/zthoffman21/zthoffman.com" class="projectCardContainer">
                     <div class="projectCardContent">
-                        <img src="../images/PersonalWebsiteCard.webp" alt="PersonalWebsiteCard">
+                        <img src="../images/PersonalWebsiteCard.webp" alt="PersonalWebsiteCard" />
                     </div>
                     <div class="overlayEffect"></div>
                 </a>
-                <a href="https://github.com/zthoffman21/Pawns-Revenge-Python" class="projectCardContainer">
+                <a
+                    href="https://github.com/zthoffman21/Pawns-Revenge-Python"
+                    class="projectCardContainer"
+                >
                     <div class="projectCardContent">
-                        <img src="../images/PawnsRevengeCard2.webp" alt="PawnsRevengeCard">
+                        <img src="../images/PawnsRevengeCard2.webp" alt="PawnsRevengeCard" />
                     </div>
                     <div class="overlayEffect"></div>
                 </a>
             </div>
         </div>
-        <div id="clickCardNote" style="display: flex; justify-content: center; margin: 30px 0 60px 0; opacity: 0; transition: opacity 0.5s ease;">
-            <p style="color: var(--textAlt); font-family: 'Coda'; font-size: .75em;"><i>...click a card to view more</i></p>
+        <div
+            id="clickCardNote"
+            style="
+                display: flex;
+                justify-content: center;
+                margin: 30px 0 60px 0;
+                opacity: 0;
+                transition: opacity 0.5s ease;
+            "
+        >
+            <p style="color: var(--textAlt); font-family: 'Coda'; font-size: 0.75em">
+                <i>...click a card to view more</i>
+            </p>
         </div>
 
         <div class="footer">
             <div class="iconLinks">
-                <a class="footerIcon" href="https://linkedin.com/in/zthoffman"> 
-                    <img src="../images/linkedInIcon.webp" alt="LinkedIn">
+                <a class="footerIcon" href="https://linkedin.com/in/zthoffman">
+                    <img src="../images/linkedInIcon.webp" alt="LinkedIn" />
                 </a>
-                <a class="footerIcon" href="https://github.com/zthoffman21"> 
-                    <img src="../images/githubIcon.webp" alt="GitHub">
+                <a class="footerIcon" href="https://github.com/zthoffman21">
+                    <img src="../images/githubIcon.webp" alt="GitHub" />
                 </a>
-                <a class="footerIcon" href="mailto:zachhoffman@ymail.com"> 
-                    <img src="../images/mailIcon.webp" alt="Email">
+                <a class="footerIcon" href="mailto:zachhoffman@ymail.com">
+                    <img src="../images/mailIcon.webp" alt="Email" />
                 </a>
             </div>
             <h6>Hoffman © 2024</h6>

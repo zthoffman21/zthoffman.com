@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html style="color: var(--backgroundColor);" lang="en">
+<html style="color: var(--backgroundColor)" lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         <title>Zachary Hoffman</title>
-        <meta name="description" content="This is a portfolio website">
-        <link rel="icon" type="png" href="images/codeLightBlue.png">
+        <meta name="description" content="This is a portfolio website" />
+        <link rel="icon" type="png" href="images/codeLightBlue.png" />
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="css/styles.css" />
 
         <!-- Link to the particle library -->
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -18,7 +18,10 @@
         <script>
             // Placed in the head so it loads before the rest of the page
             if (localStorage.getItem("theme")) {
-                document.documentElement.setAttribute("data-theme", localStorage.getItem("themeName"));
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    localStorage.getItem("themeName")
+                );
             }
         </script>
     </head>
@@ -37,59 +40,80 @@
 
             <!-- HEADER -->
             <h1 id="mainName">Zachary T. Hoffman</h1>
-            <hr id="homeBigLine">
+            <hr id="homeBigLine" />
             <h1 class="subHeader">About Me</h1>
-            <hr id="homeSmallLine">
+            <hr id="homeSmallLine" />
             <!-- MAIN PAGE CONTENT -->
             <div id="homeParagraph">
                 <p>
-                    &emsp;&emsp; Hi, I'm Zach Hoffman, a <b>software engineering</b> student with a minor in <b>mathematics</b> at Liberty University. 
-                    I have a passion for solving complex problems, and I actively participate in the university's <b>competitive 
-                    programming club</b>, where we tackle real-world challenges using algorithms and data structures.
+                    &emsp;&emsp; Hi, I'm Zach Hoffman, a <b>software engineering</b> student with a
+                    minor in <b>mathematics</b> at Liberty University. I have a passion for solving
+                    complex problems, and I actively participate in the university's
+                    <b>competitive programming club</b>, where we tackle real-world challenges using
+                    algorithms and data structures.
                 </p>
-                <br>
+                <br />
                 <p>
-                    &emsp;&emsp; In my free time, I enjoy staying active through weightlifting, snowboarding, hiking, and playing golf. 
-                    Some of my favorite university courses so far include <b>Data Structures and Algorithms</b>, as well as <b>Calculus III</b>, where 
-                    I've deepened my appreciation for the intersection of math and technology.
+                    &emsp;&emsp; In my free time, I enjoy staying active through weightlifting,
+                    snowboarding, hiking, and playing golf. Some of my favorite university courses
+                    so far include <b>Data Structures and Algorithms</b>, as well as
+                    <b>Calculus III</b>, where I've deepened my appreciation for the intersection of
+                    math and technology.
                 </p>
-                <br>
-                <p> 
-                    &emsp;&emsp; Looking ahead, I'm excited to pursue a career in <b>robotics</b>, where I can combine my love for mathematics 
-                    and programming to build innovative solutions.
+                <br />
+                <p>
+                    &emsp;&emsp; Looking ahead, I'm excited to pursue a career in <b>robotics</b>,
+                    where I can combine my love for mathematics and programming to build innovative
+                    solutions.
                 </p>
             </div>
-            <div id="homeImage"> 
-                <img src="images/imageOfMe.JPG" alt="Image of Me" style="max-width: 100%; height: auto; border-radius: 2%; justify-content: center; align-items: center; box-shadow: rgba(0, 0, 0, 0.6) 0px 15px 20px -5px;"> 
+            <div id="homeImage">
+                <img
+                    src="images/imageOfMe.JPG"
+                    alt="Image of Me"
+                    style="
+                        max-width: 100%;
+                        height: auto;
+                        border-radius: 2%;
+                        justify-content: center;
+                        align-items: center;
+                        box-shadow: rgba(0, 0, 0, 0.6) 0px 15px 20px -5px;
+                    "
+                />
                 <p id="joke"></p>
             </div>
         </div>
 
         <div class="footer">
             <div class="icons">
-                <button class="footerIcon" id="themeButton" type="button" style="border: none;">
-                    <img src="images/paintBrush.svg" alt="Theme">
+                <button class="footerIcon" id="themeButton" type="button" style="border: none">
+                    <img src="images/paintBrush.svg" alt="Theme" />
                 </button>
 
                 <div class="iconLinks">
-                    <a class="footerIcon" href="https://linkedin.com/in/zthoffman"> 
-                        <img src="images/linkedInIcon.webp" alt="LinkedIn">
+                    <a class="footerIcon" href="https://linkedin.com/in/zthoffman">
+                        <img src="images/linkedInIcon.webp" alt="LinkedIn" />
                     </a>
-                    <a class="footerIcon" href="https://github.com/zthoffman21"> 
-                        <img src="images/githubIcon.webp" alt="GitHub">
+                    <a class="footerIcon" href="https://github.com/zthoffman21">
+                        <img src="images/githubIcon.webp" alt="GitHub" />
                     </a>
-                    <a class="footerIcon" href="mailto:zachhoffman@ymail.com"> 
-                        <img src="images/mailIcon.webp" alt="Email">
+                    <a class="footerIcon" href="mailto:zachhoffman@ymail.com">
+                        <img src="images/mailIcon.webp" alt="Email" />
                     </a>
                 </div>
 
-                <button class="footerIcon" type="button" style="border: none;" onclick="window.open('pages/musicPlayer.html', 'musicPlayer', 'width=200,height=335,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');">
-                    <img src="images/musicNotes.svg" alt="JukeBox">
+                <button
+                    class="footerIcon"
+                    type="button"
+                    style="border: none"
+                    onclick="window.open('pages/musicPlayer.html', 'musicPlayer', 'width=200,height=335,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');"
+                >
+                    <img src="images/musicNotes.svg" alt="JukeBox" />
                 </button>
             </div>
             <h6>Hoffman © 2024</h6>
         </div>
-        
+
         <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
         <script>
             // use bools to check if they need to be updated to reduce lag
@@ -97,18 +121,30 @@
             function setImageHeight() {
                 // shortens my name if the media query hit
                 const mediaQuery = window.matchMedia("(max-width: 750px)");
-                if (mediaQuery.matches && !nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary Hoffman"; nameUpdated = true; }
-                else if (!mediaQuery.matches && nameUpdated) { document.getElementById("mainName").innerHTML = "Zachary T. Hoffman"; nameUpdated = false;}
+                if (mediaQuery.matches && !nameUpdated) {
+                    document.getElementById("mainName").innerHTML = "Zachary Hoffman";
+                    nameUpdated = true;
+                } else if (!mediaQuery.matches && nameUpdated) {
+                    document.getElementById("mainName").innerHTML = "Zachary T. Hoffman";
+                    nameUpdated = false;
+                }
 
                 // sets the image to the height of the paragraph if the image is still there
-                const mediaQueryArr = ["(max-width: 1250px)", "(max-width: 750px)", "(max-width: 630px)"]
+                const mediaQueryArr = [
+                    "(max-width: 1250px)",
+                    "(max-width: 750px)",
+                    "(max-width: 630px)",
+                ];
                 var imageUpdated = false;
-                for (var x = 0; x < mediaQueryArr.length; x++) { imageUpdated = imageUpdated || window.matchMedia(mediaQueryArr[x]).matches; }
+                for (var x = 0; x < mediaQueryArr.length; x++) {
+                    imageUpdated = imageUpdated || window.matchMedia(mediaQueryArr[x]).matches;
+                }
                 if (!imageUpdated) {
                     const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
                     document.getElementById("homeImage").style.height = paragraphHeight + "px";
+                } else {
+                    document.getElementById("homeImage").style.height = 0;
                 }
-                else { document.getElementById("homeImage").style.height = 0;}
             }
             setInterval(setImageHeight, 10);
         </script>

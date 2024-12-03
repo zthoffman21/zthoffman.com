@@ -25,7 +25,7 @@ body {
 .jukeboxContainer h1 {
     font-size: 24px;
     margin-bottom: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     color: #83aff0;
     text-shadow: 0 0 10px rgb(131, 175, 240);
 }
@@ -43,10 +43,10 @@ body {
     font-size: 16px;
     background-color: #444444;
     color: #c1493e;
-    text-shadow: 0 0 10px rgba(193, 73, 62, .8);
+    text-shadow: 0 0 10px rgba(193, 73, 62, 0.8);
     cursor: pointer;
     transition: background-color 0.2s;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier New", Courier, monospace;
     font-weight: bold;
 }
 
