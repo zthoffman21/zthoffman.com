@@ -55,12 +55,12 @@ function setParticles() {
         // Load shooting stars
         tsParticles.load({
             particles: {
-                number: { 
-                    value: 1, 
-                    density: { 
-                        enable: true, 
-                        value_area: 800 
-                    } 
+                number: {
+                    value: 1,
+                    density: {
+                        enable: true,
+                        value_area: 800,
+                    },
                 },
                 color: { value: "#ffffff" },
                 shape: { type: "star" },
@@ -74,7 +74,7 @@ function setParticles() {
                 },
                 move: {
                     enable: true,
-                    speed: { min: 1, max: 10},
+                    speed: { min: 1, max: 10 },
                     random: true,
                     straight: true,
                     out_mode: "out",

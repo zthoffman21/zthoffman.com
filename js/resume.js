@@ -15,6 +15,7 @@ var pdfDoc = null;
 // Render the page
 function renderPage(pdfDocument) {
     pdfDocument.getPage(1).then(function (page) {
+        scale = parseFloat(document.getElementById("zoomSelect").value) * scaleMult;
         const viewport = page.getViewport({ scale: scale });
 
         // Create a high-resolution canvas for rendering
@@ -34,7 +35,6 @@ function renderPage(pdfDocument) {
 
 // Zoom event listener
 zoomSelect.addEventListener("change", function () {
-    scale = parseFloat(this.value) * scaleMult;
     if (pdfDoc) {
         renderPage(pdfDoc);
     }
