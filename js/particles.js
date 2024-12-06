@@ -27,7 +27,7 @@ function setParticles() {
         // Load regular stars
         tsParticles.load({
             particles: {
-                number: { value: 200, density: { enable: true, value_area: 800 } },
+                number: { value: 235, density: { enable: true, value_area: 800 } },
                 color: { value: "#ffffff" },
                 shape: { type: "star" },
                 opacity: {
