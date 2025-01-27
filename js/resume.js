@@ -37,7 +37,7 @@ zoomSelect.addEventListener("change", function () {
 });
 
 // Load PDF
-pdfjsLib.getDocument("../images/Resume 1_24_2025.pdf").promise.then(function (pdfDocument) {
+pdfjsLib.getDocument("../images/Resume 1_26_2025.pdf").promise.then(function (pdfDocument) {
     pdfDoc = pdfDocument;
     renderPage(pdfDocument);
 });
@@ -45,7 +45,7 @@ pdfjsLib.getDocument("../images/Resume 1_24_2025.pdf").promise.then(function (pd
 // Download PDF
 function downloadPDF() {
     const link = document.createElement("a");
-    link.href = "../images/Resume 1_24_2025.pdf";
+    link.href = "../images/Resume 1_26_2025.pdf";
     link.download = "Resume_Zachary_Hoffman.pdf";
     link.click();
 }
