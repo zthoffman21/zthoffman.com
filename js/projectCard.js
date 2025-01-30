@@ -4,8 +4,9 @@ document.querySelectorAll(".projectCardContainer").forEach((card) => {
     lightEffect.classList.add("lightEffect");
     card.appendChild(lightEffect);
 
-    card.addEventListener("mousemove", (e) => {
-        e.preventDefault();
+    card.addEventListener("mousemove", (event) => {
+        if (flipping || window.matchMedia("(max-width: 768px)").matches) { return; }
+        event.preventDefault();
 
         const rect = card.getBoundingClientRect();
         const cardWidth = card.offsetWidth;
@@ -14,8 +15,8 @@ document.querySelectorAll(".projectCardContainer").forEach((card) => {
         const centerY = rect.top + cardHeight / 2;
 
         // Calculate the mouse position relative to the card's center
-        const offsetX = e.clientX - centerX;
-        const offsetY = e.clientY - centerY;
+        const offsetX = event.clientX - centerX;
+        const offsetY = event.clientY - centerY;
 
         // Normalize the mouse position relative to the card dimensions
         const rotateX = (offsetY / (cardHeight / 2)) * 10; // Vertical rotation
@@ -25,8 +26,8 @@ document.querySelectorAll(".projectCardContainer").forEach((card) => {
         card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
 
         // Position the light effect
-        const lightX = ((e.clientX - rect.left) / cardWidth) * 100;
-        const lightY = ((e.clientY - rect.top) / cardHeight) * 100;
+        const lightX = ((event.clientX - rect.left) / cardWidth) * 100;
+        const lightY = ((event.clientY - rect.top) / cardHeight) * 100;
 
         // Update the light effect position
         lightEffect.style.background = `radial-gradient(circle at ${lightX}% ${lightY}%, rgba(255, 255, 255, 0.5), transparent 60%)`;
@@ -61,3 +62,45 @@ document.addEventListener("DOMContentLoaded", function () {
         this.getElementById("clickCardNote").style.opacity = 1;
     }, cards.length * 800); // Delay is set to after all the cards fade in
 });
+
+
+var flipping = false;
+
+function flipCard(event) {
+    // Get the clicked element
+    const clickedElement = event.target;
+    
+    // If they clicked the back-link, let it navigate
+    if (clickedElement.classList.contains('backLink')) {
+        return;
+    }
+    
+    event.preventDefault();
+
+    // Setting card data
+    const card = event.currentTarget;
+    const cardContent = card.querySelector('.projectCardContent');
+    const isFlipped = card.dataset.flipped === 'true';
+
+    // Flipping animations
+    card.style.transform = "rotateX(0) rotateY(180deg) scale(1)";
+    flipping = true;
+    setTimeout(() => { card.style.transform = "rotateX(0) rotateY(0) scale(1)"; }, 100);
+    setTimeout(() => { flipping = false; }, 200);
+    
+    if (!isFlipped) {
+        cardContent.innerHTML = `
+            <div class="backContent">
+                <img src="${card.dataset.backImage}" alt="project details" />
+                <h1>This is a test</h1>
+                <a href="${card.dataset.projectLink}" class="backLink" target="_blank">Github</a>
+            </div>
+        `;
+        card.dataset.flipped = 'true';
+    } else {
+        cardContent.innerHTML = `
+            <img src="${card.dataset.frontImage}" alt="project preview" />
+        `;
+        card.dataset.flipped = 'false';
+    }
+}
