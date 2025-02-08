@@ -92,7 +92,6 @@ function flipCard(event) {
         cardContent.innerHTML = `
             <div class="backContent">
                 <img src="${card.dataset.backImage}" alt="project details" />
-                <h1>This is a test</h1>
                 <a href="${card.dataset.projectLink}" class="backLink" target="_blank">Github</a>
             </div>
         `;
