@@ -1,6 +1,7 @@
 @font-face { font-family: OpenDyslexic; src: url("../images/OpenDyslexic-Regular.woff2"); } 
 
 html, body {
+    height: 100%;
     overflow: hidden;
     margin: 0;
     padding: 0;
@@ -17,6 +18,8 @@ button {
 
 h1 {
     font-family: 'OpenDyslexic';
+    font-size: 2dvh;
+    
 }
 
 #main_container {
@@ -29,11 +32,13 @@ h1 {
 }
 
 #photo {
-    width: auto;
-    height: 60dvh;
+    width: 75dvw;
+    max-width: 600px;
+    height: auto;
     border-radius: 25px;
     border: solid 4px #000;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, .9);
+    margin-bottom: 2%;
 }
 
 #yes_button {
@@ -68,7 +73,7 @@ h1 {
 }
 #two {
     position: absolute;
-    left: 65dvw;
+    left: 70dvw;
     top: 5dvh;
 }
 #three {
@@ -78,6 +83,34 @@ h1 {
 }
 #four {
     position: absolute;
-    left: 65dvw;
+    left: 70dvw;
     top: 65dvh;
+}
+
+@media screen and (max-width: 1250px) {
+    .lebron {
+        width: auto;
+        height: 25dvh;
+    }
+    #one {
+        position: absolute;
+        left: 0dvw;
+        top: 0dvh;
+    }
+    #two {
+        position: absolute;
+        left: 50dvw;
+        top: 20dvh;
+    }
+    #three {
+        position: absolute;
+        left: 50dvw;
+        top: 70dvh;
+        z-index: 10;
+    }
+    #four {
+        position: absolute;
+        left: -20dvw;
+        top: 65dvh;
+    }
 }
