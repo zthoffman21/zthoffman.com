@@ -1,0 +1,83 @@
+@font-face { font-family: OpenDyslexic; src: url("../images/OpenDyslexic-Regular.woff2"); } 
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(#fff, rgb(243, 119, 119));
+}
+
+button {
+    border-radius: 25px;
+    width: 75px;
+    height: 30px;
+    border-color: rgba(0, 0, 0, .6);
+    font-family: 'OpenDyslexic';
+}
+
+h1 {
+    font-family: 'OpenDyslexic';
+}
+
+#main_container {
+    height: 100dvh;
+    width: 100dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#photo {
+    width: auto;
+    height: 60dvh;
+    border-radius: 25px;
+    border: solid 4px #000;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .9);
+}
+
+#yes_button {
+    background-color: #39e239;
+}
+
+#no_button {
+    background-color: #d12828;
+}
+
+#images_container {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.lebron {
+    width: auto;
+    height: 30dvh;
+    border-radius: 25px;
+    border: solid 4px #000;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, .9);
+}
+
+#one {
+    position: absolute;
+    left: 5dvw;
+    top: 5dvh;
+}
+#two {
+    position: absolute;
+    left: 65dvw;
+    top: 5dvh;
+}
+#three {
+    position: absolute;
+    left: 5dvw;
+    top: 65dvh;
+}
+#four {
+    position: absolute;
+    left: 65dvw;
+    top: 65dvh;
+}
