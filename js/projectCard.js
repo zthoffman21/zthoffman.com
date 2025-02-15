@@ -41,6 +41,7 @@ document.querySelectorAll(".projectCardContainer").forEach((card) => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+    // PROJECT CARD DISPLAY ANIMATIONS
     const cards = this.getElementsByClassName("projectCardContainer");
 
     for (let x = 0; x < cards.length; x++) {
@@ -61,6 +62,20 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         this.getElementById("clickCardNote").style.opacity = 1;
     }, cards.length * 800); // Delay is set to after all the cards fade in
+
+
+    // PRE LOAD PROJECT CARD BACK CONTENT
+    const imagesToPreload = [
+        "../images/projectDetailsChessRobotResized.webp",
+        "../images/projectDetailsAIRacingSimulationResized.webp",
+        "../images/projectDetailsPersonalPortfolioResized.webp",
+        "../images/projectDetailsPawnsRevengeResized.webp"
+      ];
+      
+    imagesToPreload.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });  
 });
 
 
