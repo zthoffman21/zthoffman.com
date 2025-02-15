@@ -1,8 +1,6 @@
 // Card rotate and light logic
 document.querySelectorAll(".projectCardContainer").forEach((card) => {
-    const lightEffect = document.createElement("div");
-    lightEffect.classList.add("lightEffect");
-    card.appendChild(lightEffect);
+    const lightEffect = card.querySelector(".lightEffect");
 
     card.addEventListener("mousemove", (event) => {
         if (flipping || window.matchMedia("(max-width: 768px)").matches) { return; }
