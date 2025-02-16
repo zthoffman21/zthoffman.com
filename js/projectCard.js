@@ -4,13 +4,15 @@ document.querySelectorAll(".card").forEach((card) => {
     var posX = 0;
     var posY = 0;
 
-    card.addEventListener('click', function() {
-        this.classList.toggle('flipped');
+    card.addEventListener("click", function () {
+        this.classList.toggle("flipped");
         updateLightEffect(posX, posY, card, lightEffect);
     });
-    
+
     card.addEventListener("mousemove", (event) => {
-        if (window.matchMedia("(max-width: 768px)").matches) { return; }
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            return;
+        }
         event.preventDefault();
 
         card.classList.remove("idleCard");
@@ -25,7 +27,7 @@ document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("mouseleave", () => {
         card.style.transform = `rotateX(0) rotateY(0) scale(1)`;
         lightEffect.style.background = "none";
-        
+
         document.querySelectorAll(".card").forEach((card) => {
             card.classList.remove("idleCard");
             void card.offsetWidth; // Forces reflow
@@ -62,10 +64,12 @@ function updateLightEffect(posX, posY, card, lightEffect) {
     const lightX = ((posX - rect.left) / cardWidth) * 100;
     const lightY = ((posY - rect.top) / cardHeight) * 100;
 
-    flippedOffset = card.classList.contains("flipped")? 100: 0;
+    flippedOffset = card.classList.contains("flipped") ? 100 : 0;
 
     // Update the light effect position
-    lightEffect.style.background = `radial-gradient(circle at ${Math.abs(flippedOffset - lightX)}% ${lightY}%, rgba(255, 255, 255, 0.5), transparent 60%)`;
+    lightEffect.style.background = `radial-gradient(circle at ${Math.abs(
+        flippedOffset - lightX
+    )}% ${lightY}%, rgba(255, 255, 255, 0.5), transparent 60%)`;
 }
 
 // Fade in animations
@@ -76,16 +80,16 @@ document.addEventListener("DOMContentLoaded", function () {
             cards[x].style.opacity = 1;
             cards[x].classList.remove("initialFlip");
         }, x * 500);
-    };
+    }
 
     setTimeout(() => {
         this.getElementById("clickCardNote").style.opacity = 1;
-    }, (cards.length) * 500);
+    }, cards.length * 500);
 });
 
 // Blocks clicking on the project link toggling the card flip
-document.querySelectorAll(".backLink").forEach(link => {
-    link.addEventListener('click', (event) => {
+document.querySelectorAll(".githubButton").forEach((link) => {
+    link.addEventListener("click", (event) => {
         event.stopPropagation();
     });
 });
