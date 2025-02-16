@@ -13,6 +13,8 @@ document.querySelectorAll(".card").forEach((card) => {
         if (window.matchMedia("(max-width: 768px)").matches) { return; }
         event.preventDefault();
 
+        card.classList.remove("idleCard");
+
         posX = event.clientX;
         posY = event.clientY;
 
@@ -23,6 +25,12 @@ document.querySelectorAll(".card").forEach((card) => {
     card.addEventListener("mouseleave", () => {
         card.style.transform = `rotateX(0) rotateY(0) scale(1)`;
         lightEffect.style.background = "none";
+        
+        document.querySelectorAll(".card").forEach((card) => {
+            card.classList.remove("idleCard");
+            void card.offsetWidth; // Forces reflow
+            card.classList.add("idleCard");
+        });
     });
 });
 
