@@ -44,59 +44,67 @@
             <hr />
 
             <div id="projectListContainer">
-
-                <button class="projectCardContainer" onclick="flipCard(event)" data-front-image="../images/chessRobotResized.webp" data-back-image="../images/projectDetailsChessRobotResized.webp" data-project-link="https://github.com/zthoffman21/chessRobot">
-                    <div class="projectCardContent">
-                        <img
-                            src="../images/chessRobotResized.webp"
-                            alt="chessRobotCard"
-                        />
+                <!-- Chess Robot Project Card -->
+                <div class="card initialFlip">
+                    <div class="cardInner">
+                        <div class="cardFace cardFaceFront">
+                            <img src="../images/chessRobotResized.webp" alt="PawnsRevengeCard"/>
+                        </div>
+                        <div class="cardFace cardFaceBack">
+                            <img src="../images/projectDetailsChessRobotResized.webp" alt="PawnsRevengeCard"/>
+                            <a href="https://github.com/zthoffman21/chessRobot" class="backLink" target="_blank">Github</a>
+                        </div>
+                        <div class="lightEffect"></div>
+                        <div class="overlayEffect"></div>
                     </div>
-                    <div class="overlayEffect"></div>
-                </button>
-
-                <button class="projectCardContainer" onclick="flipCard(event)" data-front-image="../images/AIRacingSimulationCard.webp" data-back-image="../images/projectDetailsAIRacingSimulationResized.webp" data-project-link="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation">
-                    <div class="projectCardContent">
-                        <img
-                            src="../images/AIRacingSimulationCard.webp"
-                            alt="AIRacingSimulationCard"
-                        />
+                </div>
+                <!-- Racing Simulation Project Card -->
+                <div class="card initialFlip">
+                    <div class="cardInner">
+                        <div class="cardFace cardFaceFront">
+                            <img src="../images/AIRacingSimulationCard.webp" alt="PawnsRevengeCard"/>
+                        </div>
+                        <div class="cardFace cardFaceBack">
+                            <img src="../images/projectDetailsAIRacingSimulationResized.webp" alt="PawnsRevengeCard"/>
+                            <a href="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation" class="backLink" target="_blank">Github</a>
+                        </div>
+                        <div class="lightEffect"></div>
+                        <div class="overlayEffect"></div>
                     </div>
-                    <div class="overlayEffect"></div>
-                </button>
-
-                <button class="projectCardContainer" onclick="flipCard(event)" data-front-image="../images/PersonalWebsiteCardResized.webp" data-back-image="../images/projectDetailsPersonalPortfolioResized.webp" data-project-link="https://github.com/zthoffman21/zthoffman.com">
-                    <div class="projectCardContent">
-                        <img
-                            src="../images/PersonalWebsiteCardResized.webp"
-                            alt="PersonalWebsiteCard"
-                        />
+                </div>
+                <!-- Portfolio Website Project Card -->
+                <div class="card initialFlip">
+                    <div class="cardInner">
+                        <div class="cardFace cardFaceFront">
+                            <img src="../images/PersonalWebsiteCardResized.webp" alt="PawnsRevengeCard"/>
+                        </div>
+                        <div class="cardFace cardFaceBack">
+                            <img src="../images/projectDetailsPersonalPortfolioResized.webp" alt="PawnsRevengeCard"/>
+                            <a href="https://github.com/zthoffman21/zthoffman.com" class="backLink" target="_blank">Github</a>
+                        </div>
+                        <div class="lightEffect"></div>
+                        <div class="overlayEffect"></div>
                     </div>
-                    <div class="overlayEffect"></div>
-                </button>
-
-                <button class="projectCardContainer" onclick="flipCard(event)" data-front-image="../images/PawnsRevengeCard2Resized.webp" data-back-image="../images/projectDetailsPawnsRevengeResized.webp" data-project-link="https://github.com/zthoffman21/Pawns-Revenge-Python">
-                    <div class="projectCardContent">
-                        <img
-                            src="../images/PawnsRevengeCard2Resized.webp"
-                            alt="PawnsRevengeCard"
-                        />
+                </div>
+                <!-- Pawns Revenge Project Card --> 
+                <div class="card initialFlip">
+                    <div class="cardInner">
+                        <div class="cardFace cardFaceFront">
+                            <img src="../images/PawnsRevengeCard2Resized.webp" alt="PawnsRevengeCard"/>
+                        </div>
+                        <div class="cardFace cardFaceBack">
+                            <img src="../images/projectDetailsPawnsRevengeResized.webp" alt="PawnsRevengeCard"/>
+                            <a href="https://github.com/zthoffman21/Pawns-Revenge-Python" class="backLink" target="_blank">Github</a>
+                        </div>
+                        <div class="lightEffect"></div>
+                        <div class="overlayEffect"></div>
                     </div>
-                    <div class="overlayEffect"></div>
-                </button>
+                </div>
 
             </div>
         </div>
         <div
-            id="clickCardNote"
-            style="
-                display: flex;
-                justify-content: center;
-                margin: 30px 0 60px 0;
-                opacity: 0;
-                transition: opacity 0.5s ease;
-            "
-        >
+            id="clickCardNote">
             <p style="color: var(--textAlt); font-family: 'Coda'; font-size: 0.75em">
                 <i>...click a card to view more</i>
             </p>
