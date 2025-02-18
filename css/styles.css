@@ -168,6 +168,7 @@ nav {
     margin: 0 4.6%;
     border: 2px solid var(--navLight);
     overflow: hidden;
+    transition: transform 500ms ease;
 }
 .navItem a {
     display: flex;
@@ -181,6 +182,9 @@ nav {
     z-index: 10;
     text-decoration: none;
     transition: color 200ms ease;
+}
+.navItem:hover, .navItemActive:hover {
+    transform: scale(1.1);
 }
 .navItem:hover a {
     color: var(--navDark);
@@ -212,6 +216,7 @@ nav {
     border: 2px solid var(--navLight);
     background-color: var(--navLight);
     overflow: hidden;
+    transition: transform 500ms ease;
 }
 .navItemActive a {
     display: flex;

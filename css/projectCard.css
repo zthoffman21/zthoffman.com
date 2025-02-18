@@ -35,7 +35,10 @@
 }
 
 .idleCard {
-    animation: glow 6s ease-in-out infinite, subtleFlip 9s ease-in-out infinite;
+    animation:
+        fadeInGlow 1s ease forwards, 
+        glow 6s ease infinite, 
+        subtleFlip 9s ease-in-out infinite;
 }
 
 .cardInner {
@@ -98,7 +101,7 @@
     transition: all 0.2s ease;
     backface-visibility: hidden;
     overflow: hidden;
-    text-decoration: none
+    text-decoration: none;
 }
 .githubButton::before {
     content: "";
@@ -215,13 +218,17 @@
 }
 
 /* Idle animation */
-@keyframes glow {
-    0%,
-    70%,
-    100% {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+@keyframes fadeInGlow {
+    0% {
+        box-shadow: none;
     }
-    35% {
+    100% {
+        box-shadow: 0 0 2px rgba(66, 153, 225, 0.8), 0 0 7px rgba(102, 126, 234, 0.6),
+            0 0 15px rgba(102, 126, 234, 0.4);
+    }
+}
+@keyframes glow {
+    60% {
         box-shadow: 0 0 5px rgba(66, 153, 225, 0.8), 0 0 15px rgba(102, 126, 234, 0.6),
             0 0 25px rgba(102, 126, 234, 0.4);
     }
@@ -251,8 +258,5 @@
 @media (max-width: 768px) {
     .lightEffect {
         opacity: 0%;
-    }
-    .idleCard {
-        animation: none;
     }
 }

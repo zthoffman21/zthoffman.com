@@ -84,6 +84,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setTimeout(() => {
         this.getElementById("clickCardNote").style.opacity = 1;
+        for (let x = 0; x < cards.length; x++) {
+            cards[x].classList.add("idleCard");
+        }
     }, cards.length * 500);
 });
 

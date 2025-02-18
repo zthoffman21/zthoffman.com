@@ -50,6 +50,21 @@ function setParticles() {
                     bounce: false,
                 },
             },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse", 
+                    },
+                },
+                modes: {
+                    repulse: {
+                        distance: 75, 
+                        duration: 1,
+                        speed: 0.01,
+                    },
+                },
+            },
         });
 
         // Load shooting stars
@@ -78,6 +93,21 @@ function setParticles() {
                     random: true,
                     straight: true,
                     out_mode: "out",
+                },
+            },
+            interactivity: {
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse",
+                    },
+                },
+                modes: {
+                    repulse: {
+                        distance: 75, 
+                        duration: 1, 
+                        speed: 0.01,
+                    },
                 },
             },
         });
