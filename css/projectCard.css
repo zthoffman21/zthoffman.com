@@ -259,4 +259,7 @@
     .lightEffect {
         opacity: 0%;
     }
+    .idleCard {
+        animation: none;
+    }
 }
