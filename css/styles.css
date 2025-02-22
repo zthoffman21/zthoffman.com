@@ -308,10 +308,12 @@ html {
     align-items: flex-end;
     margin: calc(10px * var(--windowMult));
     gap: calc(16px * var(--windowMult));
+    background-color: #f0f0f0;
 }
 #customizeButtons button {
     border: none;
     transition: transform 0.3s ease;
+    background-color: #f0f0f0;
 }
 #customizeButtons button:hover {
     transform: scale(1.3);
