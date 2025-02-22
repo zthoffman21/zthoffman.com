@@ -153,6 +153,7 @@ html {
 #navExit {
     width: calc(10px * var(--windowMult));
     height: calc(10px * var(--windowMult));
+    border-color: #000;
 }
 #navMinimize {
     background-color: orange;
@@ -378,6 +379,7 @@ html {
 .windowExit {
     width: calc(10px * var(--windowMult));
     height: calc(10px * var(--windowMult));
+    border-color: #000;
 }
 .windowMinimize {
     background-color: orange;
