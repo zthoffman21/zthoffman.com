@@ -108,7 +108,7 @@
                                 <div style="margin-left: 5%;">
                                     <h4>&emsp; My name is Zach Hoffman. <img src="images/icons/snoopy.svg"> I am a Computer Science major with a Mathematics minor at Liberty University. I enjoy making user-facing technology ranging from robotics to game design. <img src="images/icons/mouse.svg"></h4>
                                 </div>
-                                <div style="display: flex; flex-direction: row; gap: 10%; margin-top: 2%; margin-left: 5%;">
+                                <div id="bioTrees">
                                     <ul class="treeView">
                                         <li>
                                           My Hobbies:
@@ -142,16 +142,18 @@
                                 </div>
                             </div>
                             <div id="customizeButtons">
-                                <button id="musicButton"><img src="images/icons/music.svg"></button>
-                                <div id="musicSelector">
-                                    <div>
-                                        <h4>Music</h4>
-                                        <button onclick="playTrack('music/acoustic.mp3')">Acoustic</button>
-                                        <button onclick="playTrack('music/classical.mp3')">Classical</button>
-                                        <button onclick="playTrack('music/jazz.mp3')">Jazz</button>
-                                        <button onclick="playTrack('music/lofi.mp3')">Lofi</button>
-                                        <button onclick="playTrack('music/synthwave.mp3')">Synthwave</button>
-                                        <audio id="audioPlayer" loop></audio>
+                                <div style="position: relative; display: inline-block;">
+                                    <button id="musicButton"><img src="images/icons/music.svg"></button>
+                                    <div id="musicSelector">
+                                        <div>
+                                            <h4>Music</h4>
+                                            <button onclick="playTrack('music/acoustic.mp3')">Acoustic</button>
+                                            <button onclick="playTrack('music/classical.mp3')">Classical</button>
+                                            <button onclick="playTrack('music/jazz.mp3')">Jazz</button>
+                                            <button onclick="playTrack('music/lofi.mp3')">Lofi</button>
+                                            <button onclick="playTrack('music/synthwave.mp3')">Synthwave</button>
+                                            <audio id="audioPlayer" loop></audio>
+                                        </div>
                                     </div>
                                 </div>
                                 <button id="themeButton"><img src="images/icons/paint.svg"></button>
@@ -367,7 +369,7 @@
             </div>
             
         </div>
-        <div id="footer" style="display: flex; justify-content: center; color: var(--navLight); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'";">
+        <div id="footer" style="display: flex; justify-content: center; color: var(--footer); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'";">
             <h6>Hoffman &copy; <script>document.write(new Date().getFullYear());</script></h6>
         </div>
 

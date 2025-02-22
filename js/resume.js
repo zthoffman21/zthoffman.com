@@ -26,8 +26,10 @@ function renderPage(pdfDocument) {
         };
 
         page.render(renderContext).promise.then(function () {
-            if (!window.matchMedia("(max-width: 768px)").matches) {
+            if (!window.matchMedia("(max-width: 900px)").matches) {
                 setAbsolutePositions();
+            } else {
+                document.getElementById("footer").style.opacity = 1;
             }
         });
     });
@@ -38,17 +40,18 @@ function setAbsolutePositions() {
     const windows = document.querySelectorAll('.window');
 
     container.style.height = container.getBoundingClientRect().height + 'px';
-    windows.forEach(el => {
-        const rect = el.getBoundingClientRect();
+    document.getElementById("footer").style.opacity = 1;
+
+    windows.forEach(window => {
+        const rect = window.getBoundingClientRect();
         const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        el.style.left = (rect.left + scrollLeft) + 'px';
-        el.style.top = (rect.top + scrollTop) + 'px';                        
+        window.style.left = (rect.left + scrollLeft) + 'px';
+        window.style.top = (rect.top + scrollTop) + 'px';                        
     });
-    windows.forEach(el => {
-        el.style.position = 'absolute';
-    });
-    document.getElementById("footer").style.opacity = 1;
+    windows.forEach(window => {
+        window.style.position = 'absolute';
+    })
 }
 
 // Zoom event listener

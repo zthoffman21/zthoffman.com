@@ -3,6 +3,7 @@
     --bio: #2c456b;
     --projects: #c1493e;
     --resume: #83aff0;
+    --footer: #83aff0;
 
     --backgroundColor: #0b171d;
     --navDark: #2c456b;
@@ -17,6 +18,7 @@
     --bio: #ffe81f;
     --projects: #3d3d3d;
     --resume: #a3a3a3;
+    --footer: #ffe81f;
 
     --backgroundColor: #000000;
     --navDark: #1a1a1a;
@@ -31,6 +33,7 @@
     --bio: #d97a3d;
     --projects: #4d3f34;
     --resume: #b08449;
+    --footer: #d97a3d;
 
     --backgroundColor: #322f2c;
     --navDark: #b08449;
@@ -45,6 +48,7 @@
     --bio: #88c0d0;
     --projects: #bf616a;
     --resume: #4c566a;
+    --footer: #bf616a;
 
     --backgroundColor: #2e3440;
     --navDark: #88c0d0;
@@ -59,6 +63,7 @@
     --bio: #b02a30;
     --projects: #2fa34f;
     --resume: #b02a30;
+    --footer: #b02a30;
 
     --backgroundColor: #0f2027;
     --navDark: #b02a30;
@@ -101,20 +106,19 @@ html {
 
 #mainContainer {
     flex-grow: 1;
-    width: 1500px;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 4%;
 }
 #linksBioContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 10%;
-    gap: 10%;
-    margin-top: 5%;
+    gap: 8%;
+    margin-top: 8%;
 }
 
 /* NAVIGATION WINDOW */
@@ -124,7 +128,7 @@ html {
     height: fit-content;
     padding: calc(2px * var(--windowMult));
     background-color: #fff;
-    margin: calc(20px * var(--windowMult)) auto;
+    margin-bottom: 4%;
 }
 #navContainer {
     width: calc(400px * var(--windowMult));
@@ -232,8 +236,8 @@ html {
 /* WINDOW WINDOW */
 #bio #musicSelector {
     position: absolute;
-    left: 95%;
-    top: 40%;
+    left: -35px;
+    top: -175px;
     width: auto;
     height: auto;
     background: var(--bio);
@@ -249,6 +253,7 @@ html {
     display: inline-block;
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: 10;
 }
 #bio #musicSelector h4 {
     display: flex;
@@ -311,6 +316,7 @@ html {
     transform: scale(1.3);
 }
 #bio #customizeButtons img {
+    background: transparent;
     width: calc(25px * var(--windowMult));
     height: calc(25px * var(--windowMult));
 }
@@ -349,7 +355,6 @@ html {
 #bio .windowContainer {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     width: calc(550px * var(--windowMult));
     height: calc(250px * var(--windowMult));
 }
@@ -407,7 +412,6 @@ html {
 }
 .windowContent {
     margin: calc(10px * var(--windowMult));
-    font-size: calc(12px * var(--windowMult));
     background: #fff;
     box-shadow: inset calc(-0.8px * var(--windowMult)) calc(-0.8px * var(--windowMult)) #fff,
         inset calc(0.8px * var(--windowMult)) calc(0.8px * var(--windowMult)) grey,
@@ -421,6 +425,14 @@ html {
 .windowContent img {
     width: calc(15px * var(--windowMult));
     height: calc(15px * var(--windowMult));
+    
+}
+#bioTrees {
+    display: flex; 
+    flex-direction: row; 
+    gap: 10%;
+    margin-top: 2%; 
+    margin-left: 5%;
 }
 #links .windowContent img {
     width: calc(30px * var(--windowMult));
@@ -484,18 +496,41 @@ ul.treeView ul > li:last-child:after {
     width: calc(6.4px * var(--windowMult));
 }
 
-@media (max-width: 768px) {
-    :root {
-        --windowMult: 1;
+@media (max-width: 1380px) {
+    #navContainerOuter {
+        margin-bottom: 0;
     }
-
-    #mainContainer {
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px;
-    } 
-
     #linksBioContainer {
         flex-direction: column;
+    }
+    .windowContainerOuter {
+        margin-bottom: 8%;
+    }
+}
+@media (max-width: 900px) {
+    #mainContainer {
+        width: 100%;
+        padding: 2%;
+    }
+    #bio .windowContainer {
+        width: fit-content;
+        height: fit-content;
+    }
+    .windowContainer {
+        width: auto;
+    }
+    .windowContent {
+        width: auto;
+    }
+    #bioTrees {
+        flex-direction: column;
+    }
+}
+@media (max-width: 650px) {
+    #navContainerOuter {
+        width: 100%;
+    }
+    #navContainer {
+        width: 100%;
     }
 }
