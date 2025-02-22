@@ -542,6 +542,11 @@ ul.treeView ul > li:last-child:after {
 }
 @media (max-width: 650px) {
     #navContainerOuter {
+        --windowMult: 1.25;
+    }
+}
+@media (max-width: 530px) {
+    #navContainerOuter {
         width: 100%;
     }
     #navContainer {
