@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260">
+	<title>mouse</title>
+	<defs>
+		<image  width="224" height="248" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOAAAAD4BAMAAAAHhvckAAAAAXNSR0IB2cksfwAAABVQTFRFAAAAAAAA////wMDAgICAgIAA//8AuhR1qgAAAAd0Uk5TAP///////6V/pvsAAAHNSURBVHic7drdbcMgFIZhMgIreIWu0BU6pVfoClnBK7BCG8mn/XpyCODgqBfvkazwJx5uwBhySR2RJV0G6qK4AAICDoNZnlts0rGWG9hCAQEBx8DsnrKDvs0iWAsFBAQ8Bi573jraXH2Wel0YAAEB54E5KNcBaAACAs4FFS0V3JClAwMEBIxB7cA61byiEaZo18EQICDgHagZm+A+AAEB/xdoL9sUpAEBAeeCuvnVTXBtI+zb1nBAQMB+MCqPUI+1AhAQcAz0C4Ed/kThFwxAQMA5oJWl9LvhTYIuLt+DAgIC1kGd2PZC9dCj8GgtAAEB+0DLRx+f2rkNSC8sWyggIGAdNERfotqpYu9SvwY4ICDgHFDLPPixt/sMBgUICHgOqC9jnfhr+rtAlAYGCAg4D4wmvqKAgIDngoamHV5de0BAwNeAUQwf0AICAv6AfiMb5R+Bb9/PFRAQ8CmwUd8ERy5JAAEBzwEVroUOAhAQcBzsQQ2r/dlHL08AAQGPgTVUJ3v0IRvVAQICHgcVLZKPLilv5boIXAEBAaeAOUgrpOnbYVG0MS6AgICHQZvg+puCMo/62AABAQ+Dz4TfEAMCAp4H+kVBEQ1AQMA78AucbQG9mfhtTgAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="10" y="10"/>
+</svg>

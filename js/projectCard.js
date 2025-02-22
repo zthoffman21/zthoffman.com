@@ -81,13 +81,6 @@ document.addEventListener("DOMContentLoaded", function () {
             cards[x].classList.remove("initialFlip");
         }, x * 500);
     }
-
-    setTimeout(() => {
-        this.getElementById("clickCardNote").style.opacity = 1;
-        for (let x = 0; x < cards.length; x++) {
-            cards[x].classList.add("idleCard");
-        }
-    }, cards.length * 500);
 });
 
 // Blocks clicking on the project link toggling the card flip

@@ -6,13 +6,18 @@
 
         <title>Zachary Hoffman</title>
         <meta name="description" content="This is a portfolio website" />
-        <link rel="icon" type="png" href="images/codeLightBlue.ico" />
+        <link rel="icon" type="png" href="images/icons/codeLightBlue.ico" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/styles.css"/>
+        <link rel="stylesheet" href="css/projectCard.css"/>
+        <link rel="stylesheet" href="css/resume.css"/>
 
+        
         <!-- Link to the particle library -->
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+        <!-- Link to the pdf library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 
         <!-- Load theme on page load  -->
         <script>
@@ -26,127 +31,352 @@
         </script>
     </head>
     <body>
-        <div class="mainContainer">
-            <!-- NAVIGATION BAR -->
-            <div class="containerNav">
-                <nav class="navbar">
-                    <ul class="nav--list">
-                        <li class="navItemActive"><a href="index.html">Home</a></li>
-                        <li class="navItem"><a href="pages/projects.html">Projects</a></li>
-                        <li class="navItem"><a href="pages/resume.html">Resume</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <div id="mainContainer">
 
-            <!-- HEADER -->
-            <h1 id="mainName">Zachary T. Hoffman</h1>
-            <hr id="homeBigLine" />
-            <h1 class="subHeader">About Me</h1>
-            <hr id="homeSmallLine" />
-            <!-- MAIN PAGE CONTENT -->
-            <div id="homeParagraph">
-                <p>
-                    &emsp;&emsp; I'm a <b>software engineering</b> student at Liberty University with a <b>mathematics minor</b> &mdash; it's the perfect combination of solving complex 
-                    problems and building new technologies. I enjoy being involved in our <b>competitive programming club</b>, where we dive into challenging 
-                    problems using everything from clever algorithms to advanced data structures.
-                </p>
-                <br/>
-                <p>
-                    &emsp;&emsp; When I'm not coding, I try to keep active through weightlifting, snowboarding, hiking, 
-                    and golf. Taking courses like <b>Data Structures and Algorithms</b> and <b>Calculus III</b> has shown 
-                    me how beautifully math and technology work together, and it's influenced my future career plans.
-                </p>
-                <br />
-                <p>
-                    &emsp;&emsp; Looking ahead, I'm excited to dive into <b>mechatronics</b>, where I can blend my programming skills and mathematical 
-                    thinking to build innovative solutions that make a real impact. If you'd like to learn more, feel free to connect.
-                </p>
-            </div>
-            <div id="homeImage">
-                <img
-                    src="images/imageOfMe.JPG"
-                    alt="Image of Me"
-                    style="
-                        max-width: 100%;
-                        height: auto;
-                        border-radius: 2%;
-                        justify-content: center;
-                        align-items: center;
-                        box-shadow: rgba(0, 0, 0, 0.6) 0px 15px 20px -5px;
-                    "
-                />
-                <p id="joke"></p>
-            </div>
-        </div>
+            <div id="navContainerOuter" class="window">
+                <div id="navContainer">
+                    <div id="navOptionsBar" class="draggable">
+                        <button id="navMinimize" onclick="windowMinimize(this)"></button>
+                        <button id="navMaximize" onclick="windowMaximize(this)"></button>
+                        <button id="navExit" onclick="windowClose(this)"></button>
+                    </div>
+                    <div id="navTitleBarContainer">
+                        <div class="navTitleBarAccent"></div>
+                        <div id="navTitleBar">Explore the Site!</div>
+                        <div class="navTitleBarAccent"></div>
+                    </div>
+                    <div id="navListContainer">
+                        <ul id="navList">
+                            <li id="active"><a href="#bio">
+                                <img src="images/icons/home.svg">
+                                <p>Home</p>
+                            </a></li>
+                            
+                            <li><a href="#projects">
+                                <img src="images/icons/lightBulb.svg">
+                                <p>Projects</p>
+                            </a></li>
 
-        <div class="footer">
-            <div class="icons">
-                <button class="footerIcon" id="themeButton" type="button" style="border: none">
-                    <img src="images/paintBrush.svg" alt="Theme" />
-                </button>
-
-                <div class="iconLinks">
-                    <a class="footerIcon" href="https://linkedin.com/in/zthoffman" target="_blank">
-                        <img src="images/linkedInIconResized.webp" alt="LinkedIn" />
-                    </a>
-                    <a class="footerIcon" href="https://github.com/zthoffman21" target="_blank">
-                        <img src="images/githubIconResized.webp" alt="GitHub" />
-                    </a>
-                    <a class="footerIcon" href="mailto:zachhoffman@ymail.com" target="_blank">
-                        <img src="images/mailIconResized.webp" alt="Email" />
-                    </a>
+                            <li><a href="#resume">
+                                <img src="images/icons/paper.svg">
+                                <p>Resume</p>
+                            </a></li>
+                        </ul>
+                    </div>
                 </div>
-
-                <button
-                    class="footerIcon"
-                    type="button"
-                    style="border: none"
-                    onclick="window.open('pages/musicPlayer.html', 'musicPlayer', 'width=200,height=335,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');"
-                >
-                    <img src="images/musicNotes.svg" alt="JukeBox" />
-                </button>
             </div>
+
+            <div id="linksBioContainer">
+                <div id="links" class="windowContainerOuter window">
+                    <div class="windowContainer">
+                        <div class="windowOptionsBar draggable">
+                            <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                            <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                            <button class="windowExit" onclick="windowClose(this)"></button>
+                        </div>
+                        <div class="windowTitleBar">Links</div>
+                        <div class="windowContent">
+                            <div style="display: flex; flex-direction: column; align-items: center;">
+                                <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                    <img src="images/icons/world.svg">
+                                    <h3>LinkedIn</h3>
+                                </a>
+                                <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                    <img src="images/icons/tree.svg">
+                                    <h3>GitHub</h3>
+                                </a>
+                                <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                    <img src="images/icons/letter.svg">
+                                    <h3>Email Me!</h3>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="bio" class="windowContainerOuter window">
+                    <div class="windowContainer">
+                        <div class="windowOptionsBar draggable">
+                            <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                            <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                            <button class="windowExit" onclick="windowClose(this)"></button>
+                        </div>
+                        <div class="windowTitleBar">About Me</div>
+                        <div id="bioContentWrapper">
+                            <div class="windowContent">
+                                <h2>Hello, </h2>
+                                <div style="margin-left: 5%;">
+                                    <h4>&emsp; My name is Zach Hoffman. <img src="images/icons/snoopy.svg"> I am a Computer Science major with a Mathematics minor at Liberty University. I enjoy making user-facing technology ranging from robotics to game design. <img src="images/icons/mouse.svg"></h4>
+                                </div>
+                                <div style="display: flex; flex-direction: row; gap: 10%; margin-top: 2%; margin-left: 5%;">
+                                    <ul class="treeView">
+                                        <li>
+                                          My Hobbies:
+                                          <ul>
+                                            <li>Programming...duh</li>
+                                            <li>Golf</li>
+                                            <li>Fishing  <img src="images/icons/fish.svg"></li>
+                                          </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="treeView">
+                                        <li>
+                                          My Favorite Classes:
+                                          <ul>
+                                            <li>Calculus Ⅲ</li>
+                                            <li>Data Structures and Algorithms</li>
+                                            <li>Lunch</li>
+                                          </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="treeView">
+                                        <li>
+                                          My Favorite Movies:
+                                          <ul>
+                                            <li>Here Comes the Boom</li>
+                                            <li>Harry Potter <img src="images/icons/wizard.svg"></li>
+                                            <li>How to Train Your Dragon</li>
+                                          </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="customizeButtons">
+                                <button id="musicButton"><img src="images/icons/music.svg"></button>
+                                <div id="musicSelector">
+                                    <div>
+                                        <h4>Music</h4>
+                                        <button onclick="playTrack('music/acoustic.mp3')">Acoustic</button>
+                                        <button onclick="playTrack('music/classical.mp3')">Classical</button>
+                                        <button onclick="playTrack('music/jazz.mp3')">Jazz</button>
+                                        <button onclick="playTrack('music/lofi.mp3')">Lofi</button>
+                                        <button onclick="playTrack('music/synthwave.mp3')">Synthwave</button>
+                                        <audio id="audioPlayer" loop></audio>
+                                    </div>
+                                </div>
+                                <button id="themeButton"><img src="images/icons/paint.svg"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects" class="windowContainerOuter window">
+                <div class="windowContainer">
+                    <div class="windowOptionsBar draggable">
+                        <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                        <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                        <button class="windowExit" onclick="windowClose(this)"></button>
+                    </div>
+                    <div class="windowTitleBar">Projects</div>
+                    <div class="windowContent" style="padding: calc(20px * var(--windowMult));  background: #0b171d40;">
+                        <div style="display: flex; justify-content: center;">
+                            <h3>Click a card to learn more!</h3>
+                        </div>
+                        <br>
+                        <br>
+                        <div id="projectListContainer">
+                            <!-- Chess Robot Project Card -->
+                            <div class="card initialFlip">
+                                <div class="cardInner">
+                                    <div class="cardFace cardFaceFront">
+                                        <img src="images/projectCards/chessRobotResized.webp" alt="PawnsRevengeCard" />
+                                    </div>
+                                    <div class="cardFace cardFaceBack">
+                                        <img
+                                            src="images/projectCards/projectDetailsChessRobotResized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                        <a
+                                            class="githubButton"
+                                            href="https://github.com/zthoffman21/chessRobot"
+                                            class="backLink"
+                                            target="_blank"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="githubIcon"
+                                            >
+                                                <path
+                                                    d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
+                                                    fill="currentColor"
+                                                ></path>
+                                            </svg>
+                                            <span>Continue</span>
+                                        </a>
+                                    </div>
+                                    <div class="lightEffect"></div>
+                                    <div class="overlayEffect"></div>
+                                </div>
+                            </div>
+                            <!-- Racing Simulation Project Card -->
+                            <div class="card initialFlip">
+                                <div class="cardInner">
+                                    <div class="cardFace cardFaceFront">
+                                        <img
+                                            src="images/projectCards/AIRacingSimulationCard.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                    </div>
+                                    <div class="cardFace cardFaceBack">
+                                        <img
+                                            src="images/projectCards/projectDetailsAIRacingSimulationResized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                        <a
+                                            class="githubButton"
+                                            href="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation"
+                                            class="backLink"
+                                            target="_blank"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="githubIcon"
+                                            >
+                                                <path
+                                                    d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
+                                                    fill="currentColor"
+                                                ></path>
+                                            </svg>
+                                            <span>Continue</span>
+                                        </a>
+                                    </div>
+                                    <div class="lightEffect"></div>
+                                    <div class="overlayEffect"></div>
+                                </div>
+                            </div>
+                            <!-- Portfolio Website Project Card -->
+                            <div class="card initialFlip">
+                                <div class="cardInner">
+                                    <div class="cardFace cardFaceFront">
+                                        <img
+                                            src="images/projectCards/PersonalWebsiteCardResized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                    </div>
+                                    <div class="cardFace cardFaceBack">
+                                        <img
+                                            src="images/projectCards/projectDetailsPersonalPortfolioResized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                        <a
+                                            class="githubButton"
+                                            href="https://github.com/zthoffman21/zthoffman.com"
+                                            class="backLink"
+                                            target="_blank"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="githubIcon"
+                                            >
+                                                <path
+                                                    d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
+                                                    fill="currentColor"
+                                                ></path>
+                                            </svg>
+                                            <span>Continue</span>
+                                        </a>
+                                    </div>
+                                    <div class="lightEffect"></div>
+                                    <div class="overlayEffect"></div>
+                                </div>
+                            </div>
+                            <!-- Pawns Revenge Project Card -->
+                            <div class="card initialFlip">
+                                <div class="cardInner">
+                                    <div class="cardFace cardFaceFront">
+                                        <img
+                                            src="images/projectCards/PawnsRevengeCard2Resized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                    </div>
+                                    <div class="cardFace cardFaceBack">
+                                        <img
+                                            src="images/projectCards/projectDetailsPawnsRevengeResized.webp"
+                                            alt="PawnsRevengeCard"
+                                        />
+                                        <a
+                                            class="githubButton"
+                                            href="https://github.com/zthoffman21/Pawns-Revenge-Python"
+                                            class="backLink"
+                                            target="_blank"
+                                        >
+                                            <svg
+                                                width="16"
+                                                height="16"
+                                                viewBox="0 0 16 16"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="githubIcon"
+                                            >
+                                                <path
+                                                    d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331V1.33331Z"
+                                                    fill="currentColor"
+                                                ></path>
+                                            </svg>
+                                            <span>Continue</span>
+                                        </a>
+                                    </div>
+                                    <div class="lightEffect"></div>
+                                    <div class="overlayEffect"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resume" class="windowContainerOuter window">
+                <div class="windowContainer">
+                    <div class="windowOptionsBar draggable">
+                        <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                        <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                        <button class="windowExit" onclick="windowClose(this)"></button>
+                    </div>
+                    <div class="windowTitleBar">Resume</div>
+                    <div class="windowContent" style="background: #0b171d40;">
+                        <div id="pdfContainer">
+                            <canvas id="pdfCanvas"></canvas>
+                                <div id="pdfControls">
+                                    <button id="downloadButton">Download</button>
+            
+                                    <select id="zoomSelect">
+                                        <option value="0.4">25%</option>
+                                        <option value="0.5">50%</option>
+                                        <option value="0.75" selected>75%</option>
+                                        <option value="1">100%</option>
+                                        <option value="1.5">125%</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div id="footer" style="display: flex; justify-content: center; color: var(--navLight); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'";">
             <h6>Hoffman &copy; <script>document.write(new Date().getFullYear());</script></h6>
         </div>
-        
-        <!-- UPDATES IMAGE HEIGHT CONTINUOUSLY  -->
-        <script>
-            // use bools to check if they need to be updated to reduce lag
-            var nameUpdated = false;
-            function setImageHeight() {
-                // shortens my name if the media query hit
-                const mediaQuery = window.matchMedia("(max-width: 750px)");
-                if (mediaQuery.matches && !nameUpdated) {
-                    document.getElementById("mainName").innerHTML = "Zachary Hoffman";
-                    nameUpdated = true;
-                } else if (!mediaQuery.matches && nameUpdated) {
-                    document.getElementById("mainName").innerHTML = "Zachary T. Hoffman";
-                    nameUpdated = false;
-                }
-
-                // sets the image to the height of the paragraph if the image is still there
-                const mediaQueryArr = [
-                    "(max-width: 1250px)",
-                    "(max-width: 750px)",
-                    "(max-width: 630px)",
-                ];
-                var imageUpdated = false;
-                for (var x = 0; x < mediaQueryArr.length; x++) {
-                    imageUpdated = imageUpdated || window.matchMedia(mediaQueryArr[x]).matches;
-                }
-                if (!imageUpdated) {
-                    const paragraphHeight = document.getElementById("homeParagraph").offsetHeight;
-                    document.getElementById("homeImage").style.height = paragraphHeight + "px";
-                } else {
-                    document.getElementById("homeImage").style.height = 0;
-                }
-            }
-            setInterval(setImageHeight, 10);
-        </script>
 
         <script src="js/theme.js"></script>
-        <script src="js/joke.js"></script>
         <script src="js/particles.js"></script>
+        <script src="js/draggableWindow.js"></script>
+        <script src="js/projectCard.js"></script>
+        <script src="js/resume.js"></script>
+        <script src="js/music.js"></script>
         <script src="" async defer></script>
     </body>
 </html>

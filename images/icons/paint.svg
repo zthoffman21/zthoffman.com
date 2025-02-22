@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 149 149" width="149" height="149">
+	<title>W-Clan</title>
+	<defs>
+		<image  width="147" height="143" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJMAAACPBAMAAAAM3/TGAAAAAXNSR0IB2cksfwAAAC1QTFRFAIWEAAAAwcHB//////sAgn8A/z7/mBSDAPkAAH4AADD/gYGB/yEAmAUAAAyEpc+ivAAAAA90Uk5TAP//////////////////5Y2epgAAAtpJREFUeJztmr1S20AQx1eGMCFpdG/g4QmYUR7ARdLTQO0Kt3SkTEk6t3TUpkkfCl7AM3kCDW8giiRMMgRnb2/vU2eQlC7anTGW1rqfmN3V3v/OLiAxlTpgc99yZa0Q1CBUURKK3pw1BtUIKkApmEzpYHOPBzUcwNMd/qm1q4Kbl6MvqP4ohaOYMZkyIyQqeLzdDlP6RuNAYX0fYD0zg6PPdmOJRfl4u63odTvZCGoISmGqOIMxDD9do3vnUFCmBattYSfUNRX9zmG2QdA/8nQnqL4oHNzQKWcQx8SpUgibTHFMG1WUNMhmUFC9UMo3dSJW4DQayZG1cbdbvBMr40FFYed58NWRvX5t3VWCciLYzIOC6ooyuoOG7s0xHQ38voqlmjujg7DFK9NdGC2onigk1HCKb+jVAo66eaz6gseKWnxjWnodNJ1xoCjsx4bRWOJ1Puxc9Kzgwr4tqJ4oJBx7BhEBPicZBCx0GvLnG157CQ9nACNEIeEcwIedQHFnANMS2C5hAW+u8OAkU+2C6oiiJnPuc/FrGZc5BGvnotxfIgg0ahHNi4LqieJ5MFR96TzIYxTsL/GJafzmm58Xx4GisDsGlbEu5DTsVOYPZxRmZedBQQ1GhRlc2ZJX8OMoLHra3uHVijKyuvZyJFHIgnoBpf14YrycPEbhExI9P7R25s9S92hQXLiT6etPEBi6F3mpFrXrKOyC6o5yGXz7pbWvs2gtTNLOny+G/xNF8a3sxV+t+KItBBf2C4P++HzYBdUTFey3Yxq1fbAX783DnO7Ofs6fz6CgOqLAdOuizDwap5Da7gylSTA9AowMZTYiSbPF9XyRQ73zYQ+kmqAGoPhrBpVkcAV+yQzwHl/fZ/5Gelt+lChqEStc7sYtN9RvJ9GNDMgteAU1EAVm+sN6XocttyXVKnOt1svB9o6g/g3FhsQtxuuTWCGODEWTmguk+0KyZdmfNQiqO+ov8Bm5aeuL7/kAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="1" y="3"/>
+</svg>
