@@ -399,6 +399,7 @@ html {
     font-size: calc(12px * var(--windowMult));
     border-bottom: calc(2px * var(--windowMult)) solid #000;
     border-top: calc(1px * var(--windowMult)) solid #000;
+    font-family: "MS Sans Serif", Arial, sans-serif;
 }
 #links .windowTitleBar {
     background-color: var(--links);
