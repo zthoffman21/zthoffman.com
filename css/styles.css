@@ -317,7 +317,7 @@ html {
     transform: scale(1.3);
 }
 #bio #customizeButtons img {
-    background: transparent;
+    background-color: #f0f0f0;
     width: calc(25px * var(--windowMult));
     height: calc(25px * var(--windowMult));
 }
