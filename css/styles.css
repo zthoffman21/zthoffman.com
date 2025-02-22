@@ -516,6 +516,12 @@ ul.treeView ul > li:last-child:after {
         width: fit-content;
         height: fit-content;
     }
+    #projects .windowContent {
+        padding: 8% 0;
+    }
+    #resume .windowContent {
+        padding: 4% 0;
+    }
     .windowContainer {
         width: auto;
     }
