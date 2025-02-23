@@ -75,3 +75,5 @@ function downloadPDF() {
     link.click();
 }
 downloadButton.addEventListener("click", downloadPDF);
+
+window.onresize = function(){ location.reload(); }

@@ -29,4 +29,4 @@ function playTrack(trackSrc) {
     audioPlayer.play();
 }
 const audioPlayer = document.getElementById("audioPlayer");
-audioPlayer.volume = 0.25;
+audioPlayer.volume = 0.5;

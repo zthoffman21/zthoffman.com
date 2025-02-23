@@ -96,9 +96,6 @@ html body {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
 }
 html {
     scroll-behavior: smooth;
@@ -113,12 +110,26 @@ html {
     justify-content: center;
     padding-top: 4%;
 }
-#linksBioContainer {
+#top, #bottom {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 8%;
-    margin-top: 8%;
+    margin-bottom: 16%;
+}
+#bottom { margin-bottom: 0;}
+#topSideBar {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: column;
+    gap: 4%;
+    align-items: center;
+}
+#topMain, #bottomMain {
+    display: flex;
+    flex-direction: column;
+}
+#topMain #links {
+    display: none;
 }
 
 /* NAVIGATION WINDOW */
@@ -128,7 +139,7 @@ html {
     height: fit-content;
     padding: calc(2px * var(--windowMult));
     background-color: #fff;
-    margin-bottom: 4%;
+    margin-bottom: 8%;
 }
 #navContainer {
     width: calc(400px * var(--windowMult));
@@ -339,12 +350,16 @@ html {
 #links {
     --windowMult: 1.5;
 }
+#mineSweeper {
+    --windowMult: 1.5;
+    margin-bottom: 4%;
+}
 
 .windowContainerOuter {
     width: fit-content;
     height: fit-content;
     padding: calc(2px * var(--windowMult));
-    margin-bottom: 25%;
+    margin-bottom: 8%;
     background-color: #fff;
     border: calc(2px * var(--windowMult)) solid #000;
 }
@@ -364,6 +379,10 @@ html {
 #links .windowContainer {
     width: calc(150px * var(--windowMult));
     height: calc(200px * var(--windowMult));
+}
+#mineSweeper .windowContainer {
+    width: fit-content;
+    height: fit-content;
 }
 
 /* WINDOW OPTIONS BAR */
@@ -504,15 +523,21 @@ ul.treeView ul > li:last-child:after {
     width: calc(6.4px * var(--windowMult));
 }
 
-@media (max-width: 1380px) {
-    #navContainerOuter {
+@media (max-width: 1350px) {
+    #topSideBar {
+        display: none;
+    }
+    #topMain {
+        align-items: center;
+    }
+    #topMain #links {
+        display: block;
+    }
+    #top {
         margin-bottom: 0;
     }
-    #linksBioContainer {
-        flex-direction: column;
-    }
-    .windowContainerOuter {
-        margin-bottom: 8%;
+    #navContainerOuter {
+        margin-top: 0;
     }
 }
 @media (max-width: 900px) {
