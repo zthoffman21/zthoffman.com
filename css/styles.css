@@ -127,7 +127,6 @@ html {
 #topMain, #bottomMain {
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 #topMain #links {
     display: none;
@@ -528,7 +527,7 @@ ul.treeView ul > li:last-child:after {
     #topSideBar, #bottomSideBar {
         display: none;
     }
-    #topMain {
+    #topMain, #bottomMain {
         align-items: center;
     }
     #topMain #links {
