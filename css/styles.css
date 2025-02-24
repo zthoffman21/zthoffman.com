@@ -128,8 +128,12 @@ html {
     display: flex;
     flex-direction: column;
 }
-#topMain #links {
+#linksMineSweeperContainer {
     display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
 }
 
 /* NAVIGATION WINDOW */
@@ -350,7 +354,7 @@ html {
 #links {
     --windowMult: 1.5;
 }
-#mineSweeper {
+.mineSweeper {
     --windowMult: 1.5;
     margin-bottom: 4%;
 }
@@ -380,7 +384,7 @@ html {
     width: calc(150px * var(--windowMult));
     height: calc(200px * var(--windowMult));
 }
-#mineSweeper .windowContainer {
+.mineSweeper .windowContainer {
     width: fit-content;
     height: fit-content;
 }
@@ -530,8 +534,8 @@ ul.treeView ul > li:last-child:after {
     #topMain, #bottomMain {
         align-items: center;
     }
-    #topMain #links {
-        display: block;
+    #linksMineSweeperContainer {
+        display: flex;
     }
     #top {
         margin-bottom: 0;
@@ -572,6 +576,9 @@ ul.treeView ul > li:last-child:after {
     #links {
         --windowMult: 1.25;
     }
+    .mineSweeper {
+        --windowMult: 1.25;
+    }
 }
 @media (max-width: 530px) {
     #top, #topMain {
@@ -582,5 +589,8 @@ ul.treeView ul > li:last-child:after {
     }
     #navContainer {
         width: 100%;
+    }
+    #linksMineSweeperContainer {
+        flex-direction: column;
     }
 }

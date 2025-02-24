@@ -13,12 +13,12 @@
         url("../images/fonts/ms_sans_serif.woff2") format("woff");
 }
 
-#board {
+.board {
     background-color: lightgray;
     width: calc(163.33px * var(--windowMult));
 }
 
-#clock {
+.clock {
     font-family: "Pixelated MS Sans Serif", "MS Sans Serif";
     font-size: calc(9.33px * var(--windowMult));
     display: inline;
@@ -33,11 +33,6 @@
     padding: calc(3.33px * var(--windowMult));
 }
 
-#boardContainer {
-    display: flex;
-    justify-content: center;
-}
-
 .menu a {
     font-family: "Pixelated MS Sans Serif", "MS Sans Serif";
     color: black;
@@ -46,7 +41,7 @@
     letter-spacing: 0;
 }
 
-#reset {
+.reset {
     text-align: center;
     width: calc(23.33px * var(--windowMult));
     height: calc(23.33px * var(--windowMult));
@@ -55,7 +50,7 @@
     border-bottom: calc(1.33px * var(--windowMult)) solid #7b7b7b;
     border-left: calc(1.33px * var(--windowMult)) solid #ffffff;
 }
-#reset img {
+.reset img {
     width: 100%;
     height: 100%;
 }
@@ -68,12 +63,12 @@
     border: none;
 }
 
-#reset:hover {
+.reset:hover {
     text-align: center;
     cursor: pointer;
 }
 
-#status-bar {
+.status-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -98,8 +93,8 @@ td {
     vertical-align: middle;
 }
 
-#timer,
-#bomb-counter {
+.timer,
+.bomb-counter {
     font-family: "Digital Dismay";
     font-size: calc(23.33px * var(--windowMult));
     letter-spacing: calc(0.67px * var(--windowMult));

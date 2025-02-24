@@ -1,37 +1,39 @@
-// CREDIT FOR THIS CODE GOES TO: https://github.com/nickarocho/minesweeper
+/* 
+  Minesweeper game with support for multiple boards.
+  CREDIT FOR ORIGINAL CODE GOES TO: https://github.com/nickarocho/minesweeper
+*/
+
+/* ----- Cell Class ----- */
 class Cell {
-    constructor(row, col, board) {
+    constructor(row, col, boardInstance) {
         this.row = row;
         this.col = col;
         this.bomb = false;
-        this.board = board;
+        this.board = boardInstance; // Reference to the parent board instance
         this.revealed = false;
         this.flagged = false;
     }
 
     getAdjCells() {
-        var adj = [];
-        var lastRow = this.board.length - 1;
-        var lastCol = this.board[0].length - 1;
-        if (this.row > 0 && this.col > 0) adj.push(this.board[this.row - 1][this.col - 1]);
-        if (this.row > 0) adj.push(this.board[this.row - 1][this.col]);
-        if (this.row > 0 && this.col < lastCol) adj.push(this.board[this.row - 1][this.col + 1]);
-        if (this.col < lastCol) adj.push(this.board[this.row][this.col + 1]);
+        const boardArray = this.board.board;
+        const adj = [];
+        const lastRow = boardArray.length - 1;
+        const lastCol = boardArray[0].length - 1;
+        if (this.row > 0 && this.col > 0) adj.push(boardArray[this.row - 1][this.col - 1]);
+        if (this.row > 0) adj.push(boardArray[this.row - 1][this.col]);
+        if (this.row > 0 && this.col < lastCol) adj.push(boardArray[this.row - 1][this.col + 1]);
+        if (this.col < lastCol) adj.push(boardArray[this.row][this.col + 1]);
         if (this.row < lastRow && this.col < lastCol)
-            adj.push(this.board[this.row + 1][this.col + 1]);
-        if (this.row < lastRow) adj.push(this.board[this.row + 1][this.col]);
-        if (this.row < lastRow && this.col > 0) adj.push(this.board[this.row + 1][this.col - 1]);
-        if (this.col > 0) adj.push(this.board[this.row][this.col - 1]);
-
+            adj.push(boardArray[this.row + 1][this.col + 1]);
+        if (this.row < lastRow) adj.push(boardArray[this.row + 1][this.col]);
+        if (this.row < lastRow && this.col > 0) adj.push(boardArray[this.row + 1][this.col - 1]);
+        if (this.col > 0) adj.push(boardArray[this.row][this.col - 1]);
         return adj;
     }
 
     calcAdjBombs() {
-        var adjCells = this.getAdjCells();
-        var adjBombs = adjCells.reduce(function (acc, cell) {
-            return acc + (cell.bomb ? 1 : 0);
-        }, 0);
-        this.adjBombs = adjBombs;
+        const adjCells = this.getAdjCells();
+        this.adjBombs = adjCells.reduce((acc, cell) => acc + (cell.bomb ? 1 : 0), 0);
     }
 
     flag() {
@@ -42,18 +44,18 @@ class Cell {
     }
 
     reveal() {
-        if (this.revealed && !hitBomb) return;
-        // If this cell is flagged, unflag it and update bombCount accordingly.
+        if (this.revealed && !this.board.hitBomb) return;
+        // If cell is flagged, unflag and update bombCount
         if (this.flagged) {
             this.flag();
-            bombCount++;
-            render();
+            this.board.bombCount++;
+            this.board.render();
         }
         this.revealed = true;
         if (this.bomb) return true;
         if (this.adjBombs === 0) {
-            var adj = this.getAdjCells();
-            adj.forEach(function (cell) {
+            const adj = this.getAdjCells();
+            adj.forEach((cell) => {
                 if (!cell.revealed) cell.reveal();
             });
         }
@@ -61,17 +63,237 @@ class Cell {
     }
 }
 
-/*----- constants -----*/
+/* ----- MinesweeperBoard Class ----- */
+class MinesweeperBoard {
+    constructor(boardEl) {
+        this.boardEl = boardEl;
+        // Optionally, if you use a CSS custom property for scaling per board:
+        this.windowMult =
+            parseFloat(window.getComputedStyle(boardEl).getPropertyValue("--windowMult")) || 1;
+        this.size = 9;
+        this.board = [];
+        this.bombCount = 0;
+        this.elapsedTime = 0;
+        this.timerId = null;
+        this.hitBomb = false;
+        this.winner = false;
+        this.init();
+        this.addEventListeners();
+    }
+
+    init() {
+        this.buildTable();
+        this.board = this.buildArrays();
+        this.buildCells();
+        this.bombCount = this.getBombCount();
+        this.elapsedTime = 0;
+        if (this.timerId) clearInterval(this.timerId);
+        this.timerId = null;
+        this.hitBomb = false;
+        this.winner = false;
+        this.render();
+    }
+
+    buildTable() {
+        // Build the game table using classes for internal elements
+        const topRow = `
+        <tr>
+          <td class="menu" colspan="${this.size}">
+            <section class="status-bar">
+              <div class="bomb-counter">000</div>
+              <div class="reset"><img src="images/mineSweeper/smiley-face.png"></div>
+              <div class="timer">000</div>
+            </section>
+          </td>
+        </tr>
+      `;
+        this.boardEl.innerHTML =
+            topRow +
+            `<tr>${'<td class="game-cell"></td>'.repeat(this.size)}</tr>`.repeat(this.size);
+        this.attachDataAttributes();
+        this.attachResetListener();
+    }
+
+    attachDataAttributes() {
+        const cells = Array.from(this.boardEl.querySelectorAll("td:not(.menu)"));
+        cells.forEach((cell, idx) => {
+            cell.setAttribute("data-row", Math.floor(idx / this.size));
+            cell.setAttribute("data-col", idx % this.size);
+        });
+    }
+
+    attachResetListener() {
+        const resetEl = this.boardEl.querySelector(".reset");
+        resetEl.addEventListener("click", () => {
+            this.init();
+        });
+    }
+
+    buildArrays() {
+        let arr = new Array(this.size).fill(null);
+        arr = arr.map(() => new Array(this.size).fill(null));
+        return arr;
+    }
+
+    buildCells() {
+        for (let row = 0; row < this.size; row++) {
+            for (let col = 0; col < this.size; col++) {
+                // Pass the current board instance into each Cell
+                this.board[row][col] = new Cell(row, col, this);
+            }
+        }
+        this.addBombs();
+        this.runCodeForAllCells((cell) => cell.calcAdjBombs());
+    }
+
+    addBombs() {
+        let currentTotalBombs = 10;
+        while (currentTotalBombs !== 0) {
+            const row = Math.floor(Math.random() * this.size);
+            const col = Math.floor(Math.random() * this.size);
+            const currentCell = this.board[row][col];
+            if (!currentCell.bomb) {
+                currentCell.bomb = true;
+                currentTotalBombs--;
+            }
+        }
+    }
+
+    getBombCount() {
+        let count = 0;
+        this.board.forEach((row) => {
+            count += row.filter((cell) => cell.bomb).length;
+        });
+        return count;
+    }
+
+    getWinner() {
+        for (let row = 0; row < this.board.length; row++) {
+            for (let col = 0; col < this.board[0].length; col++) {
+                const cell = this.board[row][col];
+                if (!cell.revealed && !cell.bomb) return false;
+            }
+        }
+        return true;
+    }
+
+    runCodeForAllCells(cb) {
+        this.board.forEach((rowArr) => rowArr.forEach((cell) => cb(cell)));
+    }
+
+    setTimer() {
+        this.timerId = setInterval(() => {
+            this.elapsedTime++;
+            const timerEl = this.boardEl.querySelector(".timer");
+            timerEl.innerText = this.elapsedTime.toString().padStart(3, "0");
+        }, 1000);
+    }
+
+    revealAll() {
+        this.board.forEach((rowArr) => rowArr.forEach((cell) => cell.reveal()));
+    }
+
+    render() {
+        // Update bomb counter display
+        const bombCounterEl = this.boardEl.querySelector(".bomb-counter");
+        bombCounterEl.innerText = this.bombCount.toString().padStart(3, "0");
+
+        // Update each cell's display
+        const tdList = Array.from(this.boardEl.querySelectorAll("[data-row]"));
+        tdList.forEach((td) => {
+            const rowIdx = parseInt(td.getAttribute("data-row"), 10);
+            const colIdx = parseInt(td.getAttribute("data-col"), 10);
+            const cell = this.board[rowIdx][colIdx];
+            if (cell.flagged) {
+                td.innerHTML = flagImage;
+            } else if (cell.revealed) {
+                if (cell.bomb) {
+                    td.innerHTML = bombImage;
+                } else if (cell.adjBombs) {
+                    td.className = "revealed";
+                    td.style.color = colors[cell.adjBombs];
+                    td.textContent = cell.adjBombs;
+                } else {
+                    td.className = "revealed";
+                }
+            } else {
+                td.innerHTML = "";
+            }
+        });
+
+        // Update reset button image based on game outcome
+        if (this.hitBomb) {
+            const resetEl = this.boardEl.querySelector(".reset");
+            resetEl.innerHTML = '<img src="images/mineSweeper/dead-face.png">';
+            this.runCodeForAllCells((cell) => {
+                if (!cell.bomb && cell.flagged) {
+                    const td = this.boardEl.querySelector(
+                        `[data-row="${cell.row}"][data-col="${cell.col}"]`
+                    );
+                    td.innerHTML = wrongBombImage;
+                }
+            });
+        } else if (this.winner) {
+            const resetEl = this.boardEl.querySelector(".reset");
+            resetEl.innerHTML = '<img src="images/mineSweeper/cool-face.png">';
+            clearInterval(this.timerId);
+        }
+    }
+
+    addEventListeners() {
+        // Left-click event listener
+        this.boardEl.addEventListener("click", (e) => {
+            if (this.winner || this.hitBomb) return;
+            const clickedEl =
+                e.target.tagName.toLowerCase() === "img" ? e.target.parentElement : e.target;
+            if (clickedEl.classList.contains("game-cell")) {
+                if (!this.timerId) this.setTimer();
+                const row = parseInt(clickedEl.dataset.row, 10);
+                const col = parseInt(clickedEl.dataset.col, 10);
+                const cell = this.board[row][col];
+                if (cell.revealed || cell.flagged) return;
+                this.hitBomb = cell.reveal();
+                if (this.hitBomb) {
+                    this.revealAll();
+                    clearInterval(this.timerId);
+                    clickedEl.style.backgroundColor = "red";
+                }
+                this.winner = this.getWinner();
+                this.render();
+            }
+        });
+
+        // Right-click (contextmenu) event listener for flagging
+        this.boardEl.addEventListener("contextmenu", (e) => {
+            if (this.winner || this.hitBomb) return;
+            const clickedEl =
+                e.target.tagName.toLowerCase() === "img" ? e.target.parentElement : e.target;
+            if (clickedEl.classList.contains("game-cell")) {
+                e.preventDefault();
+                if (!this.timerId) this.setTimer();
+                const row = parseInt(clickedEl.dataset.row, 10);
+                const col = parseInt(clickedEl.dataset.col, 10);
+                const cell = this.board[row][col];
+                if (!cell.revealed) {
+                    if (cell.flagged) {
+                        cell.flag();
+                        this.bombCount++;
+                    } else {
+                        if (this.bombCount <= 0) return;
+                        cell.flag();
+                        this.bombCount--;
+                    }
+                    this.render();
+                }
+            }
+        });
+    }
+}
+
+/* ----- Global Constants ----- */
 var bombImage = '<img src="images/mineSweeper/bomb.png">';
 var flagImage = '<img src="images/mineSweeper/flag.png">';
 var wrongBombImage = '<img src="images/mineSweeper/wrong-bomb.png">';
-var windowMult =
-    parseFloat(
-        window
-            .getComputedStyle(document.getElementById("mineSweeper"))
-            .getPropertyValue("--windowMult")
-    ) || 1;
-
 var colors = [
     "",
     "#0000FA",
@@ -84,224 +306,7 @@ var colors = [
     "#7A7A7A",
 ];
 
-/*----- app's state (variables) -----*/
-var size = 9;
-var board;
-var bombCount;
-var timeElapsed;
-var adjBombs;
-var hitBomb;
-var elapsedTime;
-var timerId;
-var winner;
-
-/*----- cached element references -----*/
-var boardEl = document.getElementById("board");
-
-boardEl.addEventListener("click", function (e) {
-    if (winner || hitBomb) return;
-    let clickedEl = e.target.tagName.toLowerCase() === "img" ? e.target.parentElement : e.target;
-    if (clickedEl.classList.contains("game-cell")) {
-        if (!timerId) setTimer();
-        let row = parseInt(clickedEl.dataset.row, 10);
-        let col = parseInt(clickedEl.dataset.col, 10);
-        let cell = board[row][col];
-
-        if (cell.revealed || cell.flagged) return;
-
-        hitBomb = cell.reveal();
-        if (hitBomb) {
-            revealAll();
-            clearInterval(timerId);
-            clickedEl.style.backgroundColor = "red";
-        }
-        winner = getWinner();
-        render();
-    }
+/* ----- Instantiate a MinesweeperBoard for Each .board Element ----- */
+document.querySelectorAll(".board").forEach((boardEl) => {
+    new MinesweeperBoard(boardEl);
 });
-
-// Updated right-click event handler
-boardEl.addEventListener("contextmenu", function (e) {
-    if (winner || hitBomb) return;
-    let clickedEl = e.target.tagName.toLowerCase() === "img" ? e.target.parentElement : e.target;
-    if (clickedEl.classList.contains("game-cell")) {
-        e.preventDefault();
-        if (!timerId) setTimer();
-        let row = parseInt(clickedEl.dataset.row, 10);
-        let col = parseInt(clickedEl.dataset.col, 10);
-        let cell = board[row][col];
-
-        if (!cell.revealed) {
-            if (cell.flagged) {
-                // Unflag the cell and refund a flag
-                cell.flag();
-                bombCount++;
-            } else {
-                // Only flag if flags remain
-                if (bombCount <= 0) return;
-                cell.flag();
-                bombCount--;
-            }
-            render();
-        }
-    }
-});
-
-function createResetListener() {
-    document.getElementById("reset").addEventListener("click", function () {
-        init();
-        render();
-    });
-}
-
-/*----- functions -----*/
-function setTimer() {
-    timerId = setInterval(function () {
-        elapsedTime += 1;
-        document.getElementById("timer").innerText = elapsedTime.toString().padStart(3, "0");
-    }, 1000);
-}
-
-function revealAll() {
-    board.forEach(function (rowArr) {
-        rowArr.forEach(function (cell) {
-            cell.reveal();
-        });
-    });
-}
-
-function buildTable() {
-    var topRow = `
-    <tr>
-      <td class="menu" colspan="${size}">
-          <section id="status-bar">
-            <div id="bomb-counter">000</div>
-            <div id="reset"><img src="images/mineSweeper/smiley-face.png"></div>
-            <div id="timer">000</div>
-          </section>
-      </td>
-    </tr>
-    `;
-    boardEl.innerHTML =
-        topRow + `<tr>${'<td class="game-cell"></td>'.repeat(size)}</tr>`.repeat(size);
-
-    createResetListener();
-    var cells = Array.from(document.querySelectorAll("td:not(.menu)"));
-    cells.forEach(function (cell, idx) {
-        cell.setAttribute("data-row", Math.floor(idx / size));
-        cell.setAttribute("data-col", idx % size);
-    });
-}
-
-function buildArrays() {
-    var arr = Array(size).fill(null);
-    arr = arr.map(function () {
-        return new Array(size).fill(null);
-    });
-    return arr;
-}
-
-function buildCells() {
-    board.forEach(function (rowArr, rowIdx) {
-        rowArr.forEach(function (slot, colIdx) {
-            board[rowIdx][colIdx] = new Cell(rowIdx, colIdx, board);
-        });
-    });
-    addBombs();
-    runCodeForAllCells(function (cell) {
-        cell.calcAdjBombs();
-    });
-}
-
-function init() {
-    buildTable();
-    board = buildArrays();
-    buildCells();
-    bombCount = getBombCount();
-    elapsedTime = 0;
-    clearInterval(timerId);
-    timerId = null;
-    hitBomb = false;
-    winner = false;
-}
-
-function getBombCount() {
-    var count = 0;
-    board.forEach(function (row) {
-        count += row.filter(function (cell) {
-            return cell.bomb;
-        }).length;
-    });
-    return count;
-}
-
-function addBombs() {
-    var currentTotalBombs = 10;
-    while (currentTotalBombs !== 0) {
-        var row = Math.floor(Math.random() * size);
-        var col = Math.floor(Math.random() * size);
-        var currentCell = board[row][col];
-        if (!currentCell.bomb) {
-            currentCell.bomb = true;
-            currentTotalBombs -= 1;
-        }
-    }
-}
-
-function getWinner() {
-    for (var row = 0; row < board.length; row++) {
-        for (var col = 0; col < board[0].length; col++) {
-            var cell = board[row][col];
-            if (!cell.revealed && !cell.bomb) return false;
-        }
-    }
-    return true;
-}
-
-function render() {
-    document.getElementById("bomb-counter").innerText = bombCount.toString().padStart(3, "0");
-    var tdList = Array.from(document.querySelectorAll("[data-row]"));
-    tdList.forEach(function (td) {
-        var rowIdx = parseInt(td.getAttribute("data-row"));
-        var colIdx = parseInt(td.getAttribute("data-col"));
-        var cell = board[rowIdx][colIdx];
-        if (cell.flagged) {
-            td.innerHTML = flagImage;
-        } else if (cell.revealed) {
-            if (cell.bomb) {
-                td.innerHTML = bombImage;
-            } else if (cell.adjBombs) {
-                td.className = "revealed";
-                td.style.color = colors[cell.adjBombs];
-                td.textContent = cell.adjBombs;
-            } else {
-                td.className = "revealed";
-            }
-        } else {
-            td.innerHTML = "";
-        }
-    });
-    if (hitBomb) {
-        document.getElementById("reset").innerHTML = "<img src=images/mineSweeper/dead-face.png>";
-        runCodeForAllCells(function (cell) {
-            if (!cell.bomb && cell.flagged) {
-                var td = document.querySelector(`[data-row="${cell.row}"][data-col="${cell.col}"]`);
-                td.innerHTML = wrongBombImage;
-            }
-        });
-    } else if (winner) {
-        document.getElementById("reset").innerHTML = "<img src=images/mineSweeper/cool-face.png>";
-        clearInterval(timerId);
-    }
-}
-
-function runCodeForAllCells(cb) {
-    board.forEach(function (rowArr) {
-        rowArr.forEach(function (cell) {
-            cb(cell);
-        });
-    });
-}
-
-init();
-render();

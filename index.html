@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     
-                    <div id="mineSweeper" class="windowContainerOuter window">
+                    <div class="mineSweeper windowContainerOuter window">
                         <div class="windowContainer">
                             <div class="windowOptionsBar draggable">
                                 <button class="windowMinimize" onclick="windowMinimize(this)"></button>
@@ -72,7 +72,7 @@
                             </div>
                             <div id="boardContainer">
                                 <div>
-                                    <table id="board"></table>
+                                    <table class="board"></table>
                                 </div>
                             </div>
                         </div>
@@ -113,28 +113,45 @@
                         </div>
                     </div>
 
-                    <div id="links" class="windowContainerOuter window">
-                        <div class="windowContainer">
-                            <div class="windowOptionsBar draggable">
-                                <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-                                <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-                                <button class="windowExit" onclick="windowClose(this)"></button>
+                    <div id="linksMineSweeperContainer">
+                        <div id="links" class="windowContainerOuter window">
+                            <div class="windowContainer">
+                                <div class="windowOptionsBar draggable">
+                                    <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                                    <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                                    <button class="windowExit" onclick="windowClose(this)"></button>
+                                </div>
+                                <div class="windowTitleBar">Links</div>
+                                <div class="windowContent">
+                                    <div style="display: flex; flex-direction: column; align-items: center;">
+                                        <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                            <img src="images/icons/world.svg">
+                                            <h3>LinkedIn</h3>
+                                        </a>
+                                        <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                            <img src="images/icons/tree.svg">
+                                            <h3>GitHub</h3>
+                                        </a>
+                                        <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                                            <img src="images/icons/letter.svg">
+                                            <h3>Email Me!</h3>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="windowTitleBar">Links</div>
-                            <div class="windowContent">
-                                <div style="display: flex; flex-direction: column; align-items: center;">
-                                    <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                                        <img src="images/icons/world.svg">
-                                        <h3>LinkedIn</h3>
-                                    </a>
-                                    <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                                        <img src="images/icons/tree.svg">
-                                        <h3>GitHub</h3>
-                                    </a>
-                                    <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                                        <img src="images/icons/letter.svg">
-                                        <h3>Email Me!</h3>
-                                    </a>
+                        </div>
+                        
+                        <div class="mineSweeper windowContainerOuter window">
+                            <div class="windowContainer">
+                                <div class="windowOptionsBar draggable">
+                                    <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                                    <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                                    <button class="windowExit" onclick="windowClose(this)"></button>
+                                </div>
+                                <div id="boardContainer">
+                                    <div>
+                                        <table class="board"></table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
