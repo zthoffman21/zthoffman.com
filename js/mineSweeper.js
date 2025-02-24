@@ -43,6 +43,12 @@ class Cell {
 
     reveal() {
         if (this.revealed && !hitBomb) return;
+        // If this cell is flagged, unflag it and update bombCount accordingly.
+        if (this.flagged) {
+            this.flag();
+            bombCount++;
+            render();
+        }
         this.revealed = true;
         if (this.bomb) return true;
         if (this.adjBombs === 0) {
@@ -114,6 +120,7 @@ boardEl.addEventListener("click", function (e) {
     }
 });
 
+// Updated right-click event handler
 boardEl.addEventListener("contextmenu", function (e) {
     if (winner || hitBomb) return;
     let clickedEl = e.target.tagName.toLowerCase() === "img" ? e.target.parentElement : e.target;
@@ -125,9 +132,16 @@ boardEl.addEventListener("contextmenu", function (e) {
         let cell = board[row][col];
 
         if (!cell.revealed) {
-            if (!cell.flagged && bombCount <= 0) return;
-
-            bombCount += cell.flag() ? -1 : 1;
+            if (cell.flagged) {
+                // Unflag the cell and refund a flag
+                cell.flag();
+                bombCount++;
+            } else {
+                // Only flag if flags remain
+                if (bombCount <= 0) return;
+                cell.flag();
+                bombCount--;
+            }
             render();
         }
     }
