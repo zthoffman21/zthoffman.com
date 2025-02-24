@@ -36,22 +36,22 @@ function renderPage(pdfDocument) {
 }
 
 function setAbsolutePositions() {
-    const container = document.getElementById('mainContainer');
-    const windows = document.querySelectorAll('.window');
+    const container = document.getElementById("mainContainer");
+    const windows = document.querySelectorAll(".window");
 
-    container.style.height = container.getBoundingClientRect().height + 'px';
+    container.style.height = container.getBoundingClientRect().height + "px";
     document.getElementById("footer").style.opacity = 1;
 
-    windows.forEach(window => {
+    windows.forEach((window) => {
         const rect = window.getBoundingClientRect();
         const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        window.style.left = (rect.left + scrollLeft) + 'px';
-        window.style.top = (rect.top + scrollTop) + 'px';                        
+        window.style.left = rect.left + scrollLeft + "px";
+        window.style.top = rect.top + scrollTop + "px";
     });
-    windows.forEach(window => {
-        window.style.position = 'absolute';
-    })
+    windows.forEach((window) => {
+        window.style.position = "absolute";
+    });
 }
 
 // Zoom event listener
@@ -76,4 +76,8 @@ function downloadPDF() {
 }
 downloadButton.addEventListener("click", downloadPDF);
 
-window.onresize = function(){ location.reload(); }
+window.onresize = function () {
+    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
+        location.reload();
+    }
+};
