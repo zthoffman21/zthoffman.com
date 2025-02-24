@@ -574,6 +574,9 @@ ul.treeView ul > li:last-child:after {
     }
 }
 @media (max-width: 530px) {
+    #top, #topMain {
+        width: 100%;
+    }
     #navContainerOuter {
         width: 100%;
     }

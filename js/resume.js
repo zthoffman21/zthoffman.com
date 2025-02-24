@@ -76,8 +76,9 @@ function downloadPDF() {
 }
 downloadButton.addEventListener("click", downloadPDF);
 
-window.onresize = function () {
-    if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))) {
-        location.reload();
-    }
-};
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+if (!isMobileDevice) {
+  window.addEventListener('resize', function() {
+    location.reload();
+  });
+}
