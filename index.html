@@ -80,35 +80,46 @@
                 </div>
                 
                 <div id="topMain">
-                    <div id="navContainerOuter" class="window">
-                        <div id="navContainer">
-                            <div id="navOptionsBar" class="draggable">
-                                <button id="navMinimize" onclick="windowMinimize(this)"></button>
-                                <button id="navMaximize" onclick="windowMaximize(this)"></button>
-                                <button id="navExit" onclick="windowClose(this)"></button>
+                    <div id="navStickyContainer">
+                        <div id="navContainerOuter" class="window">
+                            <div id="navContainer">
+                                <div id="navOptionsBar" class="draggable">
+                                    <button id="navMinimize" onclick="windowMinimize(this)"></button>
+                                    <button id="navMaximize" onclick="windowMaximize(this)"></button>
+                                    <button id="navExit" onclick="windowClose(this)"></button>
+                                </div>
+                                <div id="navTitleBarContainer">
+                                    <div class="navTitleBarAccent"></div>
+                                    <div id="navTitleBar">Explore the Site!</div>
+                                    <div class="navTitleBarAccent"></div>
+                                </div>
+                                <div id="navListContainer">
+                                    <ul id="navList">
+                                        <li id="active"><a href="#bio">
+                                            <img src="images/icons/home.svg">
+                                            <p>Home</p>
+                                        </a></li>
+                                        
+                                        <li><a href="#projects">
+                                            <img src="images/icons/lightBulb.svg">
+                                            <p>Projects</p>
+                                        </a></li>
+            
+                                        <li><a href="#resume">
+                                            <img src="images/icons/paper.svg">
+                                            <p>Resume</p>
+                                        </a></li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div id="navTitleBarContainer">
-                                <div class="navTitleBarAccent"></div>
-                                <div id="navTitleBar">Explore the Site!</div>
-                                <div class="navTitleBarAccent"></div>
-                            </div>
-                            <div id="navListContainer">
-                                <ul id="navList">
-                                    <li id="active"><a href="#bio">
-                                        <img src="images/icons/home.svg">
-                                        <p>Home</p>
-                                    </a></li>
-                                    
-                                    <li><a href="#projects">
-                                        <img src="images/icons/lightBulb.svg">
-                                        <p>Projects</p>
-                                    </a></li>
-        
-                                    <li><a href="#resume">
-                                        <img src="images/icons/paper.svg">
-                                        <p>Resume</p>
-                                    </a></li>
-                                </ul>
+                        </div>
+
+                        <div class="stickyNoteContainer">
+                            <i class="pin"></i>
+                            <div class="note yellow">
+                                <div style="display: flex; justify-content: center;">
+                                  <img src="images/hoffmanLogoTransparent.svg">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -436,6 +447,7 @@
             </div>
             
         </div>
+
         <div id="footer" style="display: flex; justify-content: center; color: var(--footer); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'";">
             <h6>Hoffman &copy; <script>document.write(new Date().getFullYear());</script></h6>
         </div>

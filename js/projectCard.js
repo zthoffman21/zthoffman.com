@@ -10,7 +10,7 @@ document.querySelectorAll(".card").forEach((card) => {
     });
 
     card.addEventListener("mousemove", (event) => {
-        if (window.matchMedia("(max-width: 768px)").matches) {
+        if (window.matchMedia("(max-width: 900px)").matches) {
             return;
         }
         event.preventDefault();
