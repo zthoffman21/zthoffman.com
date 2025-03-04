@@ -461,7 +461,7 @@ html {
     padding: calc(4.8px * var(--windowMult));
     word-spacing: 0.4em;
 }
-#projects .windowConent {
+#projects .windowContent {
     padding: calc(20px * var(--windowMult));
 }
 .windowContent img {
