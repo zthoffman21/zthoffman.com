@@ -590,7 +590,7 @@ ul.treeView ul > li:last-child:after {
     #navContainer {
         width: 100%;
     }
-    #linksMineSweeperContainer {
-        flex-direction: column;
+    .mineSweeper {
+        display: none;
     }
 }

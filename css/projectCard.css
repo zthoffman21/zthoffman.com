@@ -35,9 +35,7 @@
 }
 
 .idleCard {
-    animation:
-        fadeInGlow 1s ease forwards, 
-        glow 6s ease infinite, 
+    animation: fadeInGlow 1s ease forwards, glow 6s ease infinite,
         subtleFlip 9s ease-in-out infinite;
 }
 
@@ -54,9 +52,11 @@
     width: 100%;
     height: 100%;
 }
+
 .card.initialFlip .cardInner {
     transform: rotateY(-720deg);
 }
+
 .card.flipped .cardInner {
     transform: rotateY(180deg);
 }
@@ -66,7 +66,8 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    transform: translateZ(0.1px); 
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,12 +77,15 @@
 
 .cardFaceFront {
     background: transparent;
+    transform: rotateY(0deg);
 }
+
 .cardFaceBack {
     background: transparent;
     transform: rotateY(180deg);
 }
 
+/* GitHub button styling */
 .githubButton {
     position: absolute;
     bottom: 30px;
@@ -133,16 +137,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 2;
+    z-index: 3;
     pointer-events: none;
     transform-style: preserve-3d;
-
-    /* Layering multiple gradients for a dispersed, irregular effect */
     background: linear-gradient(135deg, rgba(255, 69, 69, 0.4), transparent 40%),
-        /* Brighter Red */ linear-gradient(225deg, rgba(0, 255, 128, 0.4), transparent 50%),
-        /* Brighter Green */ linear-gradient(315deg, rgba(0, 128, 255, 0.4), transparent 60%),
-        /* Brighter Blue */ linear-gradient(45deg, rgba(255, 255, 0, 0.4), transparent 30%),
-        /* Bright Yellow */ linear-gradient(90deg, rgba(255, 0, 255, 0.4), transparent 70%); /* Bright Pink */
+        linear-gradient(225deg, rgba(0, 255, 128, 0.4), transparent 50%),
+        linear-gradient(315deg, rgba(0, 128, 255, 0.4), transparent 60%),
+        linear-gradient(45deg, rgba(255, 255, 0, 0.4), transparent 30%),
+        linear-gradient(90deg, rgba(255, 0, 255, 0.4), transparent 70%);
     background-size: 300% 300%;
     animation: polychromeShift 4s infinite linear;
     mix-blend-mode: overlay;
@@ -150,7 +152,6 @@
     transition: transform 0.6s ease;
     border-radius: 15px;
 }
-/* Adding subtle sparkles as a pseudo-element */
 .overlayEffect::after {
     content: "";
     position: absolute;
@@ -161,12 +162,11 @@
     background: url("..//images/projectCards/sparkles.webp");
     background-size: cover;
     pointer-events: none;
-    z-index: 3;
+    z-index: 5;
     animation: sparkleMove 8s linear infinite;
     border-radius: 15px;
     opacity: 0.8;
 }
-/* Noise effect as a separate layer */
 .overlayEffect::before {
     content: "";
     position: absolute;
@@ -177,7 +177,7 @@
     background: url("../images/projectCards/holo.webp");
     opacity: 0.4;
     pointer-events: none;
-    z-index: 4;
+    z-index: 6;
     border-radius: 15px;
 }
 
@@ -193,7 +193,7 @@
     border-radius: 15px;
 }
 
-/* Animation for shifting gradient layers */
+/* Animations */
 @keyframes polychromeShift {
     0% {
         background-position: 0% 50%;
@@ -206,7 +206,6 @@
     }
 }
 
-/* Subtle sparkle movement */
 @keyframes sparkleMove {
     0% {
         background-position: 0% 0%;
@@ -219,7 +218,15 @@
     }
 }
 
-/* Idle animation */
+@keyframes slide {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
 @keyframes fadeInGlow {
     0% {
         box-shadow: none;
@@ -246,16 +253,6 @@
     }
 }
 
-/* Github button hover animation */
-@keyframes slide {
-    0% {
-        left: -100%;
-    }
-    100% {
-        left: 100%;
-    }
-}
-
 /* Disable transform effects on smaller screens (for mobile devices) */
 @media (max-width: 768px) {
     .lightEffect {
@@ -263,5 +260,23 @@
     }
     .idleCard {
         animation: none;
+    }
+}
+
+@-moz-document url-prefix() {
+    .card.flipped .cardFaceFront {
+        z-index: 1;
+    }
+
+    .cardFaceFront {
+        background: transparent;
+        transform: inherit;
+        z-index: 3;
+    }
+    .cardFaceBack {
+        backface-visibility: visible;
+        background: transparent;
+        transform: inherit;
+        z-index: 2;
     }
 }

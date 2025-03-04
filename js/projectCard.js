@@ -64,7 +64,7 @@ function updateLightEffect(posX, posY, card, lightEffect) {
     const lightX = ((posX - rect.left) / cardWidth) * 100;
     const lightY = ((posY - rect.top) / cardHeight) * 100;
 
-    flippedOffset = card.classList.contains("flipped") ? 100 : 0;
+    var flippedOffset = card.classList.contains("flipped") ? 100 : 0;
 
     // Update the light effect position
     lightEffect.style.background = `radial-gradient(circle at ${Math.abs(
