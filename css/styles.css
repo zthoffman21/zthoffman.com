@@ -645,6 +645,7 @@ ul.treeView ul > li:last-child:after {
     #mainContainer {
         width: 100%;
         padding: 2%;
+        padding-top: 4%;
     }
     #bio .windowContainer {
         width: fit-content;
@@ -667,6 +668,9 @@ ul.treeView ul > li:last-child:after {
     }
 }
 @media (max-width: 650px) {
+    #navStickyContainer {
+        margin-bottom: 4%;
+    }
     #navContainerOuter {
         --windowMult: 1.25;
     }
