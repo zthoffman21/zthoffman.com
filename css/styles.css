@@ -665,9 +665,6 @@ ul.treeView ul > li:last-child:after {
     #bioTrees {
         flex-direction: column;
     }
-    #navStickyContainer {
-        margin-bottom: 4%;
-    }
 }
 @media (max-width: 650px) {
     #navContainerOuter {

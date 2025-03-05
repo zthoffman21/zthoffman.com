@@ -38,7 +38,9 @@ function makeDraggable(windowEl) {
     }
 }
 
-document.querySelectorAll(".window").forEach(makeDraggable);
+if (!window.matchMedia("(max-width: 900px)").matches) {
+    document.querySelectorAll(".window").forEach(makeDraggable);
+}
 
 function windowMinimize(button) {
     const outerContainer = button.closest(".window");
