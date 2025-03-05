@@ -553,6 +553,7 @@ ul.treeView ul > li:last-child:after {
     box-shadow: 0 10px 10px 2px rgba(0, 0, 0, 0.3);
 }
 .note img {
+    margin-top: 6%;
     max-width: 100%;
     background: transparent;
 }
