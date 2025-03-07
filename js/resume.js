@@ -1,3 +1,5 @@
+pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js";
+
 // Get DOM elements
 const canvas = document.getElementById("pdfCanvas");
 const zoomSelect = document.getElementById("zoomSelect");

@@ -20,6 +20,9 @@
         <!-- Link to the pdf library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/pixi-filters@3.1.1/dist/pixi-filters.min.js"></script>     
+
         <!-- Load theme on page load  -->
         <script>
             // Placed in the head so it loads before the rest of the page
@@ -451,6 +454,78 @@
         <div id="footer" style="display: flex; justify-content: center; color: var(--footer); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'";">
             <h6>Hoffman &copy; <script>document.write(new Date().getFullYear());</script></h6>
         </div>
+
+        <div id="crtOverlay"></div>
+
+        <!-- CRT script -->
+        <script>
+            const app = new PIXI.Application({
+              backgroundAlpha: 0,
+              resolution: window.devicePixelRatio || 1,
+              autoDensity: true,
+              antialias: false
+            });
+          
+            const overlayContainer = document.getElementById("crtOverlay");
+            overlayContainer.appendChild(app.view);
+          
+            const screenSprite = new PIXI.Graphics();
+            screenSprite.beginFill(0x8c8c8c);
+
+            const initialWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+            const initialHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            screenSprite.drawRect(0, 0, initialWidth, initialHeight);
+            screenSprite.endFill();
+          
+            const crtFilter = new PIXI.filters.CRTFilter({
+              curvature: 5.0,
+              lineWidth: 3.0,
+              lineContrast: 0.3,
+              noise: 0.2,
+              noiseSize: 1.0,
+              vignetting: 0.3,
+              vignettingAlpha: 1,
+              vignettingBlur: 0.3,
+              time: 0,
+              seed: 0
+            });
+          
+            let time = 0;
+            const scanlineSpeed = 0.05;
+          
+            app.ticker.add(() => {
+              const deltaTime = app.ticker.deltaMS;
+              crtFilter.time += scanlineSpeed;
+              crtFilter.verticalLineAlpha = 0.2 + Math.sin(time * 0.3) * 0.1;
+              time += deltaTime;
+            });
+          
+            screenSprite.filters = [crtFilter];
+            app.stage.addChild(screenSprite);
+          
+            function updateSizes() {
+              const width = window.visualViewport ? window.visualViewport.width : window.innerWidth;
+              const height = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+          
+              app.renderer.resize(width, height);
+          
+              screenSprite.width = width;
+              screenSprite.height = height;
+              screenSprite.x = 0;
+              screenSprite.y = 0;
+          
+              crtFilter.uniforms.dimensions[0] = width;
+              crtFilter.uniforms.dimensions[1] = height;
+            }
+          
+            updateSizes();
+          
+            if (window.visualViewport) {
+              window.visualViewport.addEventListener("resize", updateSizes);
+            } else {
+              window.addEventListener("resize", updateSizes);
+            }
+        </script>
 
         <script src="js/theme.js"></script>
         <script src="js/particles.js"></script>
