@@ -109,7 +109,6 @@ html {
     height: 100vh;
     pointer-events: none;
     mix-blend-mode: overlay;
-    filter: blur(0.3px);
 }
 #crtOverlay canvas {
     width: 100%;

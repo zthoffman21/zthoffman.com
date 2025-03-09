@@ -61,7 +61,7 @@ function setParticles() {
                     repulse: {
                         distance: 75, 
                         duration: 1,
-                        speed: 0.01,
+                        speed: 0.015,
                     },
                 },
             },
