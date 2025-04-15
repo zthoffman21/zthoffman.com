@@ -101,6 +101,13 @@ html {
     scroll-behavior: smooth;
 }
 
+#pdf {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8.5 / 11.25;
+    object-fit: contain; 
+  }  
+
 #crtOverlay {
     position: fixed;
     top: 0;
@@ -146,6 +153,7 @@ html {
 #bottomMain {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 #navStickyContainer {
     display: flex;
@@ -410,6 +418,9 @@ html {
 #links .windowContainer {
     width: calc(150px * var(--windowMult));
     height: calc(200px * var(--windowMult));
+}
+#resume .windowContainer {
+    width: calc(600px * var(--windowMult));
 }
 .mineSweeper .windowContainer {
     width: fit-content;

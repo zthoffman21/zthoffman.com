@@ -17,9 +17,8 @@
         
         <!-- Link to the particle library -->
         <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-        <!-- Link to the pdf library -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
 
+        <!-- Link to pixi filter libraries -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.3.3/pixi.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/pixi-filters@3.1.1/dist/pixi-filters.min.js"></script>     
 
@@ -429,20 +428,7 @@
                             </div>
                             <div class="windowTitleBar">Resume</div>
                             <div class="windowContent" style="background: #0b171d40;">
-                                <div id="pdfContainer">
-                                    <canvas id="pdfCanvas"></canvas>
-                                    <div id="pdfControls">
-                                        <button id="downloadButton">Download</button>
-                
-                                        <select id="zoomSelect">
-                                            <option value="0.4">25%</option>
-                                            <option value="0.5">50%</option>
-                                            <option value="0.75" selected>75%</option>
-                                            <option value="1">100%</option>
-                                            <option value="1.5">125%</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <embed src="images/Resume_Hoffman_Zachary.pdf#navpanes=0" id="pdf">                                
                             </div>
                         </div>
                     </div>
@@ -457,12 +443,12 @@
 
         <div id="crtOverlay"></div>
 
+        <script src="js/setup.js"></script>
         <script src="js/crtEffect.js"></script>
         <script src="js/theme.js"></script>
         <script src="js/particles.js"></script>
         <script src="js/draggableWindow.js"></script>
         <script src="js/projectCard.js"></script>
-        <script src="js/resume.js"></script>
         <script src="js/music.js"></script>
         <script src="js/mineSweeper.js"></script>
         <script src="" async defer></script>
