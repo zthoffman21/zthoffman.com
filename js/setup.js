@@ -24,7 +24,7 @@ if (!isMobileDevice) {
   });
 }
 
-window.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     if (!window.matchMedia("(max-width: 900px)").matches) {
         setAbsolutePositions();
     } else {
