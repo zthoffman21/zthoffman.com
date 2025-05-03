@@ -9,7 +9,7 @@ class Cell {
         this.row = row;
         this.col = col;
         this.bomb = false;
-        this.board = boardInstance; // Reference to the parent board instance
+        this.board = boardInstance;
         this.revealed = false;
         this.flagged = false;
     }
@@ -67,7 +67,6 @@ class Cell {
 class MinesweeperBoard {
     constructor(boardEl) {
         this.boardEl = boardEl;
-        // Optionally, if you use a CSS custom property for scaling per board:
         this.windowMult =
             parseFloat(window.getComputedStyle(boardEl).getPropertyValue("--windowMult")) || 1;
         this.size = 9;
@@ -290,7 +289,6 @@ class MinesweeperBoard {
     }
 }
 
-/* ----- Global Constants ----- */
 var bombImage = '<img src="images/mineSweeper/bomb.png">';
 var flagImage = '<img src="images/mineSweeper/flag.png">';
 var wrongBombImage = '<img src="images/mineSweeper/wrong-bomb.png">';
@@ -306,7 +304,6 @@ var colors = [
     "#7A7A7A",
 ];
 
-/* ----- Instantiate a MinesweeperBoard for Each .board Element ----- */
 document.querySelectorAll(".board").forEach((boardEl) => {
     new MinesweeperBoard(boardEl);
 });

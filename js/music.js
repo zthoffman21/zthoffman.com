@@ -3,7 +3,6 @@ const musicSelector = document.getElementById("musicSelector");
 let windowOpen = false;
 
 musicButton.addEventListener("click", function (event) {
-    console.log("here");
     musicSelector.style.opacity = window.getComputedStyle(musicSelector).opacity ^ 1;
     windowOpen = windowOpen ? false : true;
     if (windowOpen) {

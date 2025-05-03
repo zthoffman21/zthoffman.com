@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Pixelated MS Sans Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../images/fonts/MS\ Sans\ Serif.ttf") format("opentype"),
+        url("../images/fonts/ms_sans_serif.woff2") format("woff2"),
+        url("../images/fonts/ms_sans_serif.woff2") format("woff");
+}
+
+.windowContainerOuter {
+    width: fit-content;
+    height: fit-content;
+    padding: calc(2px * var(--windowMult));
+    margin-bottom: 8%;
+    background-color: #fff;
+    border: calc(2px * var(--windowMult)) solid #000;
+}
+.windowContainer {
+    width: calc(500px * var(--windowMult));
+    height: auto;
+    background-color: #f0f0f0;
+    border: 4px solid #000;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+}
+
+.windowOptionsBar {
+    height: calc(14px * var(--windowMult));
+    width: 100%;
+    border-bottom: calc(2px * var(--windowMult)) solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: calc(1px * var(--windowMult));
+}
+.windowMinimize,
+.windowMaximize,
+.windowExit {
+    cursor: pointer;
+    width: calc(10px * var(--windowMult));
+    height: calc(10px * var(--windowMult));
+    border-color: #000;
+}
+.windowMinimize {
+    background-color: orange;
+}
+.windowMaximize {
+    background-color: green;
+}
+.windowExit {
+    background-color: red;
+    margin-right: calc(1px * var(--windowMult));
+}
+.windowTitleBar {
+    color: #fff;
+    padding: calc(2px * var(--windowMult)) calc(4px * var(--windowMult));
+    font-size: calc(12px * var(--windowMult));
+    border-bottom: calc(2px * var(--windowMult)) solid #000;
+    border-top: calc(1px * var(--windowMult)) solid #000;
+    font-family: "MS Sans Serif", Arial, sans-serif;
+}
+.windowContent {
+    margin: calc(10px * var(--windowMult));
+    background: #fff;
+    box-shadow: inset calc(-0.8px * var(--windowMult)) calc(-0.8px * var(--windowMult)) #fff,
+        inset calc(0.8px * var(--windowMult)) calc(0.8px * var(--windowMult)) grey,
+        inset calc(-1.6px * var(--windowMult)) calc(-1.6px * var(--windowMult)) #dfdfdf,
+        inset calc(1.6px * var(--windowMult)) calc(1.6px * var(--windowMult)) #0a0a0a;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    font-size: calc(8.8px * var(--windowMult));
+    padding: calc(4.8px * var(--windowMult));
+    word-spacing: 0.4em;
+}
+.windowContent img {
+    width: calc(15px * var(--windowMult));
+    height: calc(15px * var(--windowMult));
+}

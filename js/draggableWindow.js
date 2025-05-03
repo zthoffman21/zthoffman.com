@@ -10,7 +10,7 @@ function makeDraggable(windowEl) {
     function dragMouseDown(e) {
         e.preventDefault();
         const computedStyle = getComputedStyle(windowEl);
-        // Use the computed left/top, or fallback to bounding rect values
+
         initialLeft = parseFloat(computedStyle.left) || windowEl.getBoundingClientRect().left;
         initialTop = parseFloat(computedStyle.top) || windowEl.getBoundingClientRect().top;
 

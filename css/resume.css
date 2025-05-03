@@ -1,49 +1,33 @@
-#pdfContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2% 5%;
+:root {
+    --resume: #83aff0;
+}
+[data-theme="starWars"] {
+    --resume: #a3a3a3;
+}
+[data-theme="pumpkin"] {
+    --resume: #b08449;
+}
+[data-theme="blue"] {
+    --resume: #4c566a;
+}
+[data-theme="christmas"] {
+    --resume: #b02a30;
 }
 
-#pdfCanvas {
-    box-shadow: 0 4px 20px #000000;
-    max-width: 100%;
+#resume {
+    --windowMult: 1.5;
+    scroll-margin-top: 2em;
+    margin-bottom: 0;
+}
+#resume .windowContainer {
+    width: calc(600px * var(--windowMult));
+}
+#resume .windowTitleBar {
+    background-color: var(--resume);
+}
+#pdf {
+    width: 100%;
     height: auto;
-    object-fit: contain;
-}
-
-#pdfControls {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 1.5%;
-}
-
-#zoomSelect {
-    padding: 5px;
-    border-radius: 4px;
-    background-color: var(--navDark);
-    color: var(--navLight);
-    border: 2px solid #ffffff23;
-}
-#zoomSelect:hover {
-    filter: brightness(0.9);
-}
-
-#downloadButton {
-    padding: 5px;
-    border-radius: 4px;
-    background-color: var(--navDark);
-    color: var(--navLight);
-    border: 2px solid #ffffff23;
-}
-#downloadButton:hover {
-    filter: brightness(0.9);
-}
-
-@media screen and (max-width: 1250px) {
-    .footer {
-        height: 80px;
-    }
-}
+    aspect-ratio: 8.5 / 11.25;
+    object-fit: contain; 
+}  

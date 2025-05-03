@@ -1,0 +1,181 @@
+:root {
+    --bio: #2c456b;
+}
+[data-theme="starWars"] {
+    --bio: #ffe81f;
+}
+[data-theme="pumpkin"] {
+    --bio: #d97a3d;
+}
+[data-theme="blue"] {
+    --bio: #88c0d0;
+}
+[data-theme="christmas"] {
+    --bio: #b02a30;
+}
+
+@font-face {
+    font-family: "Pixelated MS Sans Serif";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../images/fonts/MS\ Sans\ Serif.ttf") format("opentype"),
+        url("../images/fonts/ms_sans_serif.woff2") format("woff2"),
+        url("../images/fonts/ms_sans_serif.woff2") format("woff");
+}
+#bio {
+    --windowMult: 1.5;
+    scroll-margin-top: 2em;
+}
+#bio .windowContainer {
+    display: flex;
+    flex-direction: column;
+    width: calc(550px * var(--windowMult));
+    height: calc(250px * var(--windowMult));
+}
+#bio .windowTitleBar {
+    background-color: var(--bio);
+}
+#bio #musicSelector {
+    position: absolute;
+    left: -35px;
+    top: -175px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: "Pixelated MS Sans Serif";
+    background: silver;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey,
+        inset 2px 2px #fff;
+    padding: 12px;
+    display: inline-block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+#bio #musicSelector h4 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: calc(2px * var(--windowMult));
+}
+#bio #musicSelector button {
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: calc(15.33px * var(--windowMult));
+    min-width: calc(50px * var(--windowMult));
+    padding: 0 calc(8px * var(--windowMult));
+    font-family: "Pixelated MS Sans Serif";
+    color: transparent;
+    text-shadow: 0 0 #222;
+    background: silver;
+    box-shadow: inset calc(-0.67px * var(--windowMult)) calc(-0.67px * var(--windowMult)) #0a0a0a,
+        inset calc(0.67px * var(--windowMult)) calc(0.67px * var(--windowMult)) #fff,
+        inset calc(-1.33px * var(--windowMult)) calc(-1.33px * var(--windowMult)) grey,
+        inset calc(1.33px * var(--windowMult)) calc(1.33px * var(--windowMult)) #dfdfdf;
+}
+#bio #musicSelector button:hover {
+    transform: none;
+    background: #d7d7d7;
+    box-shadow: inset calc(-0.67px * var(--windowMult)) calc(-0.67px * var(--windowMult)) #555,
+        inset calc(0.67px * var(--windowMult)) calc(0.67px * var(--windowMult)) #fff,
+        inset calc(-1.33px * var(--windowMult)) calc(-1.33px * var(--windowMult)) #aaa,
+        inset calc(1.33px * var(--windowMult)) calc(1.33px * var(--windowMult)) #efefef;
+    text-shadow: 0 0 #222;
+    cursor: pointer;
+}
+#bio #musicSelector button:active {
+    box-shadow: inset calc(-0.67px * var(--windowMult)) calc(-0.67px * var(--windowMult)) #fff,
+        inset calc(0.67px * var(--windowMult)) calc(0.67px * var(--windowMult)) #0a0a0a,
+        inset calc(-1.33px * var(--windowMult)) calc(-1.33px * var(--windowMult)) #dfdfdf,
+        inset calc(1.33px * var(--windowMult)) calc(1.33px * var(--windowMult)) grey;
+    text-shadow: calc(0.67px * var(--windowMult)) calc(0.67px * var(--windowMult)) #222;
+}
+#bioContentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#customizeButtons {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    margin: calc(10px * var(--windowMult));
+    gap: calc(16px * var(--windowMult));
+    background-color: #f0f0f0;
+}
+#customizeButtons button {
+    border: none;
+    transition: transform 0.3s ease;
+    background-color: #f0f0f0;
+}
+#customizeButtons button:hover {
+    transform: scale(1.3);
+}
+#bio #customizeButtons img {
+    background-color: #f0f0f0;
+    width: calc(25px * var(--windowMult));
+    height: calc(25px * var(--windowMult));
+}
+
+#bioTrees {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+/* TREE VIEW */
+ul.treeView {
+    display: block;
+    margin: 0;
+    -webkit-font-smoothing: none;
+}
+ul.treeView li {
+    list-style-type: none;
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+ul.treeView li img {
+    width: calc(10px * var(--windowMult));
+    height: calc(10px * var(--windowMult));
+}
+ul.treeView li,
+ul.treeView ul {
+    margin-top: calc(2.4px * var(--windowMult));
+}
+ul.treeView ul {
+    border-left: calc(0.8px * var(--windowMult)) dotted grey;
+    margin-left: calc(12.8px * var(--windowMult));
+    padding-left: calc(12.8px * var(--windowMult));
+    list-style-type: circle;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+ul.treeView ul > li {
+    position: relative;
+}
+ul.treeView ul > li:before {
+    border-bottom: calc(0.8px * var(--windowMult)) dotted grey;
+    content: "";
+    display: block;
+    left: calc(-12.8px * var(--windowMult));
+    position: absolute;
+    top: calc(4.8px * var(--windowMult));
+    width: calc(9.6px * var(--windowMult));
+}
+ul.treeView ul > li:last-child:after {
+    background: #fff;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: calc(-16px * var(--windowMult));
+    position: absolute;
+    top: calc(5.6px * var(--windowMult));
+    width: calc(6.4px * var(--windowMult));
+}
