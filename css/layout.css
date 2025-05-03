@@ -183,7 +183,7 @@ html {
         height: fit-content;
     }
     #projects .windowContent {
-        padding: 8% 0;
+        padding: 4% 2%;
     }
     #resume .windowContent {
         padding: 4% 0;
@@ -199,6 +199,9 @@ html {
     }
 }
 @media (max-width: 700px) {
+    #projects {
+        --windowMult: 1.5;
+    }
     #tabs {
         width: 87%;
     }
