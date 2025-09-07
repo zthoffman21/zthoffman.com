@@ -80,7 +80,7 @@ class Tab {
           <li><code>python main.py</code> → draw your track → select mode → optimize</li>
         </ul>
       </li>
-      <li><a href="https://github.com/zthoffman21/racing-line-simulation" target="_blank">View on GitHub</a></li>
+      <li><a href="https://github.com/zthoffman21/Machine_Learning_Racing_Simulation" target="_blank">View on GitHub</a></li>
     </ul>
   </li>
 </ul>
