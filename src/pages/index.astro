@@ -1,0 +1,228 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectsTerminal from "../components/ProjectsTerminal.astro";
+---
+<BaseLayout>
+  <div id="mainContainer">
+    <div id="top">
+      <div id="topSideBar">
+        <div id="links" class="windowContainerOuter window">
+          <div class="windowContainer">
+            <div class="windowOptionsBar draggable">
+              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+              <button class="windowExit" onclick="windowClose(this)"></button>
+            </div>
+            <div class="windowTitleBar">Links</div>
+            <div class="windowContent">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                  <img src="/images/icons/world.svg" alt="LinkedIn" />
+                  <h3>LinkedIn</h3>
+                </a>
+                <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                  <img src="/images/icons/tree.svg" alt="GitHub" />
+                  <h3>GitHub</h3>
+                </a>
+                <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                  <img src="/images/icons/letter.svg" alt="Email" />
+                  <h3>Email Me!</h3>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mineSweeper windowContainerOuter window">
+          <div class="windowContainer">
+            <div class="windowOptionsBar draggable">
+              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+              <button class="windowExit" onclick="windowClose(this)"></button>
+            </div>
+            <div id="boardContainer">
+              <div>
+                <table class="board"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="topMain">
+        <div id="navStickyContainer">
+          <div id="navContainerOuter" class="window">
+            <div id="navContainer">
+              <div id="navOptionsBar" class="draggable">
+                <button id="navMinimize" onclick="windowMinimize(this)"></button>
+                <button id="navMaximize" onclick="windowMaximize(this)"></button>
+                <button id="navExit" onclick="windowClose(this)"></button>
+              </div>
+              <div id="navTitleBarContainer">
+                <div class="navTitleBarAccent"></div>
+                <div id="navTitleBar">Explore the Site!</div>
+                <div class="navTitleBarAccent"></div>
+              </div>
+              <div id="navListContainer">
+                <ul id="navList">
+                  <li id="activeNav"><a href="#bio">
+                    <img src="/images/icons/home.svg" alt="Home" />
+                    <p>Home</p>
+                  </a></li>
+                  <li><a href="#projects">
+                    <img src="/images/icons/lightBulb.svg" alt="Projects" />
+                    <p>Projects</p>
+                  </a></li>
+                  <li><a href="#resume">
+                    <img src="/images/icons/paper.svg" alt="Resume" />
+                    <p>Resume</p>
+                  </a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="stickyNoteContainer window">
+            <i class="pin"></i>
+            <div class="note yellow draggable">
+              <div style="display: flex; justify-content: center;">
+                <img src="/images/hoffmanLogoTransparent.svg" alt="ZH logo" />
+              </div>
+            </div>
+          </div>
+
+          <div id="linksMineSweeperContainer">
+          <div id="links" class="windowContainerOuter window">
+            <div class="windowContainer">
+              <div class="windowOptionsBar draggable">
+                <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                <button class="windowExit" onclick="windowClose(this)"></button>
+              </div>
+              <div class="windowTitleBar">Links</div>
+              <div class="windowContent">
+                <div style="display: flex; flex-direction: column; align-items: center;">
+                  <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="/images/icons/world.svg" alt="LinkedIn" />
+                    <h3>LinkedIn</h3>
+                  </a>
+                  <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="/images/icons/tree.svg" alt="GitHub" />
+                    <h3>GitHub</h3>
+                  </a>
+                  <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
+                    <img src="/images/icons/letter.svg" alt="Email" />
+                    <h3>Email Me!</h3>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mineSweeper windowContainerOuter window">
+            <div class="windowContainer">
+              <div class="windowOptionsBar draggable">
+                <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+                <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+                <button class="windowExit" onclick="windowClose(this)"></button>
+              </div>
+              <div id="boardContainer">
+                <div>
+                  <table class="board"></table>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div id="bio" class="windowContainerOuter window">
+          <div class="windowContainer">
+            <div class="windowOptionsBar draggable">
+              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+              <button class="windowExit" onclick="windowClose(this)"></button>
+            </div>
+            <div class="windowTitleBar">About Me</div>
+            <div id="bioContentWrapper">
+              <div class="windowContent">
+                <h2>Hello, </h2>
+                <div style="margin-left: 5%;">
+                  <h4>&emsp; My name is Zach Hoffman. <img src="/images/icons/snoopy.svg" alt=""/> I am a Computer Science major with a Mathematics minor at Liberty University. I enjoy making user-facing technology ranging from robotics to game design. <img src="/images/icons/mouse.svg" alt=""/></h4>
+                </div>
+                <div id="bioTrees">
+                  <ul class="treeView">
+                    <li>
+                      My Hobbies:
+                      <ul>
+                        <li>Programming...duh</li>
+                        <li>Golf</li>
+                        <li>Fishing  <img src="/images/icons/fish.svg" alt=""/></li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="treeView">
+                    <li>
+                      My Favorite Classes:
+                      <ul>
+                        <li>Calculus Ⅲ</li>
+                        <li>Data Structures and Algorithms</li>
+                        <li>Lunch</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="treeView">
+                    <li>
+                      My Favorite Movies:
+                      <ul>
+                        <li>Here Comes the Boom</li>
+                        <li>Harry Potter <img src="/images/icons/wizard.svg" alt=""/></li>
+                        <li>How to Train Your Dragon</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="customizeButtons">
+                <div style="position: relative; display: inline-block; background-color: #f0f0f0;">
+                  <button id="musicButton" style="background-color: #f0f0f0;"><img src="/images/icons/music.svg" style="background-color: #f0f0f0;" alt="Music"/></button>
+                  <div id="musicSelector">
+                    <div>
+                      <h4>Music</h4>
+                      <button onclick="playTrack('/music/acoustic.mp3')">Acoustic</button>
+                      <button onclick="playTrack('/music/classical.mp3')">Classical</button>
+                      <button onclick="playTrack('/music/jazz.mp3')">Jazz</button>
+                      <button onclick="playTrack('/music/lofi.mp3')">Lofi</button>
+                      <button onclick="playTrack('/music/synthwave.mp3')">Synthwave</button>
+                      <audio id="audioPlayer" loop></audio>
+                    </div>
+                  </div>
+                </div>
+                <button id="themeButton" style="background-color: #f0f0f0;"><img src="/images/icons/paint.svg" style="background-color: #f0f0f0;" alt="Theme"/></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="bottom">
+      <div id="bottomMain">
+        <!-- Projects: terminal-only view -->
+        <ProjectsTerminal />
+        <div id="resume" class="windowContainerOuter window">
+          <div class="windowContainer">
+            <div class="windowOptionsBar draggable">
+              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+              <button class="windowExit" onclick="windowClose(this)"></button>
+            </div>
+            <div class="windowTitleBar">Resume</div>
+            <div class="windowContent" style="background: #0b171d40;">
+              <embed id="pdf" src="/images/Resume_Hoffman_Zachary.pdf" type="application/pdf" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="footer" style="display: flex; justify-content: center; color: var(--footer); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'">
+    <h6>Hoffman &copy; <script is:inline>document.write(new Date().getFullYear());</script></h6>
+  </div>
+</BaseLayout>

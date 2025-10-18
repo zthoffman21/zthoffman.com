@@ -1,0 +1,34 @@
+---
+---
+<div class="windowContainerOuter window" id="projectsViewSwitcher">
+  <div class="windowContainer" style="width: calc(300px * var(--windowMult));">
+    <div class="windowOptionsBar draggable">
+      <div id="windowButtons">
+        <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+        <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+        <button class="windowExit" onclick="windowClose(this)"></button>
+      </div>
+    </div>
+    <div class="windowTitleBar">Projects View</div>
+    <div class="windowContent" style="display:flex; gap:8px; align-items:center; justify-content:center;">
+      <button id="btnProjectsGrid" class="windowMinimize" style="width:auto; padding:4px 8px; background: #cfcfcf;">Grid</button>
+      <button id="btnProjectsTerminal" class="windowMinimize" style="width:auto; padding:4px 8px; background: #cfcfcf;">Terminal</button>
+    </div>
+  </div>
+  <script is:inline>
+    (function(){
+      const gridWin = document.getElementById('projects');
+      const termWin = document.getElementById('projectsTerminal');
+      const btnGrid = document.getElementById('btnProjectsGrid');
+      const btnTerm = document.getElementById('btnProjectsTerminal');
+      if (!gridWin || !termWin) return;
+      function showGrid(){ gridWin.style.display='block'; termWin.style.display='none'; }
+      function showTerm(){ gridWin.style.display='none'; termWin.style.display='block'; }
+      btnGrid?.addEventListener('click', showGrid);
+      btnTerm?.addEventListener('click', showTerm);
+      // default to Grid view
+      showGrid();
+    })();
+  </script>
+</div>
+

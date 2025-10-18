@@ -1,0 +1,29 @@
+---
+import projects from "../data/projects.json";
+import termScriptUrl from "../scripts/projectsTerminal.js?url";
+---
+<div id="projectsTerminal" class="windowContainerOuter window" data-projects={JSON.stringify(projects)}>
+  <div class="windowContainer terminal-window">
+    <div class="windowOptionsBar draggable">
+      <div id="windowButtons">
+        <button class="windowMinimize" onclick="windowMinimize(this)"></button>
+        <button class="windowMaximize" onclick="windowMaximize(this)"></button>
+        <button class="windowExit" onclick="windowClose(this)"></button>
+      </div>
+    </div>
+    <div class="windowTitleBar">Projects Terminal</div>
+    <div class="windowContent">
+      <div id="termOut" class="terminal" aria-live="polite"></div>
+      <div class="prompt">
+        <span class="prompt-label">guest@zthoffman:~$</span>
+        <input id="termInput" class="prompt-input" type="text" autocomplete="off" aria-label="Projects terminal input" />
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<script type="module" src={termScriptUrl}></script>
+
+
+

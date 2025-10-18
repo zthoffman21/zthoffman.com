@@ -1,0 +1,85 @@
+[
+  {
+    "slug": "chess-robot",
+    "title": "Chess Robot",
+    "category": "Robotics",
+    "summary": "An autonomous chess-playing robot that combines computer vision and robotic control to play physical chess games.",
+    "stack": ["Python", "OpenCV", "PyTorch", "Raspberry Pi"],
+    "image": "/images/projects/robot.png",
+    "hardware": [
+      "20\" articulated arm (Fusion 360 & 3D-printed)",
+      "Raspberry Pi 4B + AI Camera",
+      "PCA9685 PWM driver",
+      "High-torque 270° metal-gear servos (40 kg·cm - 60 kg·cm)"
+    ],
+    "software": [
+      "OpenCV pipeline for robust board detection",
+      "PyTorch CNN for square-by-square piece classification",
+      "Inverse kinematics for precise arm control",
+      "Stockfish API integration for move generation"
+    ],
+    "progress": [
+      "✅ Multi-stage board detection & 8x8 segmentation",
+      "✅ CNN trained & integrated",
+      "✅ Stockfish communication",
+      "🔄 Inverse kinematics full integration (in progress)",
+      "🔄 Piece classification refinements (up next)"
+    ],
+    "links": { "github": "https://github.com/zthoffman21/chessRobot" }
+  },
+  {
+    "slug": "ai-racing",
+    "title": "Racing Line Simulation",
+    "category": "ML / Simulation",
+    "summary": "Draw custom race tracks and let AI optimize the best racing line using realistic car physics and evolutionary algorithms.",
+    "stack": ["Python 3.7+", "Pygame 2.0+", "NEAT-Python 2.12.0", "Tkinter"],
+    "image": "/images/projects/race.png",
+    "modes": [
+      "Best Time Mode: Watch AI cars evolve to minimize lap times on your track.",
+      "Head-to-Head Mode: Two AI teams train & compete side-by-side with adjustable parameters."
+    ],
+    "features": [
+      "Advanced Car Physics: Velocity & steering based on traction, downforce & mass; throttle-position controls; mask-based collision detection.",
+      "NEAT ML Integration: Evolutionary algorithm with 10 inputs (velocity, steering, distances) & 2 outputs (throttle, steering); fitness = lap time + crash avoidance.",
+      "Custom Track Creation: Intuitive drawing tool for designing unique circuits."
+    ],
+    "links": { "github": "https://github.com/zthoffman21/Machine_Learning_Racing_Simulation" }
+  },
+  {
+    "slug": "website",
+    "title": "Personal Website",
+    "category": "Web",
+    "summary": "A retro-styled interactive portfolio that mimics a vintage OS, showcasing projects, resume, contact info, and mini-apps in draggable windows.",
+    "stack": ["Astro", "Tailwind CSS", "Vanilla JS"],
+    "image": "/images/projects/monitor.png",
+    "features": [
+      "Draggable, focus-managed windows (draggableWindow.js)",
+      "CRT scanline effect using Canvas (crtEffect.js)",
+      "Animated particle background (particles.js)",
+      "Built-in Minesweeper game (mineSweeper.js)",
+      "Music jukebox with play/pause/skip controls (music.js)",
+      "Dynamic theme switcher (light/dark/retro) (theme.js)",
+      "PDF resume embed with smooth zoom handling"
+    ],
+    "links": { "github": "https://github.com/zthoffman21/zthoffman.com" }
+  },
+  {
+    "slug": "pawns-revenge",
+    "title": "Pawn's Revenge",
+    "category": "Games",
+    "summary": "A wave-style shooter where you control a pawn fending off spawning chess-piece enemies by picking up and throwing board labels (letters & numbers).",
+    "stack": ["Python", "Pygame"],
+    "image": "/images/projects/joystick.png",
+    "modules": [
+      "GameLoop: manages waves, spawning &",
+      "MainMenu: title screen & navigation",
+      "ControlsMenu: keybinding instructions",
+      "Sprites & Textures: visual assets",
+      "UsefulFunctions: utility helpers (input, scoring, collision)"
+    ],
+    "gameplay": [
+      "Progress through increasing waves of enemies, collect letter/number pickups as projectiles, and survive as long as possible."
+    ],
+    "links": { "github": "https://github.com/zthoffman21/Pawns-Revenge-Python" }
+  }
+]

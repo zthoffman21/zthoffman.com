@@ -1,0 +1,36 @@
+:root {
+    --links: #c1493e;
+}
+[data-theme="starWars"] {
+    --links: #3d3d3d;
+}
+[data-theme="pumpkin"] {
+    --links: #d97a3d;
+}
+[data-theme="blue"] {
+    --links: #bf616a;
+}
+[data-theme="christmas"] {
+    --links: #2fa34f;
+}
+
+#links {
+    --windowMult: 1.5;
+}
+#links .windowContainer {
+    width: calc(150px * var(--windowMult));
+    height: calc(200px * var(--windowMult));
+}
+#links .windowTitleBar {
+    background-color: var(--links);
+}
+#links .windowContent img {
+    width: calc(30px * var(--windowMult));
+    height: calc(30px * var(--windowMult));
+}
+#links a {
+    text-decoration: none;
+}
+#links a:hover {
+    text-decoration: underline;
+}
