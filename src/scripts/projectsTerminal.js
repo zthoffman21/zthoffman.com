@@ -143,7 +143,6 @@ function initProjectsTerminal() {
   print('zthoffmanOS Project Terminal');
   print(`Loaded ${data.length} projects. Type help or click a project name in the list.`);
   list();
-  input.focus();
   out.addEventListener('click', ()=> input.focus());
 }
 

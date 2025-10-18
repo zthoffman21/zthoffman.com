@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="150" height="150">
+	<title>Pinterest</title>
+	<defs>
+		<image  width="146" height="114" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJIAAAByBAMAAABKEZU/AAAAAXNSR0IB2cksfwAAABtQTFRFAIWEgn8AAAAA//sA////AAyEAP3/AICBwcHBBO6j9wAAAAl0Uk5TAP//////////NwKb1AAAAepJREFUeJztmTtuwzAMQOmmbdboBoVPEKAX6BG6eO+UOVvO0C1zp+5ZcoBewUBOIPgGzpoGcUrRkqzYsuPPVpEBFP34HJAySSgRNEQ0p+5KtIAoPNLDCzY5Ll+P9Q42Aq5H26HpImPSNNLjm+7iTp9mnXw5MGkY6emd9M57bBKgs1++NEWGO4f47j+TEnWm1XyRISuBuLR2XgJ3OL5n8SLDRzKpJ+lGEyfScpTQCcedO9zZ7bu0VAyJRBbP1egHO5q0gtN2tmy3uGTSRBLJriJpiYf7LiySsvh8DZ/wOtXiTPKRtDhRJYf5+rRFTovvpEqLwKS+JJ3vlJz3OBUb79l81+27lPJdCCQwJJoQ+NGVGdVmK0R0WVwGRHJFUL2kB88fyNl0ZilpfgKTRpOco3w54CiF2bK9EsuDJcUeBW1a/LqxOCIELTBpJAl3xt6jjCoqvNA6VI9A3zJpKskXrovMhheK8/YRFMchSFLT4hKDMCI2lPiwURcudC8gTfRl0khStLCXq24wsZUY+a4E/n4bpeBI6graLdidEECVmLX4xpB1CcakUaQyzdUv8mww8fpOgisBkGwIuC2wnBBQWfyL1FxTM2koqf4/FLkkd4+yK7KBYNIwkjD3KsLnkE7doEhx1W8h9RQm9ZM/Y1aSMcb8nTgAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="3" y="21"/>
+</svg>

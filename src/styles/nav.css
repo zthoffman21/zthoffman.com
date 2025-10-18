@@ -114,3 +114,12 @@
 #activeNav {
     text-decoration: underline;
 }
+
+/* Mobile adjustments */
+@media (max-width: 900px) {
+  #navContainerOuter { width: 100%; }
+  #navContainer { width: 100%; }
+}
+@media (max-width: 600px) {
+  #navList { flex-wrap: wrap; }
+}
