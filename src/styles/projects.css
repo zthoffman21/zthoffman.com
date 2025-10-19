@@ -1,9 +1,9 @@
-#projects {
+#projectsGrid {
   --windowMult: 1.75;
   scroll-margin-top: 2em;
 }
-#projects .windowTitleBar { background-color: var(--projects); }
-#projects .windowOptionsBar { justify-content: flex-end; }
+#projectsGrid .windowTitleBar { background-color: var(--projects); }
+#projectsGrid .windowOptionsBar { justify-content: flex-end; }
 
 .projects-grid {
   display: grid;

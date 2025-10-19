@@ -23,8 +23,8 @@
 .terminal-window .windowTitleBar { color: #fff; background-color: var(--projects); }
 
 /* Size tweaks */
-#projectsTerminal { --windowMult: 1.4; }
-#projectsTerminal .windowContainer { width: calc(560px * var(--windowMult)); }
+#projects { --windowMult: 1.4; }
+#projects .windowContainer { width: calc(560px * var(--windowMult)); }
 .terminal {
   padding: calc(8px * var(--windowMult));
   height: calc(320px * var(--windowMult));

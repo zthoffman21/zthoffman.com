@@ -6,7 +6,7 @@ function initProjectsTerminal() {
   // Load data from data attribute injected by ProjectsTerminal.astro
   let data = [];
   try {
-    const host = document.getElementById('projectsTerminal');
+    const host = document.getElementById('projects');
     const raw = host && host.getAttribute('data-projects');
     if (raw) data = JSON.parse(raw);
   } catch (e) {
