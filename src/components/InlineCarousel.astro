@@ -7,7 +7,14 @@ const id = `ic-${Math.random().toString(36).slice(2, 8)}`;
   <div class="relative">
     {items.map((img, i) => (
       <figure data-frame={i} data-caption={img.caption || ''} class={i === 0 ? 'block' : 'hidden'}>
-        <img src={img.src} alt={img.alt || ''} loading={(String(img.src).toLowerCase().endsWith('.gif') ? undefined : 'lazy') as any} decoding="async" class="w-full h-auto block" />
+        <img
+          src={img.src}
+          alt={img.alt || ''}
+          loading={i === 0 ? (undefined as any) : (String(img.src).toLowerCase().endsWith('.gif') ? (undefined as any) : ('lazy' as any))}
+          fetchpriority={i === 0 ? 'high' : undefined}
+          decoding={i === 0 ? 'auto' : 'async'}
+          class="w-full h-auto block"
+        />
       </figure>
     ))}
   </div>
