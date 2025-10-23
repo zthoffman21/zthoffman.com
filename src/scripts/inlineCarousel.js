@@ -8,6 +8,22 @@ export function initInlineCarousels() {
     const captionEl = root.querySelector('[data-caption-el]');
     if (!frames.length) return;
     let index = 0;
+    const imgs = Array.from(root.querySelectorAll('img'));
+
+    // Ensure eager load for reliability on mobile and set a stable min-height
+    try {
+      imgs.forEach((img) => { try { img.loading = 'eager'; } catch {} });
+    } catch {}
+
+    function setMinHeight() {
+      // Use tallest visible/toggled frame height; fallback to image naturalHeight ratio
+      const heights = frames.map((f) => f.offsetHeight || 0);
+      const maxH = Math.max(0, ...heights);
+      if (maxH > 0) {
+        root.style.minHeight = maxH + 'px';
+      }
+    }
+    imgs.forEach((img) => img.addEventListener('load', setMinHeight));
 
     function update(i = index) {
       index = (i + frames.length) % frames.length;
@@ -18,12 +34,14 @@ export function initInlineCarousels() {
         captionEl.textContent = cap;
         captionEl.classList.toggle('hidden', !cap);
       }
+      setMinHeight();
     }
 
     prev?.addEventListener('click', () => update(index - 1));
     next?.addEventListener('click', () => update(index + 1));
     dots.forEach((d, j) => d.addEventListener('click', () => update(j)));
     update(0);
+    setMinHeight();
   });
 }
 

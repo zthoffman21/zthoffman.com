@@ -52,6 +52,7 @@
 [data-inline-carousel] {
   /* Use vw for broader mobile support (older Safari lacks dvw) */
   max-width: min(90vw, 500px);
+  min-height: 160px; /* reserve space while images load */
   margin-inline: auto;
 }
 [data-inline-carousel] img {
