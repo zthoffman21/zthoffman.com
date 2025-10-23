@@ -38,6 +38,16 @@
   [data-timeline] .tl-card { justify-content: center !important; }
 }
 
+/* Apply content-visibility only on larger screens for safety on mobile Safari */
+@supports (content-visibility: auto) {
+  @media (min-width: 801px) {
+    [data-timeline] article.tl-cv {
+      content-visibility: auto;
+      contain-intrinsic-size: 400px 600px;
+    }
+  }
+}
+
 /* Inline carousel sizing inside timeline milestones */
 [data-inline-carousel] {
   /* Use vw for broader mobile support (older Safari lacks dvw) */

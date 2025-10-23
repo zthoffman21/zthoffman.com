@@ -87,7 +87,7 @@
 .xp-meta { color: var(--textAlt); font-size: 0.92rem; margin-bottom: 10px; }
 .xp-points { margin: 0; padding-left: 18px; line-height: 1.45; }
 .xp-points li { margin: 4px 0; }
-.xp-tech { margin-top: 10px; }
+.xp-tech { margin-top: 10px; margin-bottom: 20px;}
 .xp-tech .stack-chip { display: inline-block; margin: 2px 6px 0 0; font-size: 12px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; color: var(--textMain); }
 
 /* About layout (replaces old tree view) */
