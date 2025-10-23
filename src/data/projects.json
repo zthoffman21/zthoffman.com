@@ -2,83 +2,289 @@
   {
     "slug": "chess-robot",
     "title": "Chess Robot",
-    "category": "Robotics",
-    "summary": "An autonomous chess-playing robot that combines computer vision and robotic control to play physical chess games.",
-    "stack": ["Python", "OpenCV", "PyTorch", "Raspberry Pi"],
-    "image": "/images/projects/robot.png",
-    "hardware": [
-      "20\" articulated arm (Fusion 360 & 3D-printed)",
-      "Raspberry Pi 4B + AI Camera",
-      "PCA9685 PWM driver",
-      "High-torque 270° metal-gear servos (40 kg·cm - 60 kg·cm)"
+    "category": "Robotics / ML",
+    "stack": ["Python", "OpenCV", "PyTorch", "Raspberry Pi", "Fusion 360"],
+    "timeline": [
+      {
+        "id": "cad-preview",
+        "title": "CAD Design",
+        "content": [
+          { "type": "paragraph", "text": "I designed the model in Fusion 360 and 3D printed it. It has 4 DOF, and it is purposed to hold high torque servo motors and a raspberry pi camera." },
+          { "type": "carousel", "items": [
+            { "src": "/images/projects/CAD_Home.png", "alt": "CAD Home View", "caption": "Home View" },
+            { "src": "/images/projects/CAD_Front.png", "alt": "CAD Front View", "caption": "Front View" },
+            { "src": "/images/projects/CAD_Side.png", "alt": "CAD Side View", "caption": "Side View" }
+          ]}
+        ]
+      },
+      {
+        "id": "computer-vision-preview",
+        "title": "Computer Vision Processing",
+        "content": [
+          { "type": "paragraph", "text": "This is the computer vision process to find the board and derive the playing squares from it." },
+          { "type": "carousel", "items": [
+            { "src": "/images/projects/CV_1.jfif", "alt": "Raw Camera Image", "caption": "Raw Image" },
+            { "src": "/images/projects/CV_2.jpg", "alt": "Pre-processed (Resize, Denoise)", "caption": "Resized & Denoised" },
+            { "src": "/images/projects/CV_3.jpg", "alt": "Thresholding", "caption": "Thresholded" },
+            { "src": "/images/projects/CV_4.jpg", "alt": "Morphology", "caption": "Dilation/Erosion/MorphClose" },
+            { "src": "/images/projects/CV_5.jpg", "alt": "Board Polygon Approx", "caption": "Polygon Approximation" },
+            { "src": "/images/projects/CV_6.jpg", "alt": "Perspective Transform", "caption": "Perspective Transform" },
+            { "src": "/images/projects/CV_7.jpg", "alt": "Squares Extracted", "caption": "Cropped & Divided into 64 Squares" }
+          ]}
+        ]
+      },
+      
+      {
+        "id": "piece-classification",
+        "title": "Piece Classification & Board State",
+        "content": [
+          { "type": "paragraph", "text": "Each square is classified using a custom CNN built in PyTorch to determine piece color (white / black) or empty. I then compare consecutive board states to detect the opponent's move." },
+          { "type": "list", "ordered": false, "items": [
+            "CNN architecture: input 64x64 square images → 3-class output (white / black / none)",
+            "Board state is tracked using python-chess, updated after each move detection",
+            "One limitation is that the current implementation assumes the game begins in standard starting position, which means it can't yet handle arbitrary mid-game setups"
+          ]}
+        ]
+      },
+      {
+        "id": "decision-making",
+        "title": "Decision Making & Move Selection",
+        "content": [
+          { "type": "paragraph", "text": "I use the Stockfish chess engine to determine the optimal move from the current board FEN." },
+          { "type": "list", "ordered": false, "items": [
+            "Convert the board state into FEN and feed into Stockfish",
+            "Parse Stockfish output (best move) → translate into robot motion command",
+            "Eventually, I want to build my own chess engine in place of Stockfish."
+          ]}
+        ]
+      },
+      {
+        "id": "motion-control",
+        "title": "Robotic Arm Inverse Kinematics & Control",
+        "content": [
+          { "type": "paragraph", "text": "Integrated the 4-DOF arm with high-torque metal-gear servos (40 kg-cm - 60 kg-cm) via a PCA9685 PWM driver and Raspberry Pi." },
+          { "type": "list", "ordered": false, "items": [
+            "Hardware build complete; gearbox & servo mounts designed for strength and repeatability",
+            "Sadly, this is still a work-in-progress. I have basic servo control working, but the inverse kinematics and pick-and-place routines are not yet finished."
+          ]}
+        ]
+      }
     ],
-    "software": [
-      "OpenCV pipeline for robust board detection",
-      "PyTorch CNN for square-by-square piece classification",
-      "Inverse kinematics for precise arm control",
-      "Stockfish API integration for move generation"
-    ],
-    "progress": [
-      "✅ Multi-stage board detection & 8x8 segmentation",
-      "✅ CNN trained & integrated",
-      "✅ Stockfish communication",
-      "🔄 Inverse kinematics full integration (in progress)",
-      "🔄 Piece classification refinements (up next)"
-    ],
-    "links": { "github": "https://github.com/zthoffman21/chessRobot" }
+    "links": {
+      "github": "https://github.com/zthoffman21/chessRobot"
+    }
   },
   {
-    "slug": "ai-racing",
-    "title": "Racing Line Simulation",
-    "category": "ML / Simulation",
-    "summary": "Draw custom race tracks and let AI optimize the best racing line using realistic car physics and evolutionary algorithms.",
-    "stack": ["Python 3.7+", "Pygame 2.0+", "NEAT-Python 2.12.0", "Tkinter"],
-    "image": "/images/projects/race.png",
-    "modes": [
-      "Best Time Mode: Watch AI cars evolve to minimize lap times on your track.",
-      "Head-to-Head Mode: Two AI teams train & compete side-by-side with adjustable parameters."
-    ],
-    "features": [
-      "Advanced Car Physics: Velocity & steering based on traction, downforce & mass; throttle-position controls; mask-based collision detection.",
-      "NEAT ML Integration: Evolutionary algorithm with 10 inputs (velocity, steering, distances) & 2 outputs (throttle, steering); fitness = lap time + crash avoidance.",
-      "Custom Track Creation: Intuitive drawing tool for designing unique circuits."
-    ],
+  "slug": "ai-racing",
+  "title": "Racing Line Simulation",
+  "category": "ML / Simulation",
+  "stack": ["Python", "Pygame", "NEAT-Python", "Tkinter"],
+  "timeline": [
+    {
+      "id": "track-creator",
+      "title": "Custom Track Creator",
+      "content": [
+        { "type": "paragraph", "text": "Players can freely draw race tracks using a Pygame interface, enabling completely unique circuits to be built." },
+        { "type": "list", "ordered": false, "items": [
+          "Mouse-based track drawing with real-time rendering.",
+          "Brush sizes 1-5 and eraser tool for fine-tuning.",
+          "Track boundaries are converted into collision masks for the simulation."
+        ]},
+        { "src": "/images/projects/Track_Drawing.gif", "alt": "Track Drawing UI", "caption": "Drawing a Custom Track" }
+      ]
+    },
+    {
+      "id": "ui-modes",
+      "title": "User Interface & Modes",
+      "content": [
+        { "type": "paragraph", "text": "A control panel built with Tkinter provides sliders and options to switch modes or adjust attributes such as traction, downforce, and weight. Users can watch AI progress in real time." },
+        { "type": "list", "ordered": false, "items": [
+          "Best Time Mode: AI evolves to minimize lap time.",
+          "Head-to-Head Mode: Two AI species evolve competitively.",
+          "Dynamic sliders allow tuning of simulation parameters."
+        ]},
+        { "type": "carousel", "items": [
+          { "src": "/images/projects/Main_Menu.png", "alt": "Main Menu", "caption": "Main Menu" },
+          { "src": "/images/projects/Best_Time.png", "alt": "Best Time Menu", "caption": "Best Time Menu" },
+          { "src": "/images/projects/Head_To_Head.png", "alt": "Head to Head Menu", "caption": "Head to Head Menu" }
+        ]}
+      ]
+    },
+    {
+      "id": "car-physics",
+      "title": "Car Physics & Simulation",
+      "content": [
+        { "type": "paragraph", "text": "The simulation uses a simplified yet realistic car physics model that incorporates traction, downforce, and mass to influence velocity and steering angle. Each car calculates maximum turning capability dynamically at runtime." },
+        { "type": "list", "ordered": false, "items": [
+          "Physics include traction loss, momentum, and cornering limits.",
+          "Throttle position directly affects acceleration (not time-based).",
+          "Downforce and mass control grip and turning radius at higher speeds."
+        ]}
+      ]
+    },
+    {
+      "id": "machine-learning",
+      "title": "NEAT Evolutionary Learning",
+      "content": [
+        { "type": "paragraph", "text": "The NEAT algorithm evolves neural networks to control cars. Each car receives sensory inputs (velocity, steering angle, distances to walls) and outputs throttle and steering decisions. Fitness is calculated based on lap time and survival." },
+        { "type": "list", "ordered": false, "items": [
+          "10 inputs → 2 outputs (throttle, steering).",
+          "Fitness = Lap speed - crash penalty.",
+          "Ray casting optimizations allow 300+ population size on my machine."
+        ]},
+        { "type": "paragraph", "text": "The simulation can reach 96% of an optimal lap time within ~25 generations." }
+      ]
+    },
+    {
+      "id": "results",
+      "title": "Results & Insights",
+      "content": [
+        { "type": "paragraph", "text": "Over time, cars learn to brake earlier, accelerate out of corners, and take smooth apexes. Observing the evolutionary process reveals natural emergent driving behaviors similar to real racing strategies." },
+        { "src": "/images/projects/Racing.gif", "alt": "Racing GIF", "caption": "Result" }
+      ]
+    }
+  ],
     "links": { "github": "https://github.com/zthoffman21/Machine_Learning_Racing_Simulation" }
   },
   {
-    "slug": "website",
-    "title": "Personal Website",
-    "category": "Web",
-    "summary": "A retro-styled interactive portfolio that mimics a vintage OS, showcasing projects, resume, contact info, and mini-apps in draggable windows.",
-    "stack": ["Astro", "Tailwind CSS", "Vanilla JS"],
-    "image": "/images/projects/monitor.png",
-    "features": [
-      "Draggable, focus-managed windows (draggableWindow.js)",
-      "CRT scanline effect using Canvas (crtEffect.js)",
-      "Animated particle background (particles.js)",
-      "Built-in Minesweeper game (mineSweeper.js)",
-      "Music jukebox with play/pause/skip controls (music.js)",
-      "Dynamic theme switcher (light/dark/retro) (theme.js)",
-      "PDF resume embed with smooth zoom handling"
-    ],
-    "links": { "github": "https://github.com/zthoffman21/zthoffman.com" }
+  "slug": "wedding-site",
+  "title": "The Hoffmans — Wedding Website",
+  "category": "Web / Full-Stack",
+  "stack": ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Cloudflare Workers", "D1 (SQLite)", "R2", "Resend"],
+  "timeline": [
+    {
+      "id": "architecture",
+      "title": "Architecture Overview",
+      "content": [
+        { "type": "paragraph", "text": "The site is a full-stack wedding platform built entirely on the Cloudflare ecosystem, combining Pages, Workers, D1, R2, and Resend for a serverless, globally distributed experience." },
+        { "type": "list", "ordered": false, "items": [
+          "Frontend: React + TypeScript + Tailwind (Cloudflare Pages).",
+          "Backend: Workers with REST API routes.",
+          "Storage: D1 for relational RSVP data and R2 for photo uploads."
+        ]}
+      ]
+    },
+    {
+      "id": "rsvp-system",
+      "title": "RSVP & Guest Management",
+      "content": [
+        { "type": "paragraph", "text": "Guests search by name or family group to find their party. Each member has toggles for attending status, dietary notes, and additional comments." },
+        { "type": "list", "ordered": false, "items": [
+          "Party-based relational model (Party → Members).",
+          "FTS5 search indexing for instant lookups.",
+          "Real-time state updates with optimistic UI feedback."
+        ]},
+        { "src": "/images/projects/RSVP.gif", "alt": "RSVP GIF", "caption": "The RSVP Process" }
+      ]
+    },
+    {
+      "id": "shared-gallery",
+      "title": "Shared Photo Gallery",
+      "content": [
+        { "type": "paragraph", "text": "A collaborative photo-sharing space where guests can upload and browse images from engagement events, the ceremony, or the reception; all stored securely using Cloudflare R2." },
+        { "type": "list", "ordered": false, "items": [
+          "Guests are able to upload photos directly through the website.",
+          "Uploads are verified and stored in Cloudflare R2.",
+          "Uploaed photos are held private until admin approval (toggleable), and tunable rate limiters are in place.",
+          "Admin notifications sent automatically via Resend when new uploads arrive."
+        ]},
+        { "src": "/images/projects/Photo.gif", "alt": "Photo GIF", "caption": "Shared Albums" }
+      ]
+    },
+    {
+      "id": "emails",
+      "title": "Automated Email Workflows",
+      "content": [
+        { "type": "paragraph", "text": "Resend is integrated to send confirmation emails after RSVP submissions and scheduled reminders via a Cloudflare Cron Worker." },
+        { "type": "list", "ordered": false, "items": [
+          "Custom HTML email templates for confirmation and reminders.",
+          "Worker cron triggers to re-send follow-up reminders.",
+          "Automatic thank-you and photo upload notifications."
+        ]}
+      ]
+    },
+    {
+      "id": "admin-dashboard",
+      "title": "Admin Dashboard",
+      "content": [
+        { "type": "paragraph", "text": "A private admin portal gated by Cloudflare Access allows managing guest lists, checking RSVP stats, and sending announcements." },
+        { "type": "list", "ordered": false, "items": [
+          "Dynamic charts showing RSVP rates over time.",
+          "Editable tables for manual corrections.",
+          "Integrated email-sending from the dashboard interface."
+        ]}
+      ]
+    },
+    {
+      "id": "deployment",
+      "title": "Deployment & CI/CD",
+      "content": [
+        { "type": "paragraph", "text": "The site deploys automatically on every push using Cloudflare’s GitHub integration. The Wrangler CLI handles database migrations and production configuration." },
+        { "type": "list", "ordered": false, "items": [
+          "Zero-downtime deploys on Cloudflare Pages.",
+          "D1 migrations via wrangler commands.",
+          "Secure environment variables stored in Cloudflare Secrets."
+        ]}
+      ]
+    }
+  ],
+    "links": { "github": "https://github.com/zthoffman21/thehoffmans.wedding" }
   },
   {
     "slug": "pawns-revenge",
     "title": "Pawn's Revenge",
     "category": "Games",
-    "summary": "A wave-style shooter where you control a pawn fending off spawning chess-piece enemies by picking up and throwing board labels (letters & numbers).",
     "stack": ["Python", "Pygame"],
-    "image": "/images/projects/joystick.png",
-    "modules": [
-      "GameLoop: manages waves, spawning &",
-      "MainMenu: title screen & navigation",
-      "ControlsMenu: keybinding instructions",
-      "Sprites & Textures: visual assets",
-      "UsefulFunctions: utility helpers (input, scoring, collision)"
-    ],
-    "gameplay": [
-      "Progress through increasing waves of enemies, collect letter/number pickups as projectiles, and survive as long as possible."
+    "timeline": [
+      {
+        "id": "concept",
+        "title": "Game Concept & Design",
+        "content": [
+          { "type": "paragraph", "text": "A 2D wave-style shooter where a pawn defends against spawning chess-piece enemies. Players use collected board labels (letters and numbers) as weapons." },
+          { "type": "list", "ordered": false, "items": [
+            "Designed as an arcade-style infinite survival game.",
+            "Combines action mechanics with chess-inspired visuals.",
+            "Built entirely with Pygame using object-oriented design."
+          ]}
+        ]
+      },
+      {
+        "id": "visuals",
+        "title": "Visual Design & Feedback",
+        "content": [
+          { "type": "paragraph", "text": "The retro aesthetic mirrors board-game nostalgia with pixel-style assets and minimalist effects. Animations and flashes give impact to each throw or hit." },
+          { "type": "carousel", "items": [
+            { "src": "/images/projects/Game_Menu.png", "alt": "Main Menu", "caption": "Main Menu" },
+            { "src": "/images/projects/Instructions.png", "alt": "Instructions Menu", "caption": "Instructions" },
+            { "src": "/images/projects/Gameplay.gif", "alt": "Gameplay", "caption": "Gameplay" }
+          ]}
+        ]
+      },
+      {
+        "id": "architecture",
+        "title": "Architecture & Core Systems",
+        "content": [
+          { "type": "paragraph", "text": "The project follows an event-driven structure with distinct classes handling logic, input, and rendering. Each subsystem is isolated for clarity and modularity." },
+          { "type": "list", "ordered": false, "items": [
+            "GameLoop: handles frame updates, collisions, and wave progression.",
+            "MainMenu & ControlsMenu: user interface and navigation.",
+            "Sprites & Textures: manage all graphical assets and animations.",
+            "UsefulFunctions: utility layer for input, scoring, and collision checks."
+          ]}
+        ]
+      },
+      {
+        "id": "gameplay",
+        "title": "Gameplay Mechanics",
+        "content": [
+          { "type": "paragraph", "text": "Enemies spawn in waves that increase in speed and difficulty. The player moves across a board grid, collecting floating letter or number pickups to use as thrown projectiles." },
+          { "type": "list", "ordered": false, "items": [
+            "Progressive difficulty scaling each round.",
+            "Player health and score tracking through HUD.",
+            "Enemy chess pieces each have unique health sizes."
+          ]}
+        ]
+      }
     ],
     "links": { "github": "https://github.com/zthoffman21/Pawns-Revenge-Python" }
   }

@@ -1,14 +1,15 @@
-const themeButton = document.getElementById("themeButton");
-const themes = ["default", "starWars", "pumpkin", "blue", "christmas"];
+const themeButtons = Array.from(document.querySelectorAll('.themeButton'));
+const themes = ["default", "starWars", "christmas"];
 let currentTheme = 0;
 
-if (themeButton) {
-  themeButton.addEventListener("click", function () {
-    currentTheme = (currentTheme + 1) % themes.length;
-    document.documentElement.setAttribute("data-theme", themes[currentTheme]);
-    localStorage.setItem("theme", currentTheme.toString());
-    localStorage.setItem("themeName", themes[currentTheme]);
-  });
+function cycleTheme() {
+  currentTheme = (currentTheme + 1) % themes.length;
+  document.documentElement.setAttribute("data-theme", themes[currentTheme]);
+  localStorage.setItem("theme", currentTheme.toString());
+  localStorage.setItem("themeName", themes[currentTheme]);
+}
+if (themeButtons.length) {
+  themeButtons.forEach(btn => btn.addEventListener('click', cycleTheme));
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -51,4 +52,3 @@ export function playTrack(trackSrc) {
 
 // Expose playTrack for inline onclick usage
 window.playTrack = playTrack;
-

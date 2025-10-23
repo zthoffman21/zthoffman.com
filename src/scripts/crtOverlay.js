@@ -43,11 +43,11 @@ async function initCRT() {
   app.stage.addChild(fullScreenRect);
 
   const crtFilter = new PIXI.filters.CRTFilter({
-    curvature: 5.0,
+    curvature: 2.5,
     lineWidth: 3.0,
     lineContrast: 0.2,
     noise: 0.1,
-    noiseSize: 1.0,
+    noiseSize: 0.5,
     vignetting: 0.3,
     vignettingAlpha: 1,
     vignettingBlur: 0.3,
@@ -59,7 +59,7 @@ async function initCRT() {
   app.ticker.add((delta) => {
     crtFilter.time += 0.1 * delta;
     crtFilter.verticalLineAlpha = 0.2 + 0.1 * Math.sin(crtFilter.time * 0.3);
-    crtFilter.noise = 0.1 + 0.1 * Math.sin(crtFilter.time * 0.5);
+    crtFilter.noise = 0.05 + 0.01 * Math.sin(crtFilter.time * 0.5);
   });
 
   window.addEventListener('resize', () => {

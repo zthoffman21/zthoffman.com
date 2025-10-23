@@ -1,0 +1,36 @@
+---
+const { item, index } = Astro.props as { item: any; index: number };
+const side = index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2';
+const align = index % 2 === 0 ? 'md:justify-end' : 'md:justify-start';
+---
+<article id={item.id} tabindex="-1" aria-labelledby={`${item.id}-title`} class={`relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 my-[5dvh]`}> 
+  <div class={`hidden md:block ${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'}`}></div>
+  <div class={`${side} flex ${align}`}>
+    <div class="max-w-prose w-full motion-safe:transition motion-safe:duration-500 opacity-100">
+      <h4 id={`${item.id}-title`} class="text-[color:var(--subSectionHeader)] text-lg md:text-xl font-semibold flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[color:var(--sectionHeader)] shadow-[0_0_12px] shadow-red-500/50"></span>
+        {item.title}{item.phase && (<span class="text-sky-300/90 text-sm font-normal">&nbsp;· {item.phase}</span>)}
+      </h4>
+      {item.date && (<div class="text-xs text-[color:var(--textAlt)] mt-1">{item.date}</div>)}
+      {item.summary && (<p class="leading-relaxed text-[color:var(--textMain)] mt-2">{item.summary}</p>)}
+      {item.media && item.media.src && (
+        <div class="mt-3">
+          {item.media.kind === 'video' ? (
+            <video class="rounded-xl border border-white/10 max-w-full" controls aria-label={item.media.alt || item.title}>
+              <source src={item.media.src} />
+            </video>
+          ) : (
+            <img src={item.media.src} alt={item.media.alt || item.title} class="rounded-xl border border-white/10 max-w-full" />
+          )}
+        </div>
+      )}
+      {Array.isArray(item.links) && item.links.length && (
+        <div class="mt-3 flex flex-wrap gap-3">
+          {item.links.map((l:any) => (<a class="underline text-[color:var(--textMain)]" href={l.href} target="_blank">{l.label}</a>))}
+        </div>
+      )}
+    </div>
+  </div>
+</article>
+
+

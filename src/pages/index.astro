@@ -1,228 +1,116 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ProjectsTerminal from "../components/ProjectsTerminal.astro";
+import ProjectsCarousel from "../components/ProjectsCarousel.astro";
 ---
 <BaseLayout>
   <div id="mainContainer">
-    <div id="top">
-      <div id="topSideBar">
-        <div id="links" class="windowContainerOuter window">
-          <div class="windowContainer">
-            <div class="windowOptionsBar draggable">
-              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-              <button class="windowExit" onclick="windowClose(this)"></button>
-            </div>
-            <div class="windowTitleBar">Links</div>
-            <div class="windowContent">
-              <div style="display: flex; flex-direction: column; align-items: center;">
-                <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                  <img src="/images/icons/world.svg" alt="LinkedIn" />
-                  <h3>LinkedIn</h3>
-                </a>
-                <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                  <img src="/images/icons/tree.svg" alt="GitHub" />
-                  <h3>GitHub</h3>
-                </a>
-                <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                  <img src="/images/icons/letter.svg" alt="Email" />
-                  <h3>Email Me!</h3>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mineSweeper windowContainerOuter window">
-          <div class="windowContainer">
-            <div class="windowOptionsBar draggable">
-              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-              <button class="windowExit" onclick="windowClose(this)"></button>
-            </div>
-            <div id="boardContainer">
+
+    <!-- About -->
+    <section id="bio" class="floating-section">
+      <h2 class="floating-title">About Me</h2>
+      <div id="bioContentWrapper">
+        <div class="about-columns">
+          <!-- Left: Intro -->
+          <div class="about-panel about-hero">
+            <div class="about-header">
+              <img class="about-avatar" src="/images/Hero.jpg" alt="Zachary Hoffman headshot" />
               <div>
-                <table class="board"></table>
+                <h1 class="about-title" style="margin:0;">Hi, I'm <span class="accent">Zach Hoffman</span></h1>
+                <div class="about-tag">Robotics • Intelligent Systems</div>
               </div>
             </div>
+            <div class="about-edu">Computer Science major, Mathematics minor <span class="pill">Liberty University</span></div>
+            <p class="about-desc">
+              I like building software that interacts with the real world; whether through robotics, game development, or machine learning, I enjoy watching my work come alive.
+            </p>
+            <p class="about-desc" style="margin-top:6px;">
+              In my free time, I will likely be golfing, fishing, or working on side projects.
+            </p>
+              <div class="icon-row">
+              <div id="iconLinks">
+                <a class="icon-btn" href="https://github.com/zthoffman21" target="_blank" aria-label="GitHub">
+                  <img src="/images/icons/tree.svg" alt=""/>
+                  <span>GitHub</span>
+                </a>
+                <a class="icon-btn" href="/images/Resume_Hoffman_Zachary.pdf" download aria-label="Resume">
+                  <img src="/images/icons/paper.svg" alt=""/>
+                  <span>Resume</span>
+                </a>
+                <a class="icon-btn" href="mailto:zachhoffman@ymail.com" aria-label="Email">
+                  <img src="/images/icons/letter.svg" alt=""/>
+                  <span>Email</span>
+                </a>
+              </div>
+              <button id="themeButtonRight" class="theme-fab themeButton" title="Change theme">
+                <img src="/images/icons/paint.svg" alt="Change theme" />
+              </button>
+              </div>
+          </div>
+
+          <!-- Right: Skills & Services -->
+          <div class="about-panel">
+            <h4 class="about-sub" style="margin-top:0;">Tech</h4>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">Java</span>
+              <span class="pill">C++</span>
+              <span class="pill">React</span>
+              <span class="pill">MongoDB</span>
+              <span class="pill">Spring Boot</span>
+              <span class="pill">ML</span>
+            </div>
+            <div class="services">
+              <h4 class="about-sub">Favorite Classes</h4>
+              <ul class="service-list">
+                <li>Data Structures & Algorithms</li>
+                <li>Calculus Ⅲ</li>
+                <li>Matrix & Linear Algebra</li>
+              </ul>
+            </div>
+            <div id="themeButtonLeftWrapper">
+              <button id="themeButtonLeft" class="theme-fab themeButton" title="Change theme">
+                <img src="/images/icons/paint.svg" alt="Change theme" />
+              </button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Experience (Savoye) -->
+    <section id="experience" class="floating-section">
+      <h2 class="floating-title">Experience</h2>
+      <div class="xp-grid">
+        <div class="xp-card">
+          <h4>Savoye North America</h4>
+          <div class="xp-meta">Software Developer Intern</div>
+          <ul class="xp-points">
+            <li>Developed and maintained distributed microservices used in large-scale automation systems, focusing on event-driven message processing and real-time system coordination.</li>
+            <li>Built simulation tools to emulate hardware behavior and system communication over TCP, enabling testing and debugging without physical equipment.</li>
+            <li>Implemented full-stack features connecting backend APIs with internal web dashboards, allowing engineers to visualize system states and test configurations in real time.</li>
+            <li>Implemented the single sign-on (SSO) service and transitioned it to the Dockerized productions environment.</li>
+          </ul>
+          <div class="xp-tech">
+            <span class="stack-chip">Java</span>
+            <span class="stack-chip">React</span>
+            <span class="stack-chip">TypeScript</span>
+            <span class="stack-chip">Spring Boot</span>
+            <span class="stack-chip">Apache Kafka</span>
+            <span class="stack-chip">MongoDB</span>
+            <span class="stack-chip">Neo4j</span>
+            <span class="stack-chip">Redis</span>
+            <span class="stack-chip">Docker</span>
           </div>
         </div>
       </div>
-      <div id="topMain">
-        <div id="navStickyContainer">
-          <div id="navContainerOuter" class="window">
-            <div id="navContainer">
-              <div id="navOptionsBar" class="draggable">
-                <button id="navMinimize" onclick="windowMinimize(this)"></button>
-                <button id="navMaximize" onclick="windowMaximize(this)"></button>
-                <button id="navExit" onclick="windowClose(this)"></button>
-              </div>
-              <div id="navTitleBarContainer">
-                <div class="navTitleBarAccent"></div>
-                <div id="navTitleBar">Explore the Site!</div>
-                <div class="navTitleBarAccent"></div>
-              </div>
-              <div id="navListContainer">
-                <ul id="navList">
-                  <li id="activeNav"><a href="#bio">
-                    <img src="/images/icons/home.svg" alt="Home" />
-                    <p>Home</p>
-                  </a></li>
-                  <li><a href="#projects">
-                    <img src="/images/icons/lightBulb.svg" alt="Projects" />
-                    <p>Projects</p>
-                  </a></li>
-                  <li><a href="#resume">
-                    <img src="/images/icons/paper.svg" alt="Resume" />
-                    <p>Resume</p>
-                  </a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    </section>
 
-          <div class="stickyNoteContainer window">
-            <i class="pin"></i>
-            <div class="note yellow draggable">
-              <div style="display: flex; justify-content: center;">
-                <img src="/images/hoffmanLogoTransparent.svg" alt="ZH logo" />
-              </div>
-            </div>
-          </div>
-
-          <div id="linksMineSweeperContainer">
-          <div id="links" class="windowContainerOuter window">
-            <div class="windowContainer">
-              <div class="windowOptionsBar draggable">
-                <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-                <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-                <button class="windowExit" onclick="windowClose(this)"></button>
-              </div>
-              <div class="windowTitleBar">Links</div>
-              <div class="windowContent">
-                <div style="display: flex; flex-direction: column; align-items: center;">
-                  <a href="https://linkedin.com/in/zthoffman" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                    <img src="/images/icons/world.svg" alt="LinkedIn" />
-                    <h3>LinkedIn</h3>
-                  </a>
-                  <a href="https://github.com/zthoffman21" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                    <img src="/images/icons/tree.svg" alt="GitHub" />
-                    <h3>GitHub</h3>
-                  </a>
-                  <a href="mailto:zachhoffman@ymail.com" target="_blank" style="display: flex; flex-direction: column; align-items: center;">
-                    <img src="/images/icons/letter.svg" alt="Email" />
-                    <h3>Email Me!</h3>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mineSweeper windowContainerOuter window">
-            <div class="windowContainer">
-              <div class="windowOptionsBar draggable">
-                <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-                <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-                <button class="windowExit" onclick="windowClose(this)"></button>
-              </div>
-              <div id="boardContainer">
-                <div>
-                  <table class="board"></table>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-
-        <div id="bio" class="windowContainerOuter window">
-          <div class="windowContainer">
-            <div class="windowOptionsBar draggable">
-              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-              <button class="windowExit" onclick="windowClose(this)"></button>
-            </div>
-            <div class="windowTitleBar">About Me</div>
-            <div id="bioContentWrapper">
-              <div class="windowContent">
-                <h2>Hello, </h2>
-                <div style="margin-left: 5%;">
-                  <h4>&emsp; My name is Zach Hoffman. <img src="/images/icons/snoopy.svg" alt=""/> I am a Computer Science major with a Mathematics minor at Liberty University. I enjoy making user-facing technology ranging from robotics to game design. <img src="/images/icons/mouse.svg" alt=""/></h4>
-                </div>
-                <div id="bioTrees">
-                  <ul class="treeView">
-                    <li>
-                      My Hobbies:
-                      <ul>
-                        <li>Programming...duh</li>
-                        <li>Golf</li>
-                        <li>Fishing  <img src="/images/icons/fish.svg" alt=""/></li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <ul class="treeView">
-                    <li>
-                      My Favorite Classes:
-                      <ul>
-                        <li>Calculus Ⅲ</li>
-                        <li>Data Structures and Algorithms</li>
-                        <li>Lunch</li>
-                      </ul>
-                    </li>
-                  </ul>
-                  <ul class="treeView">
-                    <li>
-                      My Favorite Movies:
-                      <ul>
-                        <li>Here Comes the Boom</li>
-                        <li>Harry Potter <img src="/images/icons/wizard.svg" alt=""/></li>
-                        <li>How to Train Your Dragon</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div id="customizeButtons">
-                <div style="position: relative; display: inline-block; background-color: #f0f0f0;">
-                  <button id="musicButton" style="background-color: #f0f0f0;"><img src="/images/icons/music.svg" style="background-color: #f0f0f0;" alt="Music"/></button>
-                  <div id="musicSelector">
-                    <div>
-                      <h4>Music</h4>
-                      <button onclick="playTrack('/music/acoustic.mp3')">Acoustic</button>
-                      <button onclick="playTrack('/music/classical.mp3')">Classical</button>
-                      <button onclick="playTrack('/music/jazz.mp3')">Jazz</button>
-                      <button onclick="playTrack('/music/lofi.mp3')">Lofi</button>
-                      <button onclick="playTrack('/music/synthwave.mp3')">Synthwave</button>
-                      <audio id="audioPlayer" loop></audio>
-                    </div>
-                  </div>
-                </div>
-                <button id="themeButton" style="background-color: #f0f0f0;"><img src="/images/icons/paint.svg" style="background-color: #f0f0f0;" alt="Theme"/></button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="bottom">
-      <div id="bottomMain">
-        <!-- Projects: terminal-only view (id provided by component) -->
-        <ProjectsTerminal />
-        <div id="resume" class="windowContainerOuter window">
-          <div class="windowContainer">
-            <div class="windowOptionsBar draggable">
-              <button class="windowMinimize" onclick="windowMinimize(this)"></button>
-              <button class="windowMaximize" onclick="windowMaximize(this)"></button>
-              <button class="windowExit" onclick="windowClose(this)"></button>
-            </div>
-            <div class="windowTitleBar">Resume</div>
-            <div class="windowContent" style="background: #0b171d40;">
-              <embed id="pdf" src="/images/Resume_Hoffman_Zachary.pdf" type="application/pdf" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <!-- Projects: grid view with images and descriptions -->
+    <ProjectsCarousel />
   </div>
-  <div id="footer" style="display: flex; justify-content: center; color: var(--footer); margin: 4%; opacity: 0; font-family: 'Pixelated MS Sans Serif'">
+  <div id="footer" style="display: flex; justify-content: center; color: var(--accent); margin: 4%; font-family: 'Pixelated MS Sans Serif'">
     <h6>Hoffman &copy; <script is:inline>document.write(new Date().getFullYear());</script></h6>
   </div>
 </BaseLayout>
+

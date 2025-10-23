@@ -1,0 +1,60 @@
+---
+const { item, index } = Astro.props as { item: any; index: number };
+const side = index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2';
+const align = index % 2 === 0 ? 'md:justify-end' : 'md:justify-start';
+import TimelineContent from './TimelineContent.astro';
+const hasHeading = Boolean(item?.title || item?.phase);
+---
+<article id={item.id} tabindex="-1" aria-labelledby={hasHeading ? `${item.id}-title` : undefined} aria-label={!hasHeading && item?.summary ? item.summary : undefined} class={`relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 my-[5dvh]`} style="content-visibility: auto; contain-intrinsic-size: 400px 600px;">
+  {/* Connector line from center spine to side (desktop only) */}
+  {index % 2 === 0 ? (
+    <span class="hidden md:block absolute top-1/2 -translate-y-1/2 left-0 right-1/2 h-[2px] bg-[color:var(--accent)]/50"></span>
+  ) : (
+    <span class="hidden md:block absolute top-1/2 -translate-y-1/2 left-1/2 right-0 h-[2px] bg-[color:var(--accent)]/50"></span>
+  )}
+  {/* Center marker on spine: horizontal bar that alternates toward card side */}
+  {index % 2 === 0 ? (
+    <span class="tl-hide-800 hidden md:block absolute right-1/2 top-1/2 -translate-y-1/2 w-4 h-[3px] bg-[color:var(--accent)] opacity-70"></span>
+  ) : (
+    <span class="tl-hide-800 hidden md:block absolute left-1/2 top-1/2 -translate-y-1/2 w-4 h-[3px] bg-[color:var(--accent)] opacity-70"></span>
+  )}
+  <div class={`hidden md:block ${index % 2 === 0 ? 'md:col-start-1' : 'md:col-start-2'}`}></div>
+  <div class={`${side} flex tl-card ${align}`}>
+    <div class="relative z-10 max-w-prose w-full motion-safe:transition motion-safe:duration-500 opacity-100 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4">
+      {hasHeading && (
+        <h4 id={`${item.id}-title`} class="text-[color:var(--subSectionHeader)] text-lg md:text-xl font-semibold flex items-center gap-3">
+          <span class="inline-block w-3 h-3 rounded-full bg-[color:var(--accent)] shadow-[0_0_18px] shadow-[color:var(--accent)]/60 ring-2 ring-white/20"></span>
+          {item.title}{item.phase && (<span class="text-[color:var(--accent)]/90 text-sm font-normal">&nbsp;• {item.phase}</span>)}
+        </h4>
+      )}
+      {item.date && (<div class="text-xs text-[color:var(--textAlt)] mt-1">{item.date}</div>)}
+
+      {Array.isArray(item.content) && item.content.length ? (
+        <div class="mt-3">
+          <TimelineContent blocks={item.content} />
+        </div>
+      ) : (
+        <>
+          {item.summary && (<p class="leading-relaxed text-[color:var(--textMain)] mt-2">{item.summary}</p>)}
+          {item.media && item.media.src && (
+            <div class="mt-3">
+              {item.media.kind === 'video' ? (
+                <video class="rounded-xl border border-white/10 max-w-full" controls aria-label={item.media.alt || item.title}>
+                  <source src={item.media.src} />
+                </video>
+              ) : (
+                <img src={item.media.src} alt={item.media.alt || item.title} class="rounded-xl border border-white/10 max-w-full" />
+              )}
+            </div>
+          )}
+        </>
+      )}
+
+      {Array.isArray(item.links) && item.links.length && (
+        <div class="mt-3 flex flex-wrap gap-3">
+          {item.links.map((l:any) => (<a class="underline text-[color:var(--textMain)]" href={l.href} target="_blank">{l.label}</a>))}
+        </div>
+      )}
+    </div>
+  </div>
+</article>

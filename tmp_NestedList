@@ -1,0 +1,27 @@
+---
+const { items, ordered = false } = Astro.props as { items: any[]; ordered?: boolean };
+
+function hasChildren(it: any) {
+  return it && Array.isArray(it.items) && it.items.length > 0;
+}
+
+const ListTag = ordered ? 'ol' : 'ul';
+const bulletClass = ordered ? 'list-decimal' : 'list-disc';
+---
+<ListTag class={`pl-5 ${bulletClass} text-[color:var(--textMain)]`}>
+  {items.map((it) => (
+    typeof it === 'string' || typeof it === 'number' ? (
+      <li>{String(it)}</li>
+    ) : (
+      <li>
+        {it.text && (<span>{it.text}</span>)}
+        {hasChildren(it) && (<NestedList items={it.items} ordered={ordered} />)}
+      </li>
+    )
+  ))}
+</ListTag>
+
+---
+import NestedList from './NestedList.astro';
+
+

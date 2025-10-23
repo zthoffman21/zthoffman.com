@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import projects from "../../data/projects_timeline.js";
+import TimelineMilestone from "../../components/TimelineMilestone.astro";
+import scriptUrl from "../../scripts/timeline.js?url";
+
+// Generate static paths for each project timeline
+export async function getStaticPaths() {
+  const data = (await import("../../data/projects_timeline.js")).default || projects;
+  return data.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const project = projects.find((p) => p.slug === slug);
+if (!project) {
+  throw new Error(`Project not found: ${slug}`);
+}
+---
+<BaseLayout>
+  <section class="floating-section" aria-labelledby="project-title" data-timeline>
+    <div class="relative">
+      <div class="pointer-events-none absolute inset-y-0 left-1/2 -translate-x-1/2 w-px bg-white/15"></div>
+      <header class="mb-6 text-center">
+        <h1 id="project-title" class="text-2xl md:text-3xl font-bold text-[color:var(--sectionHeader)]">{project.title}</h1>
+        {project.subtitle && (<p class="text-[color:var(--textAlt)]">{project.subtitle}</p>)}
+      </header>
+
+      <div id="milestones" class="relative">
+        {project.items.map((item, i) => (<TimelineMilestone item={item} index={i} />))}
+      </div>
+
+      <aside class="hidden lg:block sticky top-24 float-right ml-6">
+        <nav aria-label="Milestones" id="miniIndex" class="text-sm text-[color:var(--textAlt)]">
+          <ul class="space-y-2">
+            {project.items.map((item) => (
+              <li><a class="hover:underline" href={`#${item.id}`} data-index-link={item.id}>{item.title}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </section>
+
+  <script type="module" src={scriptUrl}></script>
+</BaseLayout>
+
+

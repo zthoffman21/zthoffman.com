@@ -1,0 +1,37 @@
+---
+import InlineCarousel from './InlineCarousel.astro';
+import NestedList from './NestedList.astro';
+const imageExt = /\.(png|jpe?g|gif|webp|svg)$/i;
+const videoExt = /\.(mp4|webm|ogg)$/i;
+const { blocks } = Astro.props as { blocks: any[] };
+
+function isNonEmptyArray(v: any) {
+  return Array.isArray(v) && v.length > 0;
+}
+---
+{isNonEmptyArray(blocks) && (
+  <div class="space-y-3">
+    {blocks.map((b, i) => (
+      b?.type === 'paragraph' || b?.type === 'text' ? (
+        <p class="leading-relaxed text-[color:var(--textMain)]">{b.text}</p>
+      ) : b?.type === 'html' ? (
+        <div class="leading-relaxed text-[color:var(--textMain)]" set:html={b.html}></div>
+      ) : b?.type === 'list' && isNonEmptyArray(b.items) ? (
+        <NestedList items={b.items} ordered={Boolean(b.ordered)} />
+      ) : (b?.type === 'image' || b?.type === 'gif' || (!b?.type && typeof b?.src === 'string' && imageExt.test(b.src))) && b?.src ? (
+        <figure>
+          <img src={b.src} alt={b.alt || ''} loading="lazy" decoding="async" class="rounded-xl border border-white/10 max-w-full" />
+          {b.caption && (<figcaption class="text-xs text-[color:var(--textAlt)] mt-1 text-center">{b.caption}</figcaption>)}
+        </figure>
+      ) : (b?.type === 'video' || (!b?.type && typeof b?.src === 'string' && videoExt.test(b.src))) && b?.src ? (
+        <video class="rounded-xl border border-white/10 max-w-full" preload="metadata" controls aria-label={b.alt || 'video'}>
+          <source src={b.src} />
+        </video>
+      ) : b?.type === 'code' && b?.code ? (
+        <pre class="rounded-lg border border-white/10 bg-black/40 p-3 overflow-auto text-sm"><code class={b.lang ? `language-${b.lang}` : ''}>{b.code}</code></pre>
+      ) : b?.type === 'carousel' && isNonEmptyArray(b.items) ? (
+        <InlineCarousel items={b.items} />
+      ) : null
+    ))}
+  </div>
+)}

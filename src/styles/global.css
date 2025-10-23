@@ -4,3 +4,7 @@
 html, body {
   font-family: "MS Sans Serif", Arial, sans-serif;
 }
+
+/* JS-only helpers */
+.js-hidden { display: none !important; }
+

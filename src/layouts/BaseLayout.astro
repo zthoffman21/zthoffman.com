@@ -1,22 +1,13 @@
 ---
 import "../styles/global.css";
 import "../styles/layout.css";
-import "../styles/defaultWindow.css";
-import "../styles/nav.css";
-import "../styles/bio.css";
-import "../styles/links.css";
 import "../styles/projects.css";
-import "../styles/resume.css";
 import "../styles/misc.css";
-import "../styles/mineSweeper.css";
 import "../styles/projects.css";
-import "../styles/terminal.css";
+import "../styles/floating.css";
 import themeUrl from "../scripts/theme.js?url";
-import dragUrl from "../scripts/draggableWindow.js?url";
-import setupUrl from "../scripts/setup.js?url";
 import crtUrl from "../scripts/crtOverlay.js?url";
 import particlesUrl from "../scripts/particles.js?url";
-import minesweeperUrl from "../scripts/mineSweeper.js?url";
 const { title = 'Zachary Hoffman', description = 'Portfolio website' } = Astro.props;
 ---
 <html style="color: var(--backgroundColor)" lang="en">
@@ -36,12 +27,11 @@ const { title = 'Zachary Hoffman', description = 'Portfolio website' } = Astro.p
   <body>
     <slot />
     <div id="crtOverlay"></div>
-    <script type="module" src={setupUrl} defer></script>
-    <script type="module" src={themeUrl} defer></script>
-    <script type="module" src={dragUrl} defer></script>
-    <script type="module" src={crtUrl} defer></script>
+        <script type="module" src={themeUrl} defer></script>
+        <script type="module" src={crtUrl} defer></script>
     <script type="module" src={particlesUrl} defer></script>
-    <script type="module" src={minesweeperUrl} defer></script>
-  </body>
+      </body>
   
 </html>
+
+

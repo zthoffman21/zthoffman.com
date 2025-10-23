@@ -1,0 +1,44 @@
+/* Timeline for projects */
+.project-timeline { margin: 6dvh auto; }
+.project-title { text-align: center; color: var(--sectionHeader); margin: 0 0 12px; font-size: clamp(1.2rem, 2.6dvw, 1.6rem); }
+.timeline { position: relative; margin: 0 auto; max-width: 1100px; }
+.timeline::before { content: ""; position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 2px; height: 100%; background: rgba(255,255,255,0.18); }
+.timeline-item { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 5dvh 0; align-items: start; }
+.timeline-item.left .timeline-image { grid-column: 1; }
+.timeline-item.left .timeline-content { grid-column: 2; }
+.timeline-item.right .timeline-image { grid-column: 2; }
+.timeline-item.right .timeline-content { grid-column: 1; }
+.timeline-col { position: relative; }
+.timeline-image { display: flex; justify-content: center; align-items: flex-start; }
+.timeline-image img { width: clamp(42px, 6dvw, 64px); height: clamp(42px, 6dvw, 64px); }
+.timeline-content { background: transparent; border: none; border-radius: 0; padding: clamp(6px, 1.6dvw, 12px); color: var(--textMain); }
+.tl-title { margin: 0 0 6px; color: var(--sectionHeader); font-size: clamp(1.05rem, 2.2dvw, 1.4rem); }
+.tl-summary { margin: 0 0 8px; color: var(--textAlt); line-height: 1.45; }
+.tl-stack { margin: 6px 0 8px; }
+.tl-section { margin-top: 10px; }
+.tl-section h4 { color: var(--subSectionHeader); margin: 0 0 6px; font-size: clamp(0.95rem, 1.8dvw, 1.1rem); }
+.tl-section ul { margin: 0; padding-left: 18px; }
+.tl-links a { margin-right: 10px; text-decoration: underline; color: var(--textMain); }
+.stack-chip { display: inline-block; margin: 2px 6px 0 0; font-size: 12px; padding: 2px 6px; border: 1px solid rgba(255,255,255,0.14); border-radius: 999px; color: var(--textMain); }
+
+@media (max-width: 900px) {
+  .timeline::before { left: 8px; transform: none; }
+  .timeline-item { grid-template-columns: 1fr; gap: 12px; margin: 4dvh 0; }
+  .timeline-item .timeline-image { grid-column: 1; justify-content: flex-start; }
+  .timeline-item .timeline-content { grid-column: 1; }
+}
+
+/* Inline carousel sizing inside timeline milestones */
+[data-inline-carousel] {
+  max-width: min(85dvw, 500px);
+  margin-inline: auto;
+}
+[data-inline-carousel] img {
+  max-width: min(85dvw, 250px);
+  max-height: min(85dvw, 500px);
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  display: block;
+}
+

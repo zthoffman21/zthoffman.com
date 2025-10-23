@@ -1,0 +1,81 @@
+---
+import projects from "../data/projects_timeline.js";
+import TimelineMilestone from "./TimelineMilestone.astro";
+import carouselUrl from "../scripts/projectsCarousel.js?url";
+import timelineUrl from "../scripts/timeline.js?url";
+// Desired display order
+const desired = ["chess-robot","ai-racing","website","pawns-revenge"];
+const mapBySlug = new Map(projects.map((p) => [p.slug, p]));
+const orderedProjects = [
+  ...desired.map((s) => mapBySlug.get(s)).filter(Boolean),
+  ...projects.filter((p) => !desired.includes(p.slug)),
+];
+---
+<section class="floating-section" id="projects" aria-labelledby="projects-carousel-title">
+  <h2 id="projects-carousel-title" class="floating-title">Projects</h2>
+  <div id="projectsCarousel" class="relative js-hidden" data-carousel>
+    <div class="flex items-center justify-between mb-4">
+      <button class="btn" data-prev aria-label="Previous project">&lsaquo; Prev</button>
+      <div class="text-sm text-[color:var(--textAlt)]">
+        <span id="carouselCounter">1</span> / {orderedProjects.length}
+      </div>
+      <button class="btn" data-next aria-label="Next project">Next &rsaquo;</button>
+    </div>
+
+    <div class="space-y-0" id="carouselSlides">
+      {orderedProjects.map((project, idx) => (
+        <article class="project-slide" data-slide={idx} data-slug={project.slug} data-active={idx === 0 ? 'true':'false'}>
+          <div class="relative" data-timeline>
+            {(project.title || project.subtitle) && (
+              <header class="text-center">
+                {project.title && (
+                  <h3 class="project-title text-2xl md:text-3xl font-bold text-[color:var(--sectionHeader)]">{project.title}</h3>
+                )}
+                {project.subtitle && (<p class="text-[color:var(--textAlt)]">{project.subtitle}</p>)}
+                {(Array.isArray(project.tags) && project.tags.length) || project.links?.github ? (
+                  <div class="mt-3 p-3 flex justify-center">
+                    <div class="items-center gap-3 flex justify-center">
+                      <div class="flex items-center">
+                        {project.links?.github && (
+                          <a href={project.links.github} target="_blank" class="btn" aria-label={`Open ${project.title ?? 'project'} on GitHub`}>
+                            GitHub
+                          </a>
+                        )}
+                      </div>
+                      <div class="flex flex-wrap items-center gap-2 w-[50%]">
+                        {Array.isArray(project.tags) && project.tags.map((t) => (
+                          <span class="stack-chip">{t}</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
+              </header>
+            )}
+            <div class="relative">
+              <!-- Primary spine -->
+              <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-[2px] md:w-[3px] bg-[color:var(--accent)]/70"></div>
+              <!-- Glow -->
+              <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-10 bg-[color:var(--accent)]/15 blur-md"></div>
+              <!-- Notches -->
+              <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-[3px] opacity-70" style="background: repeating-linear-gradient(to bottom, var(--accent) 0 14px, transparent 14px 28px);"></div>
+              <!-- Caps -->
+              <div class="pointer-events-none absolute left-1/2 -translate-x-1/2 w-16 h-px bg-white/30 top-0"></div>
+              <div class="pointer-events-none absolute right-1/2 top-0 w-16 h-px bg-white/30"></div>
+              {project.items.map((item, i) => (<TimelineMilestone item={item} index={i} />))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <script type="module" src={timelineUrl}></script>  
+  <script type="module" src={carouselUrl}></script>
+</section>
+
+
+
+
+
+
