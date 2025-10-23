@@ -40,12 +40,13 @@
 
 /* Inline carousel sizing inside timeline milestones */
 [data-inline-carousel] {
-  max-width: min(85dvw, 500px);
+  /* Use vw for broader mobile support (older Safari lacks dvw) */
+  max-width: min(90vw, 500px);
   margin-inline: auto;
 }
 [data-inline-carousel] img {
-  max-width: min(85dvw, 250px);
-  max-height: min(85dvw, 500px);
+  max-width: min(90vw, 300px);
+  max-height: min(90vw, 500px);
   width: 100%;
   height: auto;
   margin-inline: auto;

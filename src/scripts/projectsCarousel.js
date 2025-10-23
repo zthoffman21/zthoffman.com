@@ -1,7 +1,6 @@
 export function initProjectsCarousel() {
   const root = document.getElementById('projectsCarousel'); 
   if (!root) return;
-  root.classList.remove('js-hidden');
   const slides = Array.from(root.querySelectorAll('.project-slide'));
   const prevBtn = root.querySelector('[data-prev]');
   const nextBtn = root.querySelector('[data-next]');
@@ -31,7 +30,6 @@ export function initProjectsCarousel() {
     if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
   });
 
-  // Enhance: hide non-active
   update();  
   console.log('[ProjectsCarousel] initialized with', slides.length, 'slides');
   }
