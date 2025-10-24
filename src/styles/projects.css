@@ -25,11 +25,13 @@
 [data-carousel] .project-slide { display: none; }
 [data-carousel] .project-slide[data-active='true'] { display: block; }
 
-/* Skip rendering offscreen slides to speed up initial paint */
+/* Skip rendering offscreen slides to speed up initial paint (desktop only to avoid mobile Safari quirk) */
 @supports (content-visibility: auto) {
-  [data-carousel] .project-slide {
-    content-visibility: auto;
-    contain-intrinsic-size: 800px 1000px; /* reserve space */
+  @media (min-width: 801px) {
+    [data-carousel] .project-slide {
+      content-visibility: auto;
+      contain-intrinsic-size: 800px 1000px; /* reserve space */
+    }
   }
 }
 

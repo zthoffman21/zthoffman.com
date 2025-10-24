@@ -43,7 +43,7 @@ const hasHeading = Boolean(item?.title || item?.phase);
                   <source src={item.media.src} />
                 </video>
               ) : (
-                <img src={item.media.src} alt={item.media.alt || item.title} loading="lazy" decoding="async" class="rounded-xl border border-white/10 max-w-full" />
+                <img src={item.media.src} alt={item.media.alt || item.title} loading={(String(item.media.src).toLowerCase().endsWith('.gif') ? undefined : 'lazy') as any} decoding="async" class="rounded-xl border border-white/10 max-w-full" />
               )}
             </div>
           )}
