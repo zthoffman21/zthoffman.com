@@ -5,7 +5,7 @@ const align = index % 2 === 0 ? 'md:justify-end' : 'md:justify-start';
 import TimelineContent from './TimelineContent.astro';
 const hasHeading = Boolean(item?.title || item?.phase);
 ---
-<article id={item.id} tabindex="-1" aria-labelledby={hasHeading ? `${item.id}-title` : undefined} aria-label={!hasHeading && item?.summary ? item.summary : undefined} class={`relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 my-[5dvh] tl-cv`}>
+<article id={item.id} tabindex="-1" aria-labelledby={hasHeading ? `${item.id}-title` : undefined} aria-label={!hasHeading && item?.summary ? item.summary : undefined} class={`relative grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 my-[5dvh] tl-cv tl-fade`}>
   {/* Connector line from center spine to side (desktop only) */}
   {index % 2 === 0 ? (
     <span class="hidden md:block absolute top-1/2 -translate-y-1/2 left-0 right-1/2 h-[2px] bg-[color:var(--accent)]/50"></span>

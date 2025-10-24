@@ -16,6 +16,12 @@ export function initProjectsCarousel() {
       el.style.display = active ? 'block' : 'none';
     });
     if (counter) counter.textContent = String(index + 1);
+    // Ask timeline to recalc spine height for the active slide
+    const activeSlide = slides[index];
+    const tlRoot = activeSlide?.querySelector('[data-timeline]');
+    if (tlRoot) {
+      tlRoot.dispatchEvent(new CustomEvent('timeline:recalc', { bubbles: true }));
+    }
   }
 
   function next() { index = (index + 1) % slides.length; update(); }
@@ -42,4 +48,3 @@ if (document.readyState === 'loading') {
 } else {
   initProjectsCarousel();
 }
-

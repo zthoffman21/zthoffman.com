@@ -45,13 +45,13 @@ const orderedProjects = projects;
                 ) : null}
               </header>
             )}
-            <div class="relative">
+            <div class="relative" data-timeline-host>
               <!-- Primary spine -->
-              <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-[2px] md:w-[3px] bg-[color:var(--accent)]/70"></div>
+              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[2px] md:w-[3px] bg-[color:var(--accent)]/70" style="height: calc(var(--tl-height, 100%) - var(--tl-end-offset, 0px));"></div>
               <!-- Glow -->
-              <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-10 bg-[color:var(--accent)]/15 blur-md"></div>
+              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-16 bg-[color:var(--accent)]/30 blur-xl" style="height: calc(var(--tl-height, 100%) - var(--tl-end-glow-offset, 6px));"></div>
               <!-- Notches -->
-              <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 h-full w-[3px] opacity-70" style="background: repeating-linear-gradient(to bottom, var(--accent) 0 14px, transparent 14px 28px);"></div>
+              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[3px] opacity-70" style="height: calc(var(--tl-height, 100%) - var(--tl-end-notch-offset, 1px)); background: repeating-linear-gradient(to bottom, var(--accent) 0 14px, transparent 14px 28px);"></div>
               <!-- Caps -->
               <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 w-16 h-[3px] bg-[color:var(--accent)] top-0 opacity-70"></div>
               <div class="tl-hide-800 pointer-events-none absolute right-1/2 top-0 w-16 h-[3px] bg-[color:var(--accent)] opacity-70"></div>
