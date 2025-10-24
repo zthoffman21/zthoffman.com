@@ -13,7 +13,7 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
           <!-- Left: Intro -->
           <div class="about-panel about-hero">
             <div class="about-header">
-              <img class="about-avatar" src="/images/Hero.jpg" alt="Zachary Hoffman headshot" />
+              <img class="about-avatar" src="/images/Hero.jpg" alt="Zachary Hoffman headshot" width="642" height="425" decoding="async" fetchpriority="high" />
               <div>
                 <h1 class="about-title" style="margin:0;">Hi, I'm <span class="accent">Zach Hoffman</span></h1>
                 <div class="about-tag">Robotics • Intelligent Systems</div>
@@ -29,20 +29,20 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
               <div class="icon-row">
               <div id="iconLinks">
                 <a class="icon-btn" href="https://github.com/zthoffman21" target="_blank" aria-label="GitHub">
-                  <img src="/images/icons/tree.svg" alt=""/>
+                  <img src="/images/icons/tree.svg" alt="" loading="lazy" decoding="async"/>
                   <span>GitHub</span>
                 </a>
                 <a class="icon-btn" href="/images/Resume_Hoffman_Zachary.pdf" download aria-label="Resume">
-                  <img src="/images/icons/paper.svg" alt=""/>
+                  <img src="/images/icons/paper.svg" alt="" loading="lazy" decoding="async"/>
                   <span>Resume</span>
                 </a>
                 <a class="icon-btn" href="mailto:zachhoffman@ymail.com" aria-label="Email">
-                  <img src="/images/icons/letter.svg" alt=""/>
+                  <img src="/images/icons/letter.svg" alt="" loading="lazy" decoding="async"/>
                   <span>Email</span>
                 </a>
               </div>
               <button id="themeButtonRight" class="theme-fab themeButton" title="Change theme">
-                <img src="/images/icons/paint.svg" alt="Change theme" />
+                <img src="/images/icons/paint.svg" alt="Change theme" loading="lazy" decoding="async" />
               </button>
               </div>
           </div>
@@ -69,7 +69,7 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
             </div>
             <div id="themeButtonLeftWrapper">
               <button id="themeButtonLeft" class="theme-fab themeButton" title="Change theme">
-                <img src="/images/icons/paint.svg" alt="Change theme" />
+                <img src="/images/icons/paint.svg" alt="Change theme" loading="lazy" decoding="async" />
               </button>
             </div>
           </div>
@@ -113,4 +113,3 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
     <h6>Hoffman &copy; <script is:inline>document.write(new Date().getFullYear());</script></h6>
   </div>
 </BaseLayout>
-

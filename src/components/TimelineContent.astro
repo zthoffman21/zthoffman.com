@@ -20,7 +20,7 @@ function isNonEmptyArray(v: any) {
         <NestedList items={b.items} ordered={Boolean(b.ordered)} />
       ) : (b?.type === 'image' || b?.type === 'gif' || (!b?.type && typeof b?.src === 'string' && imageExt.test(b.src))) && b?.src ? (
         <figure>
-          <img src={b.src} alt={b.alt || ''} loading={(String(b.src).toLowerCase().endsWith('.gif') ? undefined : 'lazy') as any} decoding="async" class="rounded-xl border border-white/10 max-w-full" />
+          <img src={b.src} alt={b.alt || ''} loading="lazy" decoding="async" class="rounded-xl border border-white/10 max-w-full" />
           {b.caption && (<figcaption class="text-xs text-[color:var(--textAlt)] mt-1 text-center">{b.caption}</figcaption>)}
         </figure>
       ) : (b?.type === 'video' || (!b?.type && typeof b?.src === 'string' && videoExt.test(b.src))) && b?.src ? (

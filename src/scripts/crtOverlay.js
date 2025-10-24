@@ -73,9 +73,28 @@ async function initCRT() {
   });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initCRT);
-} else {
-  initCRT();
+function scheduleCRT() {
+  // Respect reduced motion: don't load effect libraries
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  const run = () => {
+    if (document.visibilityState === 'hidden') {
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') initCRT();
+      }, { once: true });
+      return;
+    }
+    initCRT();
+  };
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(run, { timeout: 3000 });
+  } else {
+    setTimeout(run, 0);
+  }
 }
 
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', scheduleCRT);
+} else {
+  scheduleCRT();
+}

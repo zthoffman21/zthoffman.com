@@ -30,9 +30,10 @@
   font-family: "Pixelated MS Sans Serif";
   font-style: normal;
   font-weight: 400;
-  src: url("/images/fonts/MS Sans Serif.ttf") format("opentype"),
-       url("/images/fonts/ms_sans_serif.woff2") format("woff2"),
-       url("/images/fonts/ms_sans_serif.woff2") format("woff");
+  font-display: swap;
+  src: url("/images/fonts/ms_sans_serif.woff2") format("woff2"),
+       url("/images/fonts/ms_sans_serif.woff") format("woff"),
+       url("/images/fonts/MS Sans Serif.ttf") format("opentype");
 }
 
 *, ::before, *::after { padding: 0; margin: 0; box-sizing: border-box; }

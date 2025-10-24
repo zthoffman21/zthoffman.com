@@ -25,6 +25,14 @@
 [data-carousel] .project-slide { display: none; }
 [data-carousel] .project-slide[data-active='true'] { display: block; }
 
+/* Skip rendering offscreen slides to speed up initial paint */
+@supports (content-visibility: auto) {
+  [data-carousel] .project-slide {
+    content-visibility: auto;
+    contain-intrinsic-size: 800px 1000px; /* reserve space */
+  }
+}
+
 @media (max-width: 900px) {
   .timeline::before { left: 8px; transform: none; }
   .timeline-item { grid-template-columns: 1fr; gap: 12px; margin: 4dvh 0; }

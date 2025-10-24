@@ -74,9 +74,27 @@ function initParticles() {
   themeObserver.observe(document.documentElement, { attributeFilter: ['data-theme'] });
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initParticles);
-} else {
-  initParticles();
+function scheduleParticles() {
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  const run = () => {
+    if (document.visibilityState === 'hidden') {
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') initParticles();
+      }, { once: true });
+      return;
+    }
+    initParticles();
+  };
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(run, { timeout: 3000 });
+  } else {
+    setTimeout(run, 0);
+  }
 }
 
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', scheduleParticles);
+} else {
+  scheduleParticles();
+}
