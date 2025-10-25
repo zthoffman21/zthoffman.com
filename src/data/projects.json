@@ -185,7 +185,7 @@
         { "type": "list", "ordered": false, "items": [
           "Guests are able to upload photos directly through the website.",
           "Uploads are verified and stored in Cloudflare R2.",
-          "Uploaed photos are held private until admin approval (toggleable), and tunable rate limiters are in place.",
+          "Uploaded photos are held private until admin approval (toggleable), and tunable rate limiters are in place.",
           "Admin notifications sent automatically via Resend when new uploads arrive."
         ]},
         { "src": "/images/projects/Photo.gif", "alt": "Photo GIF", "caption": "Shared Albums" }
