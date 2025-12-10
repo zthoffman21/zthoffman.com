@@ -3,66 +3,226 @@ import projects from "../data/projects_timeline.js";
 import TimelineMilestone from "./TimelineMilestone.astro";
 import carouselUrl from "../scripts/projectsCarousel.js?url";
 import timelineUrl from "../scripts/timeline.js?url";
-// Use JSON order as provided
+import ProjectTradingCard from "./ProjectTradingCard.astro";
+
+const cardImages: Record<string, { src: string; alt: string }> = {
+  "chess-robot": {
+    src: "/images/projectCards/chessRobotResized.webp",
+    alt: "Chess Robot",
+  },
+  "ai-racing": {
+    src: "/images/projectCards/AIRacingSimulationCard.webp",
+    alt: "Racing Simulation",
+  },
+  "wedding-site": {
+    src: "/images/projectCards/PersonalWebsiteCardResized.webp",
+    alt: "Wedding Site",
+  },
+  "pawns-revenge": {
+    src: "/images/projectCards/PawnsRevengeCard2Resized.webp",
+    alt: "Pawn's Revenge",
+  },
+};
+
+const defaultCardImage = {
+  src: "/images/projectCards/PersonalWebsiteCardResized.webp",
+  alt: "Project",
+};
+
 const orderedProjects = projects;
+
+const initialProject = orderedProjects[0];
+const cardImage =
+  (initialProject && cardImages[initialProject.slug]) ?? defaultCardImage;
 ---
-<section class="floating-section" id="projects" aria-labelledby="projects-carousel-title">
+
+<section
+  class="floating-section"
+  id="projects"
+  aria-labelledby="projects-carousel-title"
+>
   <h2 id="projects-carousel-title" class="floating-title">Projects</h2>
   <div id="projectsCarousel" class="relative" data-carousel>
-    <div class="flex items-center justify-between mb-4">
-      <button class="btn" data-prev aria-label="Previous project">&lsaquo; Prev</button>
-      <div class="text-sm text-[color:var(--textAlt)]">
-        <span id="carouselCounter">1</span> / {orderedProjects.length}
+    <div class="flex items-center justify-between mb-12">
+      <button class="btn" data-prev aria-label="Previous project">
+        &lsaquo; Prev
+      </button>
+
+      <div class="flex flex-col items-center text-sm text-[color:var(--textAlt)]">
+        <ProjectTradingCard
+          imageSrc={cardImage.src}
+          imageAlt={cardImage.alt}
+        />
+        <div class="mt-1 flex items-center gap-1">
+          <span id="carouselCounter">1</span>
+          <span>/</span>
+          <span>{orderedProjects.length}</span>
+        </div>
       </div>
-      <button class="btn" data-next aria-label="Next project">Next &rsaquo;</button>
+
+      <button class="btn" data-next aria-label="Next project">
+        Next &rsaquo;
+      </button>
     </div>
 
     <div class="space-y-0" id="carouselSlides">
-      {orderedProjects.map((project, idx) => (
-        <article class="project-slide" data-slide={idx} data-slug={project.slug} data-active={idx === 0 ? 'true':'false'}>
-          <div class="relative" data-timeline>
-            {(project.title || project.subtitle) && (
-              <header class="text-center">
-                {project.title && (
-                  <h3 class="project-title text-2xl md:text-3xl font-bold text-[color:var(--sectionHeader)] truncate mb-1">{project.title}</h3>
-                )}
-                {(project.subtitle || project.links?.github) && (
-                  <div class="flex flex-wrap items-center justify-center gap-3">
-                    {project.subtitle && (
-                      <p class="text-[color:var(--textAlt)] m-0">{project.subtitle}</p>
-                    )}
-                    {project.links?.github && (
-                      <a href={project.links.github} target="_blank" class="btn" aria-label={`Open ${project.title ?? 'project'} on GitHub`}>
-                        GitHub
-                      </a>
-                    )}
-                  </div>
-                )}
-                {Array.isArray(project.tags) && project.tags.length ? (
-                  <div class="mt-3 flex flex-wrap items-center justify-center gap-2">
-                    {project.tags.map((t) => (<span class="stack-chip">{t}</span>))}
-                  </div>
-                ) : null}
-              </header>
-            )}
-            <div class="relative" data-timeline-host>
-              <!-- Primary spine -->
-              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[2px] md:w-[3px] bg-[color:var(--accent)]/70" style="height: calc(var(--tl-height, 100%) - var(--tl-end-offset, 0px));"></div>
-              <!-- Glow -->
-              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-16 bg-[color:var(--accent)]/30 blur-xl" style="height: calc(var(--tl-height, 100%) - var(--tl-end-glow-offset, 6px));"></div>
-              <!-- Notches -->
-              <div class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[3px] opacity-70" style="height: calc(var(--tl-height, 100%) - var(--tl-end-notch-offset, 1px)); background: repeating-linear-gradient(to bottom, var(--accent) 0 14px, transparent 14px 28px);"></div>
-              <!-- Caps -->
-              <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 w-16 h-[3px] bg-[color:var(--accent)] top-0 opacity-70"></div>
-              <div class="tl-hide-800 pointer-events-none absolute right-1/2 top-0 w-16 h-[3px] bg-[color:var(--accent)] opacity-70"></div>
-              {project.items.map((item, i) => (<TimelineMilestone item={item} index={i} />))}
+      {orderedProjects.map((project, idx) => {
+        return (
+          <article
+            class="project-slide"
+            data-slide={idx}
+            data-slug={project.slug}
+            data-active={idx === 0 ? "true" : "false"}
+          >
+            <div class="relative" data-timeline>
+              {(project.title || project.subtitle) && (
+                <header class="text-center">
+                  {project.title && (
+                    <h3 class="project-title text-2xl md:text-3xl font-bold text-[color:var(--sectionHeader)] truncate mb-1">
+                      {project.title}
+                    </h3>
+                  )}
+                  {(project.subtitle || project.links?.github) && (
+                    <div class="flex flex-wrap items-center justify-center gap-3">
+                      {project.subtitle && (
+                        <p class="text-[color:var(--textAlt)] m-0">
+                          {project.subtitle}
+                        </p>
+                      )}
+                      {project.links?.github && (
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          class="btn"
+                          aria-label={`Open ${
+                            project.title ?? "project"
+                          } on GitHub`}
+                        >
+                          GitHub
+                        </a>
+                      )}
+                    </div>
+                  )}
+                  {Array.isArray(project.tags) && project.tags.length ? (
+                    <div class="mt-3 flex flex-wrap items-center justify-center gap-2">
+                      {project.tags.map((t) => (
+                        <span class="stack-chip">{t}</span>
+                      ))}
+                    </div>
+                  ) : null}
+                </header>
+              )}
+              <div class="relative" data-timeline-host>
+                {/* Primary spine */}
+                <div
+                  class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[2px] md:w-[3px] bg-[color:var(--accent)]/70"
+                  style={`height: calc(var(--tl-height, 100%) - var(--tl-end-offset, 0px));`}
+                ></div>
+                {/* Glow */}
+                <div
+                  class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-16 bg-[color:var(--accent)]/30 blur-xl"
+                  style={`height: calc(var(--tl-height, 100%) - var(--tl-end-glow-offset, 6px));`}
+                ></div>
+                {/* Notches */}
+                <div
+                  class="tl-hide-800 pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[3px] opacity-70"
+                  style={`height: calc(var(--tl-height, 100%) - var(--tl-end-notch-offset, 1px)); background: repeating-linear-gradient(to bottom, var(--accent) 0 14px, transparent 14px 28px);`}
+                ></div>
+                {/* Caps */}
+                <div class="tl-hide-800 pointer-events-none absolute left-1/2 -translate-x-1/2 w-16 h-[3px] bg-[color:var(--accent)] top-0 opacity-70"></div>
+                <div class="tl-hide-800 pointer-events-none absolute right-1/2 top-0 w-16 h-[3px] bg-[color:var(--accent)] opacity-70"></div>
+
+                {project.items.map((item, i) => (
+                  <TimelineMilestone item={item} index={i} />
+                ))}
+              </div>
             </div>
-          </div>
-        </article>
-      ))}
+          </article>
+        );
+      })}
     </div>
   </div>
 
-  <script type="module" src={timelineUrl}></script>  
+  <script type="module" src={timelineUrl}></script>
   <script type="module" src={carouselUrl}></script>
+
+  <!-- Inline helper to sync the spinning card image with the active slide -->
+  <script is:inline>
+    if (typeof window !== "undefined") {
+      document.addEventListener("DOMContentLoaded", () => {
+        const carouselEl = document.getElementById("projectsCarousel");
+        if (!carouselEl) return;
+
+        // Grab the image inside your ProjectTradingCard
+        const cardImg = carouselEl.querySelector(
+          ".spinningCardContainer .cardImage"
+        );
+        if (!cardImg) return;
+
+        const slides = Array.from(
+          carouselEl.querySelectorAll(".project-slide")
+        );
+
+        // Map of slug -> image info (duplicate of server mapping, but small + simple)
+        const CARD_IMAGES = {
+          "chess-robot": {
+            src: "/images/projectCards/chessRobotResized.webp",
+            alt: "Chess Robot",
+          },
+          "ai-racing": {
+            src: "/images/projectCards/AIRacingSimulationCard.webp",
+            alt: "Racing Simulation",
+          },
+          "wedding-site": {
+            src: "/images/projectCards/PersonalWebsiteCardResized.webp",
+            alt: "Wedding Site",
+          },
+          "pawns-revenge": {
+            src: "/images/projectCards/PawnsRevengeCard2Resized.webp",
+            alt: "Pawn's Revenge",
+          },
+          default: {
+            src: "/images/projectCards/PersonalWebsiteCardResized.webp",
+            alt: "Project",
+          },
+        };
+
+        function getActiveSlide() {
+          return (
+            slides.find(
+              (slide) => slide.getAttribute("data-active") === "true"
+            ) || slides[0]
+          );
+        }
+
+        function updateCardForActiveSlide() {
+          const active = getActiveSlide();
+          if (!active) return;
+          const slug = active.getAttribute("data-slug") || "default";
+          const img = CARD_IMAGES[slug] || CARD_IMAGES.default;
+          cardImg.src = img.src;
+          cardImg.alt = img.alt;
+        }
+
+        // Initial sync
+        updateCardForActiveSlide();
+
+        const prevBtn = carouselEl.querySelector("[data-prev]");
+        const nextBtn = carouselEl.querySelector("[data-next]");
+
+        [prevBtn, nextBtn].forEach((btn) => {
+          if (!btn) return;
+          btn.addEventListener("click", () => {
+            // Let the existing carousel JS update data-active first, then sync
+            requestAnimationFrame(() => {
+              requestAnimationFrame(updateCardForActiveSlide);
+            });
+          });
+        });
+
+        // Optional: if your carousel script ever dispatches a custom event
+        // document.addEventListener("projects:slideChanged", updateCardForActiveSlide);
+      });
+    }
+  </script>
 </section>

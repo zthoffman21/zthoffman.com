@@ -1,0 +1,275 @@
+---
+interface Props {
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  imageSrc = "/images/projectCards/chessRobotResized.webp",
+  imageAlt = "Project trading card",
+} = Astro.props;
+---
+
+<div class="spinningCardContainer" data-spinning-card-root>
+  <div class="card">
+    <div class="cardInner">
+      <img src={imageSrc} alt={imageAlt} class="cardImage" />
+      <div class="lightEffect"></div>
+      <div class="overlayEffect"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @font-face {
+    font-family: OpenDyslexic;
+    src: url("/images/fonts/OpenDyslexic-Regular.woff2");
+  }
+
+  .spinningCardContainer {
+    /* 🔧 One place to control size & rounding */
+    --card-width: 67px;
+    --card-height: 95px;
+    --card-radius: 3.75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin: 0.5rem 0;
+    perspective: 1000px;
+  }
+
+  .card {
+    width: var(--card-width);
+    height: var(--card-height);
+    border-radius: var(--card-radius);
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+    cursor: default;
+  }
+
+  .card:hover {
+    transform: scale(1.04);
+  }
+
+  .cardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    border-radius: var(--card-radius);
+    will-change: transform;
+    /* constant idle spin */
+    animation: idleSpin 10s linear infinite;
+    transition: transform 0.25s ease-out;
+  }
+
+  .cardImage {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--card-radius);
+    object-fit: cover;
+    display: block;
+    box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.75);
+  }
+
+  /* OVERLAY EFFECTS */
+  .overlayEffect {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    background:
+      linear-gradient(135deg, rgba(255, 69, 69, 0.4), transparent 40%),
+      linear-gradient(225deg, rgba(0, 255, 128, 0.4), transparent 50%),
+      linear-gradient(315deg, rgba(0, 128, 255, 0.4), transparent 60%),
+      linear-gradient(45deg, rgba(255, 255, 0, 0.4), transparent 30%),
+      linear-gradient(90deg, rgba(255, 0, 255, 0.4), transparent 70%);
+    background-size: 300% 300%;
+    animation: polychromeShift 4s infinite linear;
+    mix-blend-mode: overlay;
+    opacity: 0.8;
+    border-radius: var(--card-radius);
+  }
+
+  .overlayEffect::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/images/projectCards/sparkles.webp");
+    background-size: cover;
+    pointer-events: none;
+    z-index: 5;
+    animation: sparkleMove 8s linear infinite;
+    border-radius: var(--card-radius);
+    opacity: 0.8;
+  }
+
+  .overlayEffect::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/images/projectCards/holo.webp");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 6;
+    border-radius: var(--card-radius);
+  }
+
+  .lightEffect {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 7;
+    opacity: 0.5;
+    border-radius: var(--card-radius);
+    background: none;
+    transition: opacity 0.15s ease, background 0.1s ease;
+  }
+
+  /* Animations */
+  @keyframes idleSpin {
+    0% {
+      transform: rotateY(0deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+
+  @keyframes polychromeShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  @keyframes sparkleMove {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }
+
+  /* Mobile: disable interactive light since no hover */
+  @media (max-width: 768px) {
+    .lightEffect {
+      opacity: 0;
+    }
+  }
+</style>
+
+<script is:inline>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .querySelectorAll("[data-spinning-card-root] .card")
+        .forEach((card) => {
+          const lightEffect = card.querySelector(".lightEffect");
+          const cardInner = card.querySelector(".cardInner");
+          if (!lightEffect || !cardInner) return;
+
+          let posX = 0;
+          let posY = 0;
+
+          card.addEventListener("pointerenter", () => {
+            // 1) Grab current animated transform matrix
+            const currentTransform =
+              window.getComputedStyle(cardInner).transform;
+
+            // 2) Kill animation but keep its last visual state
+            cardInner.style.animation = "none";
+            if (currentTransform && currentTransform !== "none") {
+              cardInner.style.transform = currentTransform;
+            }
+
+            // 3) Reset wrapper tilt
+            card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+
+            // 4) Next frame, tween smoothly to face-on using the transition
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                cardInner.style.transform = "rotateY(0deg)";
+              });
+            });
+
+            // 5) Immediately show a centered light so it's obvious
+            lightEffect.style.opacity = "0.85";
+            lightEffect.style.background =
+              "radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6), transparent 60%)";
+          });
+
+          card.addEventListener("pointermove", (event) => {
+            if (window.matchMedia("(max-width: 900px)").matches) {
+              return;
+            }
+            event.preventDefault();
+
+            posX = event.clientX;
+            posY = event.clientY;
+
+            updateRotation(posX, posY, card);
+            updateLightEffect(posX, posY, card, lightEffect);
+          });
+
+          card.addEventListener("pointerleave", () => {
+            // Reset tilt + light
+            card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+            lightEffect.style.background = "none";
+            lightEffect.style.opacity = "0.5";
+
+            // Resume idle spin from the front
+            cardInner.style.transform = "rotateY(0deg)";
+            cardInner.style.animation = "idleSpin 10s linear infinite";
+          });
+        });
+
+      function updateRotation(posX, posY, card) {
+        const rect = card.getBoundingClientRect();
+        const cardWidth = card.offsetWidth;
+        const cardHeight = card.offsetHeight;
+        const centerX = rect.left + cardWidth / 2;
+        const centerY = rect.top + cardHeight / 2;
+
+        const offsetX = posX - centerX;
+        const offsetY = posY - centerY;
+
+        const rotateX = (offsetY / (cardHeight / 2)) * 10;
+        const rotateY = (offsetX / (cardWidth / 2)) * -10;
+
+        card.style.transform =
+          "rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) scale(1.08)";
+      }
+
+      function updateLightEffect(posX, posY, card, lightEffect) {
+        const rect = card.getBoundingClientRect();
+        const cardWidth = card.offsetWidth;
+        const cardHeight = card.offsetHeight;
+
+        const lightX = ((posX - rect.left) / cardWidth) * 100;
+        const lightY = ((posY - rect.top) / cardHeight) * 100;
+
+        lightEffect.style.background =
+          "radial-gradient(circle at " +
+          lightX +
+          "% " +
+          lightY +
+          "%, rgba(255, 255, 255, 0.5), transparent 60%)";
+        lightEffect.style.opacity = "0.8";
+      }
+    });
+  }
+</script>
