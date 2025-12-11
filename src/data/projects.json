@@ -9,7 +9,7 @@
         "id": "cad-preview",
         "title": "CAD Design",
         "content": [
-          { "type": "paragraph", "text": "I designed the model in Fusion 360 and 3D printed it. It has 4 DOF, and it is purposed to hold high torque servo motors and a raspberry pi camera." },
+          { "type": "paragraph", "text": "The model is designed in Fusion 360 and 3D printed. It has 4 DOF, and it is designed to hold high torque servo motors and a Raspberry Pi camera." },
           { "type": "carousel", "items": [
             { "src": "/images/projects/CAD_Home.png", "alt": "CAD Home View", "caption": "Home View" },
             { "src": "/images/projects/CAD_Front.png", "alt": "CAD Front View", "caption": "Front View" },
@@ -24,7 +24,7 @@
           { "type": "paragraph", "text": "This is the computer vision process to find the board and derive the playing squares from it." },
           { "type": "carousel", "items": [
             { "src": "/images/projects/CV_1.jfif", "alt": "Raw Camera Image", "caption": "Raw Image" },
-            { "src": "/images/projects/CV_2.jpg", "alt": "Pre-processed (Resize, Denoise)", "caption": "Resized & Denoised" },
+            { "src": "/images/projects/CV_2.jpg", "alt": "Pre processed (Resize, Denoise)", "caption": "Resized & Denoised" },
             { "src": "/images/projects/CV_3.jpg", "alt": "Thresholding", "caption": "Thresholded" },
             { "src": "/images/projects/CV_4.jpg", "alt": "Morphology", "caption": "Dilation/Erosion/MorphClose" },
             { "src": "/images/projects/CV_5.jpg", "alt": "Board Polygon Approx", "caption": "Polygon Approximation" },
@@ -38,11 +38,11 @@
         "id": "piece-classification",
         "title": "Piece Classification & Board State",
         "content": [
-          { "type": "paragraph", "text": "Each square is classified using a custom CNN built in PyTorch to determine piece color (white / black) or empty. I then compare consecutive board states to detect the opponent's move." },
+          { "type": "paragraph", "text": "Each square is classified using a custom CNN built in PyTorch to determine piece color (white / black) or empty. Then, consecutive board states are compared to detect the opponent's move." },
           { "type": "list", "ordered": false, "items": [
             "CNN architecture: input 64x64 square images → 3-class output (white / black / none)",
             "Board state is tracked using python-chess, updated after each move detection",
-            "One limitation is that the current implementation assumes the game begins in standard starting position, which means it can't yet handle arbitrary mid-game setups"
+            "One limitation is that the current implementation assumes the game begins in the standard starting position, which means it can't yet handle arbitrary mid game setups"
           ]}
         ]
       },
@@ -50,7 +50,7 @@
         "id": "decision-making",
         "title": "Decision Making & Move Selection",
         "content": [
-          { "type": "paragraph", "text": "I use the Stockfish chess engine to determine the optimal move from the current board FEN." },
+          { "type": "paragraph", "text": "The Stockfish chess engine is used to determine the optimal move from the current FEN." },
           { "type": "list", "ordered": false, "items": [
             "Convert the board state into FEN and feed into Stockfish",
             "Parse Stockfish output (best move) → translate into robot motion command",
@@ -62,10 +62,10 @@
         "id": "motion-control",
         "title": "Robotic Arm Inverse Kinematics & Control",
         "content": [
-          { "type": "paragraph", "text": "Integrated the 4-DOF arm with high-torque metal-gear servos (40 kg-cm - 60 kg-cm) via a PCA9685 PWM driver and Raspberry Pi." },
+          { "type": "paragraph", "text": "Integrated the 4 DOF arm with high-torque metal-gear servos (40 kg-cm - 60 kg-cm) via a PCA9685 PWM driver and Raspberry Pi." },
           { "type": "list", "ordered": false, "items": [
-            "Hardware build complete; gearbox & servo mounts designed for strength and repeatability",
-            "Sadly, this is still a work-in-progress. I have basic servo control working, but the inverse kinematics and pick-and-place routines are not yet finished."
+            "Hardware build complete.",
+            "Sadly, this is still a work in progress. The basic servo control is working, but the inverse kinematics and pick and place routines are not yet finished."
           ]}
         ]
       }
@@ -86,8 +86,8 @@
       "content": [
         { "type": "paragraph", "text": "Players can freely draw race tracks using a Pygame interface, enabling completely unique circuits to be built." },
         { "type": "list", "ordered": false, "items": [
-          "Mouse-based track drawing with real-time rendering.",
-          "Brush sizes 1-5 and eraser tool for fine-tuning.",
+          "Mouse based track drawing with real time rendering.",
+          "Brush sizes 1-5 and eraser tool for fine tuning.",
           "Track boundaries are converted into collision masks for the simulation."
         ]},
         { "src": "/images/projects/Track_Drawing.gif", "alt": "Track Drawing UI", "caption": "Drawing a Custom Track" }
@@ -100,7 +100,7 @@
         { "type": "paragraph", "text": "A control panel built with Tkinter provides sliders and options to switch modes or adjust attributes such as traction, downforce, and weight. Users can watch AI progress in real time." },
         { "type": "list", "ordered": false, "items": [
           "Best Time Mode: AI evolves to minimize lap time.",
-          "Head-to-Head Mode: Two AI species evolve competitively.",
+          "Head to Head Mode: Two AI species evolve competitively.",
           "Dynamic sliders allow tuning of simulation parameters."
         ]},
         { "type": "carousel", "items": [
@@ -117,7 +117,7 @@
         { "type": "paragraph", "text": "The simulation uses a simplified yet realistic car physics model that incorporates traction, downforce, and mass to influence velocity and steering angle. Each car calculates maximum turning capability dynamically at runtime." },
         { "type": "list", "ordered": false, "items": [
           "Physics include traction loss, momentum, and cornering limits.",
-          "Throttle position directly affects acceleration (not time-based).",
+          "Throttle position directly affects acceleration (not time based).",
           "Downforce and mass control grip and turning radius at higher speeds."
         ]}
       ]
@@ -149,14 +149,14 @@
   {
   "slug": "wedding-site",
   "title": "The Hoffmans — Wedding Website",
-  "category": "Web / Full-Stack",
+  "category": "Web / Fullstack",
   "stack": ["React", "TypeScript", "Tailwind CSS", "Cloudflare Pages", "Cloudflare Workers", "D1 (SQLite)", "R2", "Resend"],
   "timeline": [
     {
       "id": "architecture",
       "title": "Architecture Overview",
       "content": [
-        { "type": "paragraph", "text": "The site is a full-stack wedding platform built entirely on the Cloudflare ecosystem, combining Pages, Workers, D1, R2, and Resend for a serverless, globally distributed experience." },
+        { "type": "paragraph", "text": "The site is a fullstack wedding platform built entirely on the Cloudflare ecosystem, combining Pages, Workers, D1, R2, and Resend for a serverless deployment." },
         { "type": "list", "ordered": false, "items": [
           "Frontend: React + TypeScript + Tailwind (Cloudflare Pages).",
           "Backend: Workers with REST API routes.",
@@ -170,9 +170,9 @@
       "content": [
         { "type": "paragraph", "text": "Guests search by name or family group to find their party. Each member has toggles for attending status, dietary notes, and additional comments." },
         { "type": "list", "ordered": false, "items": [
-          "Party-based relational model (Party → Members).",
+          "Party based relational model (Party → Members).",
           "FTS5 search indexing for instant lookups.",
-          "Real-time state updates with optimistic UI feedback."
+          "Real time state updates with UI feedback."
         ]},
         { "src": "/images/projects/RSVP.gif", "alt": "RSVP GIF", "caption": "The RSVP Process" }
       ]
@@ -181,12 +181,12 @@
       "id": "shared-gallery",
       "title": "Shared Photo Gallery",
       "content": [
-        { "type": "paragraph", "text": "A collaborative photo-sharing space where guests can upload and browse images from engagement events, the ceremony, or the reception; all stored securely using Cloudflare R2." },
+        { "type": "paragraph", "text": "A collaborative photo sharing space where guests can upload and browse images from engagement events, the ceremony, or the reception; all stored securely using Cloudflare R2." },
         { "type": "list", "ordered": false, "items": [
           "Guests are able to upload photos directly through the website.",
           "Uploads are verified and stored in Cloudflare R2.",
-          "Uploaded photos are held private until admin approval (toggleable), and tunable rate limiters are in place.",
-          "Admin notifications sent automatically via Resend when new uploads arrive."
+          "Uploaded photos are kept private until admin approval (toggleable), and tunable rate limiters are in place.",
+          "Admin notifications are sent automatically via Resend when new uploads arrive."
         ]},
         { "src": "/images/projects/Photo.gif", "alt": "Photo GIF", "caption": "Shared Albums" }
       ]
@@ -198,8 +198,8 @@
         { "type": "paragraph", "text": "Resend is integrated to send confirmation emails after RSVP submissions and scheduled reminders via a Cloudflare Cron Worker." },
         { "type": "list", "ordered": false, "items": [
           "Custom HTML email templates for confirmation and reminders.",
-          "Worker cron triggers to re-send follow-up reminders.",
-          "Automatic thank-you and photo upload notifications."
+          "Worker cron triggers to Resend follow up reminders.",
+          "Automatic thank you and photo upload notifications."
         ]}
       ]
     },
@@ -209,9 +209,9 @@
       "content": [
         { "type": "paragraph", "text": "A private admin portal gated by Cloudflare Access allows managing guest lists, checking RSVP stats, and sending announcements." },
         { "type": "list", "ordered": false, "items": [
-          "Dynamic charts showing RSVP rates over time.",
+          "Dynamic tables showing RSVP responses.",
           "Editable tables for manual corrections.",
-          "Integrated email-sending from the dashboard interface."
+          "Integrated email sending from the dashboard interface."
         ]}
       ]
     },
@@ -219,7 +219,7 @@
       "id": "deployment",
       "title": "Deployment & CI/CD",
       "content": [
-        { "type": "paragraph", "text": "The site deploys automatically on every push using Cloudflare’s GitHub integration. The Wrangler CLI handles database migrations and production configuration." },
+        { "type": "paragraph", "text": "The site deploys automatically on every push using Cloudflare's GitHub integration. The Wrangler CLI handles database migrations and production configuration." },
         { "type": "list", "ordered": false, "items": [
           "Zero-downtime deploys on Cloudflare Pages.",
           "D1 migrations via wrangler commands.",
@@ -240,11 +240,11 @@
         "id": "concept",
         "title": "Game Concept & Design",
         "content": [
-          { "type": "paragraph", "text": "A 2D wave-style shooter where a pawn defends against spawning chess-piece enemies. Players use collected board labels (letters and numbers) as weapons." },
+          { "type": "paragraph", "text": "A 2D wave style shooter where a pawn defends against spawning chess piece enemies. Players use collected board labels (letters and numbers) as weapons." },
           { "type": "list", "ordered": false, "items": [
-            "Designed as an arcade-style infinite survival game.",
-            "Combines action mechanics with chess-inspired visuals.",
-            "Built entirely with Pygame using object-oriented design."
+            "Designed as an arcade style infinite survival game.",
+            "Combines action mechanics with chess inspired visuals.",
+            "Built entirely with Pygame using object oriented design."
           ]}
         ]
       },
@@ -252,7 +252,7 @@
         "id": "visuals",
         "title": "Visual Design & Feedback",
         "content": [
-          { "type": "paragraph", "text": "The retro aesthetic mirrors board-game nostalgia with pixel-style assets and minimalist effects. Animations and flashes give impact to each throw or hit." },
+          { "type": "paragraph", "text": "Retro pixel style assets and minimalist effects. Animations and flashes give feedback for each throw or hit." },
           { "type": "carousel", "items": [
             { "src": "/images/projects/Game_Menu.png", "alt": "Main Menu", "caption": "Main Menu" },
             { "src": "/images/projects/Instructions.png", "alt": "Instructions Menu", "caption": "Instructions" },
@@ -264,7 +264,7 @@
         "id": "architecture",
         "title": "Architecture & Core Systems",
         "content": [
-          { "type": "paragraph", "text": "The project follows an event-driven structure with distinct classes handling logic, input, and rendering. Each subsystem is isolated for clarity and modularity." },
+          { "type": "paragraph", "text": "The project follows an event driven structure with distinct classes handling logic, input, and rendering. Each subsystem is isolated for clarity and modularity." },
           { "type": "list", "ordered": false, "items": [
             "GameLoop: handles frame updates, collisions, and wave progression.",
             "MainMenu & ControlsMenu: user interface and navigation.",
@@ -281,7 +281,7 @@
           { "type": "list", "ordered": false, "items": [
             "Progressive difficulty scaling each round.",
             "Player health and score tracking through HUD.",
-            "Enemy chess pieces each have unique health sizes."
+            "Enemy health varies based on piece type."
           ]}
         ]
       }
