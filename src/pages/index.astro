@@ -143,6 +143,18 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
     const resumeBtn   = document.getElementById('resumeBtn');
     const resumeModal = document.getElementById('resumeModal');
     const closeBtn    = resumeModal?.querySelector('.resume-modal-close');
+    const modalBody   = resumeModal?.querySelector('.resume-modal-body');
+
+    // PDF-support detection:
+    // navigator.pdfViewerEnabled is the modern standard (Chrome, Firefox, Edge, Safari 16+).
+    // Fall back to scanning navigator.plugins for older browsers that don't expose the flag.
+    const canViewPDF =
+      navigator.pdfViewerEnabled ??
+      Array.from(navigator.plugins ?? []).some(p => /pdf/i.test(p.name));
+
+    if (canViewPDF) {
+      modalBody?.classList.add('pdf-supported');
+    }
 
     const openModal = () => {
       resumeModal?.removeAttribute('hidden');
