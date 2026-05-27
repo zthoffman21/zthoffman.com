@@ -1,9 +1,0 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 145 145" width="145" height="145">
-	<title>Tips</title>
-	<defs>
-		<image  width="99" height="142" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGMAAACOBAMAAADXz6v6AAAAAXNSR0IB2cksfwAAABJQTFRFAIWEAAAA//8AgoKCwsLC////X9woVAAAAAZ0Uk5TAP//////enng/gAAAVRJREFUeJztmNGNwjAMQN3jBsAboEyAdAvwcWPfxy2AxASIDcwA3BXXSdqYhCJ+UOLij0aN/SLVdh0nHShBKEh/Vq9d/Ui3nkXINIIeuS80Os4cwtYYyTD8nzKIEbKM8OC8gjL7RpAQ+G79sfExHhSrLexzShaziLiY2zJ8wd+BHxlkD0FV7kZb8Vh440cC9VYRMUtt93FqgtpARPHc51tCqo3LS6PP25djBZcD8puZY3wqhGYR8dgRuPxrjw1Tc06uCElaMa7g36Xkv/zGXu1m4zOHYCn5+7NlJG1HJeu1xyhZsdTBVouEhiQkwc8wkWpsIqAPVkMBk0wgNTl3Fmsd0cdq8gmDo6sen8RbR0SC4wg+d5wu6PFH9zC1I9Pnv5EFIQVZEsKuwvijy3BsFxFx6rJrOQj4HgZj6WYyuyuzjmiPLQ6pNi7vUD6FgKrlN7+9OeQKXzuvfJplsVUAAAAASUVORK5CYII="/>
-	</defs>
-	<style>
-	</style>
-	<use id="Background" style="mix-blend-mode: darken" href="#img1" x="23" y="1"/>
-</svg>

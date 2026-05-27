@@ -1,9 +1,0 @@
-<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151 151" width="151" height="151">
-	<title>Apple-Music</title>
-	<defs>
-		<image  width="129" height="147" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAACTBAMAAABbkGfzAAAAAXNSR0IB2cksfwAAABhQTFRFAIWEAAAAgoKC//8AwsLC////AP//AP8Aqy7ZkwAAAAh0Uk5TAP/////////VylQyAAACGUlEQVR4nO2asXHDMAxFIdvppQ18nMB3XsCFBkjjFTJUqvRuMkCKLKA7T6DzBnSdxHYAEKQoUYrjXCoa/84niSJeAUAiCKsArwp/lyPcrCJDAsoq4Z8IpJtCkjGB9VuXKiElcAgC6M4JOFQq4X8IcmVhtoxnng9KuEIIeRwIaGpxWIIiByG0mRIqqOHrvSMYN25hC6d9TBA1MFhPlBAIaz/1csQgbN2M3RSBhDesElJCd14+PMKzv9q6qWMEHHkLAcmEEJ7uCh9qtAgZOkkoSjSuaJpVQo8gMrDYfL52GTpBoGUFRxqKRX4EfChrPCAhaJRAy2lR4rCh9cMSQwlDgnGHnRt4AnrZ9Ql4QgvyaY/TWprbZEaYLeOia7bkYmPd86zxj2Tj7rMnDaWmEiYJHBIq2c6HrtSoYL4Cqj/I1MeixVgo4ScC+57WViFwlczJbdj0eiyUEKlNCCOTciMAxMnGTlLCnwixqYDgHgmJJ9do03/LjdgrISX0Y4FLg+Xyt+v/1OO9oLwIUsuJJ+crLjXCzpp3A1TpJYykGlSCSzhJRrYI9nSy2HAJB8OemhJSArh2Gqczl7+RLseOEDF8Qyg/giRj3148CW57RZLUVMIUgXKSYzEUxyIiMKOJu2pKGBBCCyCWEGtmyF3cyEZ92gwJAL4VEoldJoSWTfudfyWME8ATwp8prBo+XuLruyCwhl8STH2YoQSnb4OB3iA7K4HIAAAAAElFTkSuQmCC"/>
-	</defs>
-	<style>
-	</style>
-	<use id="Background" href="#img1" x="11" y="3"/>
-</svg>

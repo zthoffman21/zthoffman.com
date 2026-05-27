@@ -140,7 +140,7 @@
 /* KPIs and contact icons */
 /* removed unused KPI styles */
 .icon-row { display: flex; flex-wrap: wrap; gap: clamp(8px, 1.8dvw, 14px); margin-top: clamp(10px, 2dvh, 18px); align-items: center; }
-.icon-btn { display: inline-flex; align-items: center; gap: clamp(6px, 1dvw, 10px); padding: clamp(8px, 1.2dvh, 12px) clamp(10px, 1.8dvw, 16px); min-height: clamp(36px, 6dvh, 44px); border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: var(--textMain); text-decoration: none; font-weight: 500; box-shadow: var(--btn-shadow); transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease; }
+.icon-btn { display: inline-flex; align-items: center; gap: clamp(6px, 1dvw, 10px); padding: clamp(8px, 1.2dvh, 12px) clamp(10px, 1.8dvw, 16px); min-height: clamp(36px, 6dvh, 44px); border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); color: var(--textMain); text-decoration: none; font: inherit; font-weight: 500; cursor: pointer; box-shadow: var(--btn-shadow); transition: transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease; }
 .icon-btn:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(0,0,0,0.45); background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.22); }
 .icon-btn:active { transform: translateY(0); box-shadow: var(--btn-shadow); }
 .icon-btn img { width: 20px; height: 20px; filter: drop-shadow(0 1px 4px rgba(0,0,0,0.35)); }

@@ -32,10 +32,10 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
                   <img src="/images/icons/tree.svg" alt="" loading="lazy" decoding="async"/>
                   <span>GitHub</span>
                 </a>
-                <a class="icon-btn" href="/images/Resume_Hoffman_Zachary.pdf" download aria-label="Resume">
+                <button id="resumeBtn" class="icon-btn" type="button" aria-label="Open resume viewer">
                   <img src="/images/icons/paper.svg" alt="" loading="lazy" decoding="async"/>
                   <span>Resume</span>
-                </a>
+                </button>
                 <a class="icon-btn" href="mailto:zachhoffman@ymail.com" aria-label="Email">
                   <img src="/images/icons/letter.svg" alt="" loading="lazy" decoding="async"/>
                   <span>Email</span>
@@ -112,4 +112,64 @@ import ProjectsCarousel from "../components/ProjectsCarousel.astro";
   <div id="footer" style="display: flex; justify-content: center; color: var(--accent); margin-bottom: 4dvh; font-family: 'Pixelated MS Sans Serif'">
     <h6>Hoffman &copy; <script is:inline>document.write(new Date().getFullYear());</script></h6>
   </div>
+
+  <!-- Resume Modal -->
+  <div id="resumeModal" class="resume-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="resumeModalTitle" hidden>
+    <div class="resume-modal">
+      <div class="resume-modal-header">
+        <span id="resumeModalTitle" class="resume-modal-title">Resume — Zachary Hoffman</span>
+        <div class="resume-modal-actions">
+          <a class="resume-modal-dl" href="/images/Resume_Zachary_Hoffman.pdf" download aria-label="Download resume">
+            ⬇ Download
+          </a>
+          <button class="resume-modal-close" aria-label="Close resume viewer">✕</button>
+        </div>
+      </div>
+      <div class="resume-modal-body">
+        <iframe
+          class="resume-iframe"
+          src="/images/Resume_Zachary_Hoffman.pdf"
+          title="Zachary Hoffman Resume"
+        ></iframe>
+        <div class="resume-mobile-fallback">
+          <p>Your browser doesn't support inline PDF previews.<br/>Use one of the options below:</p>
+          <div class="resume-mobile-btns">
+            <a class="btn primary" href="/images/Resume_Zachary_Hoffman.pdf" download>⬇ Download</a>
+            <a class="btn" href="/images/Resume_Zachary_Hoffman.pdf" target="_blank" rel="noopener">↗ Open PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const resumeBtn   = document.getElementById('resumeBtn');
+    const resumeModal = document.getElementById('resumeModal');
+    const closeBtn    = resumeModal?.querySelector('.resume-modal-close');
+
+    const openModal = () => {
+      resumeModal?.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      closeBtn?.focus();
+    };
+
+    const closeModal = () => {
+      resumeModal?.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      resumeBtn?.focus();
+    };
+
+    resumeBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Close on backdrop click (but not on modal content click)
+    resumeModal?.addEventListener('click', (e) => {
+      if (e.target === resumeModal) closeModal();
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !resumeModal?.hasAttribute('hidden')) closeModal();
+    });
+  </script>
 </BaseLayout>
